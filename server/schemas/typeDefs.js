@@ -31,6 +31,12 @@ const typeDefs = gql`
     _id: ID
     roomType: String
   }
+
+  type Query {
+    users: [User]
+    user(username: String!): User
+
+  }
 `;
 
 // export the typeDefs

@@ -1,6 +1,8 @@
+//import dependencies
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+//create user schema
 const userSchema = new Schema(
   {
     username: {
@@ -19,6 +21,23 @@ const userSchema = new Schema(
       type: String,
       required: true,
       minlength: 5
+    },
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Review'
+      }
+    ],
+    reservations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Reservation'
+      }
+    ]
+  },
+  {
+    toJSON: {
+      virtuals: true
     }
   }
 );
