@@ -35,7 +35,14 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-
+    allReviews: [Review]
+    reviews(username: String!): [Review]
+    review(_id: ID!): Review
+    allReservations: [Reservation]
+    reservations(username: String!): [Reservation]
+    reservation(_id: ID!): Reservation
+    rooms: [Room]
+    room(username: String!): Room
   }
 `;
 
