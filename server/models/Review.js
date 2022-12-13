@@ -7,13 +7,11 @@ const reviewSchema = new Schema(
     reviewText: {
       type: String,
       minlength: 1,
-      maxlength: 280
     },
     reviewStars: {
       type: Number,
       min: 0,
       max: 5,
-      required: true
     },
     createdAt: {
       type: Date,
