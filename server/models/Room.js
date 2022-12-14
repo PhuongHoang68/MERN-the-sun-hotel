@@ -7,7 +7,10 @@ const roomSchema = new Schema(
     roomType: {
       type: String
     },
-    roomInventory: {
+    inventory: {
+      type: Number
+    },
+    price: {
       type: Number
     }
   }

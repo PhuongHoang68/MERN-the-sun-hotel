@@ -21,28 +21,29 @@ const typeDefs = gql`
 
   type Reservation {
     _id: ID
-    username: [User]
+    username: String
     arrivalDate: String
     departureDate: String
-    roomType: [Room]
+    roomType: String
   }
 
   type Room {
     _id: ID
     roomType: String
+    inventory: Int
+    price: Int
   }
 
   type Query {
-    users: [User]
-    user(username: String!): User
+    allUsers: [User]
+    user(_id: ID!): User
+    userByName(username: String!): User
     allReviews: [Review]
-    reviews(username: String!): [Review]
     review(_id: ID!): Review
     allReservations: [Reservation]
-    reservations(username: String!): [Reservation]
     reservation(_id: ID!): Reservation
-    rooms: [Room]
-    room(username: String!): Room
+    allRooms: [Room]
+    room(_id: ID!): Room
   }
 `;
 

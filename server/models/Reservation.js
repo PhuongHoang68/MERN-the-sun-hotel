@@ -16,16 +16,10 @@ const reservationSchema = new Schema(
     username: {
       type: String,
       required: true
-      // Unsure of whether it is the above or this one
-      // type: Schema.Types.ObjectId,
-      // ref: 'User'
     },
     roomType: {
-      type: Schema.Types.ObjectId,
-      ref: 'Room'
-      // Unsure of whether it is the above or 
-      // type: String,
-      // required: true
+      type: String,
+      required: true
     }
   },
   {
