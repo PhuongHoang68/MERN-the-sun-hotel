@@ -58,7 +58,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
       reviews {
         _id
         reviewText
