@@ -34,7 +34,13 @@ const typeDefs = gql`
     price: Int
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
+    me: User
     allUsers: [User]
     user(_id: ID!): User
     userByName(username: String!): User
@@ -45,6 +51,12 @@ const typeDefs = gql`
     allRooms: [Room]
     room(_id: ID!): Room
   }
+
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+  }
+  
 `;
 
 // export the typeDefs
