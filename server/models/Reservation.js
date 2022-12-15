@@ -13,6 +13,9 @@ const reservationSchema = new Schema(
       type: Date,
       required: true
     },
+    totalStay: {
+      type: String
+    },
     username: {
       type: String,
       required: true
@@ -20,6 +23,12 @@ const reservationSchema = new Schema(
     roomType: {
       type: String,
       required: true
+    },
+    discount: {
+      type: String
+    },
+    totalCost: {
+      type: String
     }
   },
   {
