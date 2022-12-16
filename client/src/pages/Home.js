@@ -1,6 +1,6 @@
 import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
-import Hero from "../components/Swiper/Hero";
+import Hero from "../components/Swiper/Hero/"
 
 const Home = () => {
     return (

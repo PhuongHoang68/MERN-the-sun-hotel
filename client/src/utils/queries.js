@@ -33,33 +33,38 @@ import {gql} from '@apollo/client';
 //     query room()
 // `
 
-//query Rooms
-
-
-//query Reservation
-// export const QUERY_RESERVATIONS = gql`
-//     query revervations($username: String) {
-//         reservations(username: $username) {
-//             _id
-//             arrivalDate
-//             departureDate
-//             totalStay
-//             username
-//             roomType
-//             discount
-//             totalCost
-//         }
-//     }
-// `;
-
-//query All reservations (This will be needed to ensure things do not get double booked) I think...
 
 // query allUsers
 export const QUERY_USERS = gql`
   query allUsers {
-    users{
+    allUsers{
       _id
     }
   }
-  
 `;
+
+//Query all Reservations
+
+export const QUERY_RESERVATIONS = gql`
+    query allReservations {
+      allReservations{
+            _id
+            arrivalDate
+            departureDate
+            username
+            roomType
+        }
+    }
+`;
+
+export const QUERY_RESDATES = gql`
+    query allReservations {
+      allReservations{
+            arrivalDate
+            departureDate
+            roomType
+        }
+    }
+`;
+
+

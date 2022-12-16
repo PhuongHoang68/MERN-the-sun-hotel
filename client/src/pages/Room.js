@@ -5,7 +5,7 @@ const Room = () => {
 
     return (
         <section>
-            <h1>Check out our Suite!</h1>
+            <h1>Rooms available</h1>
         </section>
     );
 };

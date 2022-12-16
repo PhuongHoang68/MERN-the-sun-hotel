@@ -71,4 +71,4 @@ class Hero extends Component{
         }
     };
 
-export default Hero;
+export default Hero; 

@@ -1,14 +1,26 @@
 import React from "react";
 import ReactCalendar from "../Calendar";
 import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from "../../utils/queries";
+import { QUERY_USERS, QUERY_RESERVATIONS, QUERY_RESDATES } from "../../utils/queries";
 
 const Bookings = () => {
     // use useQuery hook to make query request
-     const { loading, data } = useQuery(QUERY_USERS);
-     const users = data?.users || [];
-     console.log(users);
+    //Query all users -- working
+    //  const { loading, data } = useQuery(QUERY_USERS);
+    //  const users = data?.allUsers || [];
+    //  console.log(data);
+    //  console.log(users);
+
+    //Query all reservations
+    // const { loading, data } = useQuery(QUERY_RESERVATIONS);
+    // const reservations = data?.allReservations || [];
+    // console.log(reservations);
   
+
+    //Query Res dates and room types only
+    const { loading, data } = useQuery(QUERY_RESDATES);
+    const bookedDates = data?.allReservations || [];
+    console.log(bookedDates);
     return (
       <main>
         <div>
