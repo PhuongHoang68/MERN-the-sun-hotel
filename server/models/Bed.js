@@ -14,6 +14,8 @@ const BedSchema = new Schema(
   }
 );
 
+const Bed = model('Bed', BedSchema);
+
 
 //export room model
-module.exports = BedSchema;
+module.exports = Bed;

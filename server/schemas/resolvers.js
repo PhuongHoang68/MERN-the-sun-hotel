@@ -68,76 +68,77 @@ const resolvers = {
   },
 //END OF READ OPERATIONS
 //TODO: Add Mutations
-Mutation: {
-  addUser: async (parent, args) => {
-    const user = await User.create(args);
-    const token = signToken(user);
-  
-    return { token, user };
-  },
-  login: async (parent, { email, password }) => {
-    const user = await User.findOne({ email });
-  
-    if (!user) {
-      throw new AuthenticationError('Incorrect credentials');
-    }
-  
-    const correctPw = await user.isCorrectPassword(password);
-  
-    if (!correctPw) {
-      throw new AuthenticationError('Incorrect credentials');
-    }
-  
-    const token = signToken(user);
-    return { token, user };
-  },
-  addReview: async (parent, args, context) => {
-    if (context.user) {
-      const review = await Review.create({ ...args, username: context.user.username });
-  
-      await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { review: review._id } },
-        { new: true }
-      );
-  
-      return thought;
-    }
-  
-    throw new AuthenticationError('You need to be logged in!');
-  },
-  //need to make sure roomID is being provided with this 
-  addReservation: async (parent, { userId, reservationBody }, context) => {
-    if (context.user) {
-      const reservation = await Reservation.create({ ...args, user: context.user._id });
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+    
+      return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+    
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+    
+      const correctPw = await user.isCorrectPassword(password);
+    
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+    
+      const token = signToken(user);
+      return { token, user };
+    },
 
-      //need to update Room array for unavailable rooms
-  
-      await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { reservation: reservation._id } },
-        { new: true }
-      );
-  
-      return user;
+    addReview: async (parent, args, context) => {
+      if (context.user) {
+        const review = await Review.create({ ...args, username: context.user.username });
+    
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { review: review._id } },
+          { new: true }
+        );
+    
+        return review;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    //need to make sure roomID is being provided with this 
+    addReservation: async (parent, { userId, reservationBody }, context) => {
+      if (context.user) {
+        const reservation = await Reservation.create({ ...args, user: context.user._id });
+
+        //need to update Room array for unavailable rooms
+    
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { reservation: reservation._id } },
+          { new: true }
+        );
+    
+        return reservation;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
     }
-  
-    throw new AuthenticationError('You need to be logged in!');
-  },
-  addRoom: async() => {
-    const room = await Room.create(args);
+    // addRoom: async() => {
+    //   const room = await Room.create(args);
 
-  return room;
-  },
-  updateRoom: async() => {
+    // return room;
+    // },
+    // updateRoom: async() => {
 
-  },
-  updateUser: async() => {
+    // },
+    // updateUser: async() => {
+      
+    // }
+    
     
   }
-  
-  
-}
 //TODO: Add Auth
 };
 

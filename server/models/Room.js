@@ -8,7 +8,9 @@ const roomSchema = new Schema(
     roomType: {
       type: String
     },
-    bedType: String,
+    bedType: { 
+      type: String
+    },
     roomView: {
       type: String
     },

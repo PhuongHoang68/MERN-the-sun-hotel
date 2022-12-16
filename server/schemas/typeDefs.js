@@ -1,6 +1,8 @@
 // import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
+//TODO: Add roomNumbers: [{roomNumber, unavailableDates}] with right syntax
+
 // create our typeDefs
 const typeDefs = gql`
   type User {
@@ -34,7 +36,6 @@ const typeDefs = gql`
     image: String
     inventory: Int
     price: Int
-    roomNumbers: [{roomNumber, unavailableDates}]
   }
 
   type Auth {
@@ -60,7 +61,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
     addReservation(arrivalDate: String!, departureDate: String!, user: [ID], room: [ID] ): Reservation
-    updateReservation(): Reservation
+    updateReservation: Reservation
     addReview(reviewText: String!, reviewStars: Int, username: String): Review
   }
   
