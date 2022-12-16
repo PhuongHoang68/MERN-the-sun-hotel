@@ -13,12 +13,11 @@ const Home = () => {
         </Hero>
         {/* Short About / Lead in section */}
         <section>
-            <div className="about">
+            <div className="about text-center">
                 <h2>Sunrise Hotel</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius morbi enim nunc faucibus a pellentesque. Sed augue lacus viverra vitae. Eget sit amet tellus cras adipiscing enim. Leo integer malesuada nunc vel risus commodo viverra maecenas. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi</p>
             </div>
-            <div>
-                <h3>Images go here</h3>
-            </div>
+
         </section>
         {/* Start Discover Section */}
         <section>
