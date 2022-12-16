@@ -6,6 +6,7 @@ export const ADD_RESERVATION = gql`
         addArrivalDate(arrivalDate: $arrivalDate) {
             _id
             arrivalDate
+            departureDate
         }
     }
     mutation addDepartureDate($departureDate: String!) {

@@ -18,7 +18,7 @@ const reservationSchema = new Schema(
     },
     username: {
       type: String,
-      required: true
+      // required: true
     },
     roomType: {
       type: String,

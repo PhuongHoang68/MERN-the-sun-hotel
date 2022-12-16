@@ -25,6 +25,13 @@ section {
   flex-direction: column;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  margin: 5vw;
+  justify-content: center;
+}
+
 
 .center {
   display: flex;
@@ -141,3 +148,25 @@ section {
 .cardBtn{
   margin-bottom: 10px;
 }
+
+/* Reservation Section */
+
+.bookingBox{
+  border: 1px solid black;
+  height: 439px;
+  width: 400px;
+  margin-left: 50px;
+}
+
+.bookingDropdown{
+  text-align: center;
+  margin: 20px;
+  justify-content: space-between;
+}
+#rooms{
+  margin: 20px;
+}
+#beds{
+  margin: 20px;
+}
+

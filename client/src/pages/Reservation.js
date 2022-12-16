@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactCalendar from "../components/Calendar";
+import Bookings from "../components/BookedDates";
 
 
 // import { useMutation } from '@apollo/client';
@@ -42,8 +42,7 @@ const Reservation = () => {
     return (
         <div>
         <h1>Book your Reservation Today!</h1>
-            <ReactCalendar/>
-            <button className="" type="submit"s> Confirm</button>
+            <Bookings/>
             <section></section>
 
         </div>
