@@ -43,8 +43,11 @@ export const QUERY_RESERVATION = gql`
             _id
             arrivalDate
             departureDate
+            totalStay
             username
             roomType
+            discount
+            totalCost
         }
     }
 `;

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactCalendar from "../components/Calendar";
+
+
 
 const Reservation = () => {
 
     return (
-        <section>
-            <h1>Book your Reservation Today!</h1>
-        </section>
+        <div>
+        <h1>Book your Reservation Today!</h1>
+            <ReactCalendar/>
+        </div>
+
     );
 };
 
