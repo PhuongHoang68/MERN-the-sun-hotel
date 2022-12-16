@@ -30,8 +30,11 @@ const typeDefs = gql`
   type Room {
     _id: ID
     roomType: String
+    bedType: String
+    image: String
     inventory: Int
     price: Int
+    roomNumbers: [{roomNumber, unavailableDates}]
   }
 
   type Auth {
@@ -55,6 +58,10 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
+    addReservation(arrivalDate: String!, departureDate: String!, user: [ID], room: [ID] ): Reservation
+    updateReservation(): Reservation
+    addReview(reviewText: String!, reviewStars: Int, username: String): Review
   }
   
 `;

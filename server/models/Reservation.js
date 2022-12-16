@@ -1,7 +1,7 @@
 //import mongoose functions
 const { Schema, model } = require('mongoose');
 
-
+//reservation model as joined table between room & user
 //create reservation schema
 const reservationSchema = new Schema(
   {
@@ -13,21 +13,22 @@ const reservationSchema = new Schema(
       type: Date,
       required: true
     },
-    totalStay: {
+    daysBooked: {
       type: String
     },
-    username: {
-      type: String,
-      required: true
-    },
-    roomType: {
-      type: String,
-      required: true
-    },
+    room: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Room"
+      }
+    ],
+    user: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    ],
     discount: {
-      type: String
-    },
-    totalCost: {
       type: String
     }
   },
