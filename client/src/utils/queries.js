@@ -37,9 +37,9 @@ export const QUERY_ROOM = gql`
 
 
 //query Reservation
-export const QUERY_RESERVATION = gql`
-    query revervation($id: ID!) {
-        review(_id: $id) {
+export const QUERY_RESERVATIONS = gql`
+    query revervations($username: String) {
+        reservations(username: $username) {
             _id
             arrivalDate
             departureDate

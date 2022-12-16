@@ -22,7 +22,7 @@ const reservationSchema = new Schema(
     },
     roomType: {
       type: String,
-      required: true
+      // required: true
     },
     discount: {
       type: String

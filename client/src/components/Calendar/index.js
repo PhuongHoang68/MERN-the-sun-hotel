@@ -5,11 +5,12 @@ import 'react-calendar/dist/Calendar.css';
 const ReactCalendar = () => {
     const [date, setDate] = useState(new Date());
 
-    const onChange = date => {
-        setDate(date);
-    };
+    // const onChange = date => {
+    //     setDate(date);
+    // };
   
     return (
+        <section>
         <div>
           <h1 className='text-center'>React Calendar with Range</h1>
           <div>
@@ -33,6 +34,7 @@ const ReactCalendar = () => {
           )}
           {console.log(date)}
         </div>
+        </section>
       );
     }
 
