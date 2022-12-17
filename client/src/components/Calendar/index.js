@@ -38,26 +38,30 @@ const ReactCalendar = () => {
        let daysBooked = reservation;
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate }
+          variables: { arrivalDate, departureDate, daysBooked }
         })
       } catch (err) {
         console.error(err)
+      } if (!err){
+        (console.log("Your Reservation was Successful"))
       }
+  
     };
 
     const getDates = (date) => {
         setDate(date);
-        let arrivalDate = (moment(date[0]).format("YYYY/MM/DD"));
-        let departureDate = (moment(date[1]).format("YYYY/MM/DD"));
+        let arrivalDate = (moment(date[0]).format("MM/DD/YYYY"));
+        let departureDate = (moment(date[1]).format("MM/DD/YYYY"));
         let bookedDates = eachDayOfInterval({
           start: new Date(arrivalDate),
           end: new Date(departureDate)
         })
         for (let i = 0; i < bookedDates.length; i++) {
-          const booked = (moment(bookedDates[i]).format("YYYY/MM/DD"));
+          const booked = (moment(bookedDates[i]).format("MM/DD/YYYY"));
           reservationArr.push(booked);
         }      
         setReservation(reservationArr);
+        console.log(reservation)
     };
   
 
