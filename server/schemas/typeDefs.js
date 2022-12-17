@@ -23,18 +23,19 @@ const typeDefs = gql`
 
   type Reservation {
     _id: ID
-    username: String
+    user: String
     arrivalDate: String
     departureDate: String
-    roomType: String
+    daysBooked: Int
+    room: String
+    discount: Int
   }
 
   type Room {
     _id: ID
     roomType: String
     bedType: String
-    image: String
-    inventory: Int
+    roomView: String
     price: Int
   }
 

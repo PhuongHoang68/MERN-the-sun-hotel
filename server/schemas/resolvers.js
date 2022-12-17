@@ -59,7 +59,6 @@ const resolvers = {
     // get all rooms
     allRooms: async () => {
       return Room.find()
-      .populate('username')
     },
     // get rooms by ID
     room: async (parent, { _id }) => {

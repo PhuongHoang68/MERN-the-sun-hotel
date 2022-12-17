@@ -14,22 +14,18 @@ const reservationSchema = new Schema(
       required: true
     },
     daysBooked: {
-      type: String
+      type: Number
     },
-    room: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Room"
-      }
-    ],
-    user: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-      }
-    ],
+    user: {
+      type: String,
+      required: true
+    },
+    room: {
+      type: String,
+      required: true
+    },
     discount: {
-      type: String
+      type: Number
     }
   },
   {
