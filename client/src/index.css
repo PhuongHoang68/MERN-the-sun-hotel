@@ -1,13 +1,172 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
+	max-width: 99vw;
+  max-height: 100vh;
+}
+:root {
+  --primary: #cba135;
+  --secondary: #2978a0;
+  --tertiary: #157a3f;
+  --light: #fffcf7;
+  --dark: #0d1b1e;
+  --darker: #111111;
+  --error: rgb(228, 46, 1);
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
+  --spacing-five: calc(2.5rem);
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section {
+  padding: 25px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
+
+main {
+  display: flex;
+  flex-direction: row;
+  margin: 5vw;
+  justify-content: center;
+}
+
+
+.center {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.border{
+  border: 1px solid black;
+}
+/*Hero Style Start */
+.hero {
+  /* background-image: url("./assets/images/hotel-hero.jpg"), url("./assets/images/0.jpg"); */
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-attachment:scroll;
+  background-position: 80%;
+  background-color: #555555;
+}
+
+.hero img  {
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+}
+
+.hero-btn{
+  color: var(--primary);
+  background-color: var(--secondary);
+  border: 1px solid black;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 10px;
+  opacity:80%;
+  margin-top: 10rem;
+}
+
+.hero-btn:hover{
+  color: var(--primary);
+  background-color: var(--secondary);
+  padding: 11px 21px;
+  border-radius: 10px;
+  filter: brightness(120%);
+}
+
+/* About Section */
+
+.about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  box-sizing: content-box;
+  height: 20vh;
+  width: 70vw;
+  margin: 20px;
+
+}
+
+/* Discover Section */
+.discoverWrap{
+  border: 1px solid #0d1b1e;
+  margin: 2rem;
+  height: 60vh;
+  width: 90vw;
+}
+
+/* Slides */
+
+.slide{
+  margin-top: 5rem;
+}
+
+.discoverCard{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 50vh;
+  margin: 1rem;
+  max-width: 300px;
+  flex-wrap: wrap;
+}
+
+.discoverCard img{
+  display: flex;
+  flex-shrink: calc();
+  width: 100%;
+  max-width: 275px;
+  height: 10rem;
+  min-height: fit-content;
+  margin: 10px;
+}
+
+.discoverCard img:hover{
+  filter: contrast(110%) brightness(120%) drop-shadow(4px 4px 5px var(--primary)) ;
+  transform: scale(1);
+  transition: .25s ease-in-out;
+  -webkit-transform: scale(1);
+}
+
+.cardTextcnt{
+  margin: 0px 20px 0px 20px ;
+  height: 5rem;
+}
+
+.cardBtn{
+  margin-bottom: 10px;
+}
+
+/* Reservation Section */
+
+.bookingBox{
+  border: 1px solid black;
+  height: 439px;
+  width: 400px;
+  margin-left: 50px;
+}
+
+.bookingDropdown{
+  text-align: center;
+  margin: 20px;
+  justify-content: space-between;
+}
+#rooms{
+  margin: 20px;
+}
+#beds{
+  margin: 20px;
+}
+
