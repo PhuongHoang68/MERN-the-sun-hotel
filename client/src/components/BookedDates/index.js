@@ -17,11 +17,13 @@ const Bookings = () => {
   
 
     //Query Res dates and room types only
-    const { loading, data } = useQuery(QUERY_RESDATES);
-    const bookedDates = data?.allReservations || [];
+    // const { loading, data } = useQuery(QUERY_RESDATES);
+    // const bookedDates = data?.allReservations || [];
 
 
-    console.log(bookedDates);
+
+
+    // console.log(bookedDates);
     return (
       <main>
         <div className="bookingBox">
