@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## User Story
+### (1) As a user, I want to be able to see The Sun Hotel's photos, amenities, and book a room
+### (2) When I arrive at the homepage, I see a navigation bar that takes me to a "Dining" section, a "Room" section, and a "Reservation", a "Home" section.
+### (3) When I click on "Dining", it takes me to a page with the hotel's restaurant's operating time, and photos of the restaurant
+### (4) When I click on "Room", it takes me to a page with different room types, in card format. The card will have room photo on one side, and on the other side are details including "Room Name", "Bed Type", "Room View", and "Room Price". There will be a button below all the cards, that says "Reservation"
+### (5) "Room Price" won't have an actual price on it, just a hard-coded notes that says "To see price, click Reservation"
+### (6) When I click on "Reservation" (from either Nav bar or button on "Room" page),  it takes me to a calendar page
+### (7) I could pick available dates on calendar, click a button that says "Get Available Rooms", and available rooms for specific dates would get queried, in cards form.
+### (8) Clicking on an available room would take me to Sign-up page. Once i sign-up, I get taken to a Reservation Form. Once I fill that out and pay, I get a notification that says "Your reservation is completed. Reservation information has been sent to your email"
+
 ## Available Scripts
 
 In the project directory, you can run:

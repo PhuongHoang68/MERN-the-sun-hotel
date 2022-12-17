@@ -1,6 +1,10 @@
 // import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
+//TODO: Add roomNumbers: [{roomNumber, unavailableDates}] with right syntax
+// The curly braces of the above function made graphql crash so I removed them; havent had time to find out what the correct syntax is
+// Add room to reservation mutation
+
 // create our typeDefs
 const typeDefs = gql`
   type User {
@@ -16,21 +20,24 @@ const typeDefs = gql`
     reviewText: String
     reviewStars: Int
     createdAt: String
-    username: String
+    user: String
   }
 
   type Reservation {
     _id: ID
-    username: String
-    arrivalDate: String
-    departureDate: String
-    roomType: String
+    user: String
+    arrivalDate: String!
+    departureDate: String!
+    daysBooked: Int
+    room: String
+    discount: Int
   }
 
   type Room {
     _id: ID
     roomType: String
-    inventory: Int
+    bedType: String
+    roomView: String
     price: Int
   }
 
@@ -55,6 +62,11 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addReview(reviewText: String!, reviewStars: Int): Review
+    addReservation(arrivalDate: String!, departureDate: String!): Reservation
+    addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
+    updateEmail(email: String!): Auth
+    deleteReservation(_id: ID!): Reservation
   }
   
 `;

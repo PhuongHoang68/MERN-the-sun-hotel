@@ -1,6 +1,6 @@
 //import dependencies
 const { Schema, model } = require('mongoose');
-const BedSchema = require("./Bed");
+
 
 //create room schema
 const roomSchema = new Schema(
@@ -8,12 +8,11 @@ const roomSchema = new Schema(
     roomType: {
       type: String
     },
-    bedType: [BedSchema],
-    roomView: {
+    bedType: { 
       type: String
     },
-    inventory: {
-      type: Number
+    roomView: {
+      type: String
     },
     price: {
       type: Number
