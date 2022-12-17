@@ -1,5 +1,4 @@
 import React from "react";
-import ReactCalendar from "../Calendar";
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS, QUERY_RESERVATIONS, QUERY_RESDATES } from "../../utils/queries";
 
@@ -21,13 +20,10 @@ const Bookings = () => {
     const { loading, data } = useQuery(QUERY_RESDATES);
     const bookedDates = data?.allReservations || [];
 
-    
+
     console.log(bookedDates);
     return (
       <main>
-        <div>
-          <ReactCalendar/>
-        </div>
         <div className="bookingBox">
             {/* Select Room type drop down*/}
             <div className="bookingDropdown">
@@ -50,7 +46,6 @@ const Bookings = () => {
                   <option value="two">Two</option>
               </select>
             </div>
-            <button type="submit">Confirm your Booking!</button>
         </div>
       </main>
     );

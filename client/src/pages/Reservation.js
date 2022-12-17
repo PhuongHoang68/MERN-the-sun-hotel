@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Bookings from "../components/BookedDates";
+
+import ReactCalendar from "../components/Calendar";
 
 
 // import { useMutation } from '@apollo/client';
@@ -23,29 +24,22 @@ import Bookings from "../components/BookedDates";
 // }
 // });
 
-// const handleSubmit = async event => {
-//     event.preventDefault();
+
   
-//     try {
-//       // add dates to database
-//       await addArrivalDate({
-//         variables: { arrivalDate }
-//       });
-  
-//     } catch (e) {
-//       console.error(e);
-//     }
-//   };
- 
 const Reservation = () => {
 
     return (
         <div>
         <h1>Book your Reservation Today!</h1>
-            <Bookings/>
-            <section></section>
-
+        <main>
+        <div>
+          <ReactCalendar/>
         </div>
+        </main>
+        <section>
+        </section>
+        </div>
+        
 
     );
 };
