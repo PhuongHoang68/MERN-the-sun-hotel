@@ -18,7 +18,7 @@ const reviewSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    username: {
+    user: {
       type: String,
       required: true
     }

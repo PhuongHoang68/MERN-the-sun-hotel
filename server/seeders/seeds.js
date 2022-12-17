@@ -47,10 +47,9 @@ db.once('open', async () => {
 
   for (let i = 0; i < 10; i += 1) {
     const roomType = faker.random.word();
-    const inventory = 2;
     const price = 30;
 
-    roomData.push({ roomType, inventory, price });
+    roomData.push({ roomType, price });
   }
   const createdRooms = await Room.collection.insertMany(roomData);
 
@@ -61,12 +60,14 @@ db.once('open', async () => {
     const departureDate = faker.date.future();
   
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    const user = userId
 
     const randomRoomTypeIndex = Math.floor(Math.random() * createdRooms.ops.length);
-    const { roomType, _id: roomTypeId } = createdRooms.ops[randomRoomTypeIndex];
+    const { _id: roomId } = createdRooms.ops[randomRoomTypeIndex];
+    const room = roomId
 
-    const createdReservation = await Reservation.create({ arrivalDate, departureDate, username, roomType });
+    const createdReservation = await Reservation.create({ arrivalDate, departureDate, user, room });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
