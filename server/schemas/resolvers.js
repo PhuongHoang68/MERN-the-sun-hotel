@@ -93,11 +93,11 @@ const resolvers = {
 
     addReview: async (parent, args, context) => {
       if (context.user) {
-        const review = await Review.create({ ...args, username: context.user.username });
+        const review = await Review.create({ ...args, user: context.user._id });
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { review: review._id } },
+          { $push: { reviews: review._id } },
           { new: true }
         );
     
@@ -107,15 +107,13 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     //need to make sure roomID is being provided with this 
-    addReservation: async (parent, { userId, reservationBody }, context) => {
+    addReservation: async (parent, args, context) => {
       if (context.user) {
         const reservation = await Reservation.create({ ...args, user: context.user._id });
-
-        //need to update Room array for unavailable rooms
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { reservation: reservation._id } },
+          { $push: { reservations: reservation._id } },
           { new: true }
         );
     
@@ -123,12 +121,12 @@ const resolvers = {
       }
     
       throw new AuthenticationError('You need to be logged in!');
-    }
-    // addRoom: async() => {
-    //   const room = await Room.create(args);
+    },
+    addRoom: async(parent, args) => {
+      const room = await Room.create(args);
 
-    // return room;
-    // },
+    return room;
+    },
     // updateRoom: async() => {
 
     // },

@@ -2,6 +2,7 @@
 const { gql } = require('apollo-server-express');
 
 //TODO: Add roomNumbers: [{roomNumber, unavailableDates}] with right syntax
+// Add room to reservation mutation
 
 // create our typeDefs
 const typeDefs = gql`
@@ -18,14 +19,14 @@ const typeDefs = gql`
     reviewText: String
     reviewStars: Int
     createdAt: String
-    username: String
+    user: String
   }
 
   type Reservation {
     _id: ID
     user: String
-    arrivalDate: String
-    departureDate: String
+    arrivalDate: String!
+    departureDate: String!
     daysBooked: Int
     room: String
     discount: Int
@@ -60,10 +61,10 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addReview(reviewText: String!, reviewStars: Int): Review
+    addReservation(arrivalDate: String!, departureDate: String!): Reservation
     addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
-    addReservation(arrivalDate: String!, departureDate: String!, user: [ID], room: [ID] ): Reservation
     updateReservation: Reservation
-    addReview(reviewText: String!, reviewStars: Int, username: String): Review
   }
   
 `;
