@@ -22,7 +22,7 @@ const reservationSchema = new Schema(
     },
     room: {
       type: String,
-      // required: true
+      // required: true. Commented this out to make testing the addReservation mutation easier
     },
     discount: {
       type: Number

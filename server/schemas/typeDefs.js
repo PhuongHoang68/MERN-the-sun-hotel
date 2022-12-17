@@ -2,6 +2,7 @@
 const { gql } = require('apollo-server-express');
 
 //TODO: Add roomNumbers: [{roomNumber, unavailableDates}] with right syntax
+// The curly braces of the above function made graphql crash so I removed them; havent had time to find out what the correct syntax is
 // Add room to reservation mutation
 
 // create our typeDefs
@@ -64,7 +65,8 @@ const typeDefs = gql`
     addReview(reviewText: String!, reviewStars: Int): Review
     addReservation(arrivalDate: String!, departureDate: String!): Reservation
     addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
-    updateReservation: Reservation
+    updateEmail(email: String!): Auth
+    deleteReservation(_id: ID!): Reservation
   }
   
 `;
