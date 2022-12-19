@@ -1,7 +1,6 @@
 //import mongoose functions
 const { Schema, model } = require('mongoose');
 
-//reservation model as joined table between room & user
 //create reservation schema
 const reservationSchema = new Schema(
   {
@@ -22,7 +21,7 @@ const reservationSchema = new Schema(
     },
     room: {
       type: String,
-      // required: true. Commented this out to make testing the addReservation mutation easier
+      required: true
     },
     discount: {
       type: Number
