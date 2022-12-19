@@ -65,7 +65,7 @@ const typeDefs = gql`
     addReview(reviewText: String!, reviewStars: Int): Review
     addReservation(arrivalDate: String!, departureDate: String!): Reservation
     addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
-    updateEmail(email: String!): Auth
+    updateUser(username: String, email: String, password: String): User
     deleteReservation(_id: ID!): Reservation
   }
   

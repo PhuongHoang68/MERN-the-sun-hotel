@@ -122,42 +122,36 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
-    //TRACY 12/16: Have not tried using any of the next mutations. Added an update and a delete mutation that I thought would be easy to 
-    //make to meet technical criteria. Feel free to change them as much as you want!! 
     addRoom: async(parent, args) => {
       const room = await Room.create(args);
 
       return room;
     },
   
-    // updateEmail: async() => {
-      
-      
-    // },
+    updateUser: async(parent, args, context) => {
+      if (context.user){
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      }
 
-    // updateReservation: async() => {
+      throw new AuthenticationError('You need to be logged in!');
 
-    //}
+    },
 
-    deleteReservation: async(parent, { _id }) => {
+    deleteReservation: async(parent, { _id }, context) => {
       if (context.user) {
-        const reservation = await Reservation.deleteOne({ _id });
+        const reservation = await Reservation.findByIdAndDelete({ _id });
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $$pull: { reservations: reservation._id } },
-          { new: true }
+          { $pull: { reservations: reservation._id } },
         );
     
         return reservation;
       }
     
       throw new AuthenticationError('You need to be logged in!');
-    }
-    
-    
+    } 
   }
-//TODO: Add Auth
 };
 
 module.exports = resolvers;
