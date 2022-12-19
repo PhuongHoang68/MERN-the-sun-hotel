@@ -29,9 +29,10 @@ db.once('open', async () => {
     const reviewStars = 5;
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    const user = userId
 
-    const createdReview = await Review.create({ reviewText, reviewStars, username });
+    const createdReview = await Review.create({ reviewText, reviewStars, user });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
@@ -39,7 +40,6 @@ db.once('open', async () => {
     );
 
     createdReviews.push(createdReview);
-
   }
 
   // create room data
@@ -48,8 +48,9 @@ db.once('open', async () => {
   for (let i = 0; i < 10; i += 1) {
     const roomType = faker.random.word();
     const price = 30;
+    const count = 2;
 
-    roomData.push({ roomType, price });
+    roomData.push({ roomType, price, count });
   }
   const createdRooms = await Room.collection.insertMany(roomData);
 
@@ -75,7 +76,6 @@ db.once('open', async () => {
     );
 
     createdReservations.push(createdReservation);
-    console.log(createdReservations);
   }
 
   console.log('all done!');

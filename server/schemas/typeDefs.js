@@ -24,9 +24,8 @@ const typeDefs = gql`
     user: String
     arrivalDate: String!
     departureDate: String!
-    daysBooked: Int
+    daysBooked: [String]
     room: String
-    discount: Int
   }
 
   type Room {
@@ -59,8 +58,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addReview(reviewText: String!, reviewStars: Int): Review
-    addReservation(arrivalDate: String!, departureDate: String!, room: String!, ): Reservation
-    addRoom(roomType: String!, bedType: String!, roomView: String, price: String!): Room
+    addReservation(arrivalDate: String!, departureDate: String!, room: String!, daysBooked: [String] ): Reservation
+    addRoom(roomType: String!, price: Int!, roomCount: Int!): Room
     updateUser(username: String, email: String, password: String): User
     deleteReservation(_id: ID!): Reservation
   }
