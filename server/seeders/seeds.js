@@ -28,30 +28,31 @@ db.once('open', async () => {
   //   const reviewText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
   //   const reviewStars = 5;
 
-  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //   const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    const user = userId
 
-  //   const createdReview = await Review.create({ reviewText, reviewStars, username });
+    const createdReview = await Review.create({ reviewText, reviewStars, user });
 
   //   const updatedUser = await User.updateOne(
   //     { _id: userId },
   //     { $push: { reviews: createdReview._id } }
   //   );
 
-  //   createdReviews.push(createdReview);
-
-  // }
+    createdReviews.push(createdReview);
+  }
 
   // // create room data
   // const roomData = [];
 
-  // for (let i = 0; i < 10; i += 1) {
-  //   const roomType = faker.random.word();
-  //   const price = 30;
+  for (let i = 0; i < 10; i += 1) {
+    const roomType = faker.random.word();
+    const price = 30;
+    const count = 2;
 
-  //   roomData.push({ roomType, price });
-  // }
-  // const createdRooms = await Room.collection.insertMany(roomData);
+    roomData.push({ roomType, price, count });
+  }
+  const createdRooms = await Room.collection.insertMany(roomData);
 
   // // create reservations
   // let createdReservations = [];
@@ -74,9 +75,8 @@ db.once('open', async () => {
   //     { $push: { reservations: createdReservation._id } }
   //   );
 
-  //   createdReservations.push(createdReservation);
-  //   console.log(createdReservations);
-  // }
+    createdReservations.push(createdReservation);
+  }
 
   console.log('all done!');
   process.exit(0);

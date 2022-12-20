@@ -6,21 +6,35 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/Header.js';
+import Footer from './components/Footer/Footer.js';
 import Dining from './pages/Dining';
 import Home from "./pages/Home";
 import Reservation from "./pages/Reservation";
 import Room from "./pages/Room";
 import Error from "./pages/Error";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Review from "./components/Reviews";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -29,10 +43,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header/>
         <Routes>
           <Route
             path="/"
             element={<Home/>}
+            />
+          <Route
+            path="/login"
+            element={<Login/>}
+            />
+          <Route
+            path="/signup"
+            element={<Signup/>}
             />
           <Route
             path="/rooms"
@@ -47,9 +70,13 @@ function App() {
             element={<Reservation/>}
             />
           <Route 
+            path="/review"
+            element={<Review/>}
+            />
+          <Route 
             path="*" 
             element={<Error/>} 
-              />
+            />
         </Routes>
       </Router>
     </ApolloProvider>
