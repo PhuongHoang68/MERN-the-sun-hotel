@@ -11,9 +11,9 @@ const Header = ()=>{
 	};
 
 	return (
-		<header>
-			<h3>LOGO</h3>
-			<nav ref={navRef}>
+		<header ref={navRef}>
+			<Link className="logo" to="/">LOGO</Link>
+			<nav>
 				<Link to="/dining">Wining& Dining</Link>
 				<Link to="/rooms">Rooms&Suites</Link>
 				<Link to="/reservations">Reservation</Link>

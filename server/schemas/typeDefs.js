@@ -25,7 +25,6 @@ const typeDefs = gql`
     arrivalDate: String!
     departureDate: String!
     daysBooked: [String]
-    daysBooked: [String]
     room: String
   }
 
@@ -68,9 +67,10 @@ const typeDefs = gql`
     addRoom(roomType: String!, price: Int!, roomCount: Int!): Room
     updateUser(username: String, email: String, password: String): User
     deleteReservation(_id: ID!): Reservation
+    login(email: String!, password: String!): Auth
   }
   
 `;
-// login(email: String!, password: String!): Auth
+
 // export the typeDefs
 module.exports = typeDefs;

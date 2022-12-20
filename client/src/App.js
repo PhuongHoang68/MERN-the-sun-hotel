@@ -78,6 +78,7 @@ function App() {
             element={<Error/>} 
             />
         </Routes>
+        <Footer/>
       </Router>
     </ApolloProvider>
     

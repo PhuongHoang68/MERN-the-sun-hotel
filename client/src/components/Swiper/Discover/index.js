@@ -63,7 +63,7 @@ class DiscoverCards extends Component{
             cssEase:"linear"
           };
           return (
-          <main>
+          <div>
             <Slider {...settings}>
              {discoverCard.map((card, i) => (
               <div key={card.id} className=" discoverCard">
@@ -88,7 +88,7 @@ class DiscoverCards extends Component{
               </div>
              ))}
             </Slider>
-          </main>
+          </div>
           );
         }
       }
