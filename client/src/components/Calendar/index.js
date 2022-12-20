@@ -171,7 +171,7 @@ const ReactCalendar = () => {
 
     return (
       <div>
-        <main>
+        <main className="light">
         <div>
           <h1 className='text-center'>Calendar</h1>
           <div>
@@ -182,6 +182,7 @@ const ReactCalendar = () => {
               returnValue="range"
             />
           </div>
+          <br/>
           {date.length > 0 ? (
             <p className='text-center'>
               <span>Start:</span>{' '}
@@ -196,7 +197,7 @@ const ReactCalendar = () => {
             </p>
           )}
         </div>
-      <main>
+      <div className="bookingMain">
       <div className="bookingCont">
         <div className="bookingBox">
             {/* Select Room type drop down*/}
@@ -224,7 +225,7 @@ const ReactCalendar = () => {
             Confirm your Booking!
         </button>
       </div>
-      </main>
+      </div>
         </main>
       </div>
       );

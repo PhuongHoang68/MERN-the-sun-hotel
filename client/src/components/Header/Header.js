@@ -2,6 +2,7 @@ import { useRef } from "react";
 // import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 import {Link} from "react-router-dom";
+import logo from "../../assets/images/logo.png"
 
 const Header = ()=>{
 	const navRef = useRef();
@@ -12,10 +13,12 @@ const Header = ()=>{
 
 	return (
 		<header ref={navRef}>
-			<Link className="logo" to="/">LOGO</Link>
+			
+			<img src={logo} alt="Sun Hotel Logo" height={200}></img>
 			<nav>
-				<Link to="/dining">Wining& Dining</Link>
-				<Link to="/rooms">Rooms&Suites</Link>
+				<Link to="/">Home</Link>
+				<Link to="/dining">Wine & Dine</Link>
+				<Link to="/rooms">Rooms & Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>
 				<button

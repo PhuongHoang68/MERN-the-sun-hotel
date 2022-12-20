@@ -29,15 +29,15 @@ import ReactCalendar from "../components/Calendar";
 const Reservation = () => {
 
     return (
-        <div>
+      <div>
+        <div className="resHead">
         <h1 className="text-center">Book your Reservation Today!</h1>
-        <main>
-        <div>
-          <ReactCalendar/>
         </div>
-        </main>
-        <section>
-        </section>
+        <div className="calendar">
+        <div>
+          <ReactCalendar />
+        </div>
+        </div>
         </div>
         
 

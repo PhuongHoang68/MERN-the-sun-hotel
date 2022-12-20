@@ -6,37 +6,19 @@ const Footer = ()=>{
         <React.Fragment>
             <footer>
                 <div>
-                    <h3>Link here...</h3>
+                    <h3></h3>
                     <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                        <li><a href="">Link 4</a></li>
-                        <li><a href="">Link 5</a></li>
+                        <li><a href=""></a></li>
                     </ul>
                 </div>
+                
+                <div className="flexrow">
+                        <h3>Contact Us</h3>    
+                        <p>19-21 Nguyen Huu Cau Street <br/>
+                        District 1, Ho Chi Minh City, Vietnam</p>
+                </div>
+                
 
-                <div>
-                    <h3>Link here...</h3>
-                    <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                        <li><a href="">Link 4</a></li>
-                        <li><a href="">Link 5</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Link here...</h3>
-                    <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                        <li><a href="">Link 4</a></li>
-                        <li><a href="">Link 5</a></li>
-                    </ul>
-                </div>
 
             </footer>
         </React.Fragment>

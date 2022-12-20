@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 
 const discoverCard = [
     {
@@ -11,49 +13,58 @@ const discoverCard = [
         name: 'Cuisine',
         description: 'Our Dining offers top of the line ingredients. Prepared but Seasoned Chefs to your liking.',
         image:"../../../assets/images/0.jpg",
-        link:"",
+        link:"/dining",
     },
     {
         id: 2,
         name: 'Room Offers',
         description: 'Enjoy a relaxing time at Sunrise, in the most elegant and luxurious atmosphere…',
         image:"../../../assets/images/1.jpg",
-        link:"",
+        link:"/rooms",
     },
     {
         id: 3,
-        name: 'Promotions',
+        name: 'Reviews',
         description: 'The Sunrise will be delighted to introduce more attractive offers this Season!',
         image:"../../../assets/images/2.jpg",
-        link:"",
+        link:"/review",
     },
     {
         id: 4,
         name: 'Events',
         description: 'The most joyous experience can be had here at Sunrise. Event Hosting.',
         image:"../../../assets/images/3.jpg",
-        link:"",
+        link:"/dining",
     },
     {
         id: 5,
         name: 'Accomadations',
         description: 'Sunrise Offers many ways to relax and enjoy.',
         image:"../../../assets/images/4.jpg",
-        link:"",
+        link:"/rooms",
     },
     {
         id: 6,
         name: 'Gallery',
         description: 'Immerse yourself in the Sunrise ambiance by viewing our virtual gallery',
         image:"../../../assets/images/5.jpg",
-        link:"",
+        link:"/comingsoon",
     }
 ];
 
-class DiscoverCards extends Component{
-  render() {
+
+
+const DiscoverCards = () =>{
+  const [activeCard, setActiveCard] = useState()
+
+  const handleClick = (card) => {
+  
+
+    setActiveCard(card)
+
+  }
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 8000,
             slidesToShow: 3,
@@ -66,14 +77,15 @@ class DiscoverCards extends Component{
           <div>
             <Slider {...settings}>
              {discoverCard.map((card, i) => (
-              <div key={card.id} className=" discoverCard">
-                <div className="text-center">
+              <div key={card.id} className=" discoverCard light">
+                <div className="text-center discoverDiv">
                   <h4>
                     {card.name}
                   </h4>
                   
                 </div>
                 <img 
+                  className="border"
                   src={require(`../../../assets/images/${i}.jpg`)} 
                   alt={card.name}
                    />
@@ -83,7 +95,9 @@ class DiscoverCards extends Component{
                   </p>
                 </div>
                 <div className="center cardBtn">
-                <button className="cardBtn">Learn more!</button>
+                  <Link to={activeCard}>
+                <button name ={card.name} className="cardBtn" onClick={()=>handleClick(card.link)}>Learn more!</button>
+                </Link>
                 </div>
               </div>
              ))}
@@ -91,5 +105,5 @@ class DiscoverCards extends Component{
           </div>
           );
         }
-      }
+      
   export default DiscoverCards;

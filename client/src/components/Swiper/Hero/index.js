@@ -44,7 +44,7 @@ const heroGallery = [
 class Hero extends Component{
     render() {
           const settings = {
-              dots: true,
+              dots: false,
               fade: true,
               infinite: true,
               speed: 500,

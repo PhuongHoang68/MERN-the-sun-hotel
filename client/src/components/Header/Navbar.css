@@ -4,8 +4,10 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-	background-color: var(--mainColor);
+	background-color: var(--light);
 	color: var(--white);
+	border-bottom: 2px solid black;
+	font-weight: bold;
 }
 
 nav a {
@@ -37,6 +39,8 @@ nav {
 	font-size: xx-large;
 	color: black;
 }
+
+
 
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {
