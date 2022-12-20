@@ -16,21 +16,23 @@ const typeDefs = gql`
     reviewText: String
     reviewStars: Int
     createdAt: String
-    username: String
+    user: String
   }
 
   type Reservation {
     _id: ID
-    username: String
-    arrivalDate: String
-    departureDate: String
-    roomType: String
+    user: String
+    arrivalDate: String!
+    departureDate: String!
+    daysBooked: [String]
+    room: String
   }
 
   type Room {
     _id: ID
     roomType: String
-    inventory: Int
+    bedType: String
+    roomView: String
     price: Int
   }
 
@@ -55,6 +57,11 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addReview(reviewText: String!, reviewStars: Int): Review
+    addReservation(arrivalDate: String!, departureDate: String!, room: String!, daysBooked: [String] ): Reservation
+    addRoom(roomType: String!, price: Int!, roomCount: Int!): Room
+    updateUser(username: String, email: String, password: String): User
+    deleteReservation(_id: ID!): Reservation
   }
   
 `;

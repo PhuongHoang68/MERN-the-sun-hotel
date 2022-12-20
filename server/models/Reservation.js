@@ -1,7 +1,6 @@
 //import mongoose functions
 const { Schema, model } = require('mongoose');
 
-
 //create reservation schema
 const reservationSchema = new Schema(
   {
@@ -13,22 +12,16 @@ const reservationSchema = new Schema(
       type: Date,
       required: true
     },
-    totalStay: {
-      type: String
+    daysBooked: {
+      type: []
     },
-    username: {
+    user: {
       type: String,
       required: true
     },
-    roomType: {
-      type: String,
-      required: true
-    },
-    discount: {
-      type: String
-    },
-    totalCost: {
-      type: String
+    room: {
+      type: Schema.Types.ObjectId,
+      ref: 'Room'
     }
   },
   {

@@ -1,6 +1,6 @@
+// Bed model is not currently being used, no need to import it or reference it 
 //import dependencies
 const { Schema, model } = require('mongoose');
-const BedSchema = require("./Bed");
 
 //create room schema
 const roomSchema = new Schema(
@@ -8,14 +8,10 @@ const roomSchema = new Schema(
     roomType: {
       type: String
     },
-    bedType: [BedSchema],
-    roomView: {
-      type: String
-    },
-    inventory: {
+    price: {
       type: Number
     },
-    price: {
+    roomCount: {
       type: Number
     }
   }
