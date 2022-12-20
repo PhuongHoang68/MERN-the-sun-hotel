@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS, QUERY_RESERVATIONS, QUERY_RESDATES } from "../../utils/queries";
 
@@ -11,10 +11,17 @@ const Bookings = () => {
     //  console.log(users);
 
     //Query all reservations
-    // const { loading, data } = useQuery(QUERY_RESERVATIONS);
-    // const reservations = data?.allReservations || [];
-    // console.log(reservations);
-  
+    const { loading, data } = useQuery(QUERY_RESERVATIONS);
+    const reservations = data?.allReservations || [];
+    console.log(reservations);
+
+    const [roomType, setRoomType] = useState();
+    console.log(roomType);
+
+    const roomChange = () => 
+    {let roomInput = document.querySelector('#rooms').value
+      setRoomType(roomInput)
+    }
 
     //Query Res dates and room types only
     // const { loading, data } = useQuery(QUERY_RESDATES);
@@ -31,7 +38,7 @@ const Bookings = () => {
             <div className="bookingDropdown">
               <label htmlFor="rooms">What type of room would you like?</label>
               <br/>
-              <select name="rooms" id="rooms">
+              <select name="rooms" id="rooms" onChange={roomChange}>
                 <option value="standard">Standard</option>
                 <option value="twin">Twin</option>
                 <option value="master">Master</option>

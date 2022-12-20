@@ -1,21 +1,122 @@
 import React, {useState} from "react";
 import Calendar from 'react-calendar';
-import Bookings from "../BookedDates";
 import 'react-calendar/dist/Calendar.css';
 import { eachDayOfInterval} from 'date-fns'
 import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_RESERVATIONS } from "../../utils/queries";
+import { QUERY_RESERVATIONS, QUERY_ROOMS } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 
 const ReactCalendar = () => {
+    //Holds all know reservations
     const reservationArr = [];
+    //The dates requesting to be reserved
+    const daysReq = [];
+    //The amount of rooms the hotel has for specific roomType
+    const roomCount = [];
+    
 
+        //Query all reservations
+        const {data: resData } = useQuery(QUERY_RESERVATIONS);
+        //Query all Rooms
+        const {data: roomData} = useQuery(QUERY_ROOMS);
+        const reservations = resData?.allReservations || [];
+        const rooms = roomData?.allRooms || [];
+        
+        
+         //Push fetched reservations in Array for reference
+        reservationArr.push(reservations);
+
+    //States
+    //tracks Calander date input
     const [date, setDate] = useState((new Date()));
-    const [reservation, setReservation] = useState([])
+    //Tracks input for requested reservation
+    const [reqReservation, setReqReservation] = useState([]);
+    //Tracks which room is being chose
+    const [roomType, setRoomType] = useState();
+    //Tracks if the Requested Reservation can be booked
+    const [isValid, setIsValid] = useState(false);
 
+    //sets state from string from drop down selection
+    const roomChange = () => 
+    {let roomInput = document.querySelector('#rooms').value
+      setRoomType(roomInput)
+    }
+
+    //Trigger to Check if Room is open
+    const handleCheckAvailable = async (event) => {
+      event.preventDefault();
+    checkAvailable()
+    }
+
+    //Checks to see if room is open
+    const checkAvailable = () => {
+      //Array of all reservations that have selected roomType
+      let matchingRes = [];
+      //Array of all dates that a roomType is reserved for
+      let openDates = [];
+      //Finds out the Room Count of chosen room type and pushes to array
+        for (let r = 0; r < rooms.length; r++) {
+        const roomMatched = (rooms[r].roomType);
+        if(roomMatched === roomType){
+          let roomNum = rooms[r].roomCount
+          roomCount.length = 0;
+          roomCount.push(roomNum)
+        }}
+  
+      console.log(reservationArr[0].length)
+      //Find all reservations that contain the resquested room type and put the matches in new array
+      for (let i = 0; i < reservationArr[0].length; i++) {
+        if(roomType === reservationArr[0][i].room){
+          matchingRes.push(reservationArr[0][i])
+        }}
+
+        //if No matches are found then the room is available.
+       if (matchingRes.length < roomCount[0]){
+        console.log("Your room is available")
+        setIsValid(true);
+      
+      } 
+
+
+      //Loops through all matching reservations to find matching dates. Push dates to array
+      for (let i = 0; i < matchingRes.length; i++) {
+        const daysBooked = matchingRes[i].daysBooked;
+          for (let j = 0; j < daysBooked.length; j++) {
+            const date = daysBooked[j];
+            console.log(date)
+            if(reqReservation.includes(date)){
+              openDates.push(date)}
+              console.log(openDates)
+            }}
+
+              // for (let a = 0; a < openDates.length; a++) {
+              //   for (let b = a; b < openDates.length; b++){
+              
+              //   if(openDates[a] === openDates[b]){
+              //    }
+              // }
+              //   }
+              
+            const count = openDates.reduce((accumulator, value) => {
+              return {...accumulator, [value]: (accumulator[value] || 0) + 1};
+            }, {});
+          console.log(Object.entries(count));
+        
+          //If there are more reservations for that day than there are rooms. The reservation cannot be made
+          for (const [key, value] of Object.entries(count)) {
+          if(`${value}` >= roomCount[0]){
+            console.log("No rooms")
+            setIsValid(false)
+              } else {
+                console.log("Room is open on this date " `${key}`)
+                setIsValid(true);
+              }
+            }
+          
+        };
     //add Reservation
-
+    
     const [addReservation, {err} ] = useMutation(ADD_RESERVATION, {
       update(cache, { data: { addReservation } }) {
 
@@ -29,25 +130,26 @@ const ReactCalendar = () => {
       }
     });
 
-
     const handleSubmit = async (e) => {
       e.preventDefault();
       getDates(date)
-       let arrivalDate = reservation[0];
-       let departureDate = reservation[reservation.length-1];
-       let daysBooked = reservation;
+       let arrivalDate = reqReservation[0];
+       let departureDate = reqReservation[reqReservation.length-1];
+       let daysBooked = reqReservation;
+       let room = roomType;
+
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate, daysBooked }
+          variables: { arrivalDate, departureDate, daysBooked, room }
         })
       } catch (err) {
         console.error(err)
       } if (!err){
-        (console.log("Your Reservation was Successful"))
       }
   
     };
 
+    //Get requested dates from calendar by state change
     const getDates = (date) => {
         setDate(date);
         let arrivalDate = (moment(date[0]).format("MM/DD/YYYY"));
@@ -58,19 +160,17 @@ const ReactCalendar = () => {
         })
         for (let i = 0; i < bookedDates.length; i++) {
           const booked = (moment(bookedDates[i]).format("MM/DD/YYYY"));
-          reservationArr.push(booked);
+          daysReq.push(booked);
         }      
-        setReservation(reservationArr);
-        console.log(reservation)
+        setReqReservation(daysReq);
     };
   
 
-  
     return (
       <div>
         <main>
         <div>
-          <h1 className='text-center'>React Calendar with Range</h1>
+          <h1 className='text-center'>Calendar</h1>
           <div>
             <Calendar
               id = "Calendar"
@@ -93,15 +193,43 @@ const ReactCalendar = () => {
             </p>
           )}
         </div>
-        <Bookings/>
+      <main>
+        <div className="bookingBox">
+            {/* Select Room type drop down*/}
+            <div className="bookingDropdown">
+              <label htmlFor="rooms">What type of room would you like?</label>
+              <br/>
+              <select name="rooms" id="rooms" onChange={roomChange}>
+                <option value="Standard">Choose Room Type</option>
+                <option value="Twin">Standard</option>
+                <option value="Master">Master</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+                <option value="nopref">No Preference</option>
+              </select>
+              <br/>
+              <label htmlFor="beds">How many beds will you need?</label>
+              <br/>
+              <select name="beds" id="beds">
+                  <option value="nopref"> No Preference</option>
+                  <option value="one">One</option>
+                  <option value="two">Two</option>
+              </select>
+            </div>
+        </div>
+      </main>
         </main>
         <section>
+        <button type="click" onClick={handleCheckAvailable}>
+            Check Available
+        </button>
+        {isValid ? (
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button>
+        </button> ) : <div>Check if your Room is available.</div>}
         </section>
       </div>
       );
     }
-
-  export default ReactCalendar; 
+  
+  export default ReactCalendar;

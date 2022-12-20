@@ -10,20 +10,21 @@ const reservationSchema = new Schema(
       required: true
     },
     departureDate: {
-      type: Date,
+      type: Date, 
       required: true
     },
     daysBooked: {
-      type: Number
+      type: [],
     },
     user: {
       type: String,
       // required: true
     },
+    //A room ID to reference the room reserved.
     room: {
       type: String,
-      // required: true
     },
+    //Not needed
     discount: {
       type: Number
     }

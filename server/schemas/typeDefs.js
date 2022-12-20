@@ -27,19 +27,25 @@ const typeDefs = gql`
     user: String
     arrivalDate: String!
     departureDate: String!
-    daysBooked: Int
+    daysBooked: [String]
     room: String
     discount: Int
   }
 
   type Room {
-    _id: ID
-    roomType: String
-    bedType: String
-    roomView: String
+    id: ID
+    roomType: String!
     price: Int
+    roomCount: Int
   }
 
+  input RoomInput {
+    id: ID
+    roomType: String!
+    price: Int
+    roomCount: Int
+  }
+ 
   type Auth {
     token: ID!
     user: User
@@ -59,15 +65,14 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addReview(reviewText: String!, reviewStars: Int): Review
-    addReservation(arrivalDate: String!, departureDate: String!): Reservation
-    addRoom(roomType: String!, bedType: String!, roomView: String!, price: String!): Room
+    addReservation(arrivalDate: String!, departureDate: String!, daysBooked: [String], user: String, room: String ): Reservation
+    addRoom(roomType: String, price: String, roomCount: Int): Room
     updateReservation: Reservation
   }
   
 `;
-
+// login(email: String!, password: String!): Auth
 // export the typeDefs
 module.exports = typeDefs;

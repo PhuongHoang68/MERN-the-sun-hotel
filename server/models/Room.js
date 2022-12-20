@@ -2,21 +2,20 @@
 const { Schema, model } = require('mongoose');
 
 
-//create room schema
+//create room schema 
 const roomSchema = new Schema(
   {
     roomType: {
       type: String
     },
-    bedType: { 
-      type: String
-    },
-    roomView: {
-      type: String
-    },
     price: {
       type: Number
-    }
+    },
+    roomCount:
+      {
+      type: Number, 
+      }
+      
   }
 );
 

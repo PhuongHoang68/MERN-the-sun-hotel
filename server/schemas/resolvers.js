@@ -63,7 +63,7 @@ const resolvers = {
     // get rooms by ID
     room: async (parent, { _id }) => {
       return Room.findOne({ _id })
-    }
+    },
   },
 //END OF READ OPERATIONS
 //TODO: Add Mutations
@@ -74,22 +74,22 @@ const resolvers = {
     
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    // login: async (parent, { email, password }) => {
+    //   const user = await User.findOne({ email });
     
-      if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
+    //   if (!user) {
+    //     throw new AuthenticationError('Incorrect credentials');
+    //   }
     
-      const correctPw = await user.isCorrectPassword(password);
+    //   const correctPw = await user.isCorrectPassword(password);
     
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
+    //   if (!correctPw) {
+    //     throw new AuthenticationError('Incorrect credentials');
+    //   }
     
-      const token = signToken(user);
-      return { token, user };
-    },
+    //   const token = signToken(user);
+    //   return { token, user };
+    // },
 
     addReview: async (parent, args, context) => {
       if (context.user) {
@@ -108,14 +108,18 @@ const resolvers = {
     },
     //need to make sure roomID is being provided with this 
     addReservation: async (parent, args, context) => {
-      if (context.user) {
-        const reservation = await Reservation.create({ ...args, user: context.user._id });
+      // if 
+      //(context.user) 
+      {
+        const reservation = await Reservation.create({ ...args, 
+          //user: context.user._id 
+        });
     
-        await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { reservations: reservation._id } },
-          { new: true }
-        );
+        // await User.findByIdAndUpdate(
+        //   { _id: context.user._id },
+        //   { $push: { reservations: reservation._id } },
+        //   { new: true }
+        // );
     
         return reservation;
       }
@@ -127,6 +131,7 @@ const resolvers = {
 
     return room;
     },
+
     // updateRoom: async() => {
 
     // },
