@@ -1,14 +1,27 @@
-import { useRef } from "react";
-// import { FaBars, FaTimes } from "react-icons/fa";
+import { React, useRef } from "react";
+import Auth from "../../utils/auth"
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Header = ()=>{
+const Header = () =>{
 	const navRef = useRef();
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
 	};
+
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <Link to="/myProfile"
+
+      )
+    } else {
+      return()
+    }
+
+
 
 	return (
 		<header>
@@ -18,6 +31,7 @@ const Header = ()=>{
 				<Link to="/rooms">Rooms&Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>
+        <Link to="/login">Login</Link>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
