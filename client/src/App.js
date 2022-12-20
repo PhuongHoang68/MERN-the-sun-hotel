@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Reservation from "./pages/Reservation";
 import Room from "./pages/Room";
 import Error from "./pages/Error";
+import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -47,9 +48,13 @@ function App() {
             element={<Reservation/>}
             />
           <Route 
+            path="/login"
+            element={<Login/>}
+            />
+          <Route 
             path="*" 
             element={<Error/>} 
-              />
+            />
         </Routes>
       </Router>
     </ApolloProvider>
