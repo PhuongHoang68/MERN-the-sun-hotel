@@ -14,14 +14,23 @@ const Header = () =>{
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Link to="/myProfile"
-
-      )
+        <div className="login">
+            <Link to="/myProfile">
+              My Profile
+            </Link>
+            <a href="/" onClick={() => Auth.logout()}>
+            Logout
+          </a>
+      </div>
+      );
     } else {
-      return()
+      return(
+        <div className="login">
+            <Link to="/login">Login</Link>
+        </div>
+      );
     }
-
-
+  }
 
 	return (
 		<header>
@@ -31,12 +40,12 @@ const Header = () =>{
 				<Link to="/rooms">Rooms&Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>
-        <Link to="/login">Login</Link>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
 					{/* <FaTimes /> */}
 				</button>
+        {showNavigation()}
 			</nav>
 			<button className="nav-btn" onClick={showNavbar}>
 				{/* <FaBars /> */}

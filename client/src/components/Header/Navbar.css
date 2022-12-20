@@ -33,6 +33,11 @@ nav {
 	align-items: center;
 }
 
+.login {
+  display: flex;
+  justify-items: flex-end;
+}
+
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {
 		visibility: visible;
