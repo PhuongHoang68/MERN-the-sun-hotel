@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+// import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = ()=>{
+const Header = ()=>{
 	const navRef = useRef();
 
 	const showNavbar = () => {
@@ -20,14 +20,14 @@ const Navbar = ()=>{
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
-					<FaTimes />
+					{/* <FaTimes /> */}
 				</button>
 			</nav>
 			<button className="nav-btn" onClick={showNavbar}>
-				<FaBars />
+				{/* <FaBars /> */}
 			</button>
 		</header>
 	);
 }
 
-export default Navbar;
+export default Header;

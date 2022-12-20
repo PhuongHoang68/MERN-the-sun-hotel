@@ -8,8 +8,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/Header.js';
+import Footer from './components/Footer/Footer.js';
 import Dining from './pages/Dining';
 import Home from "./pages/Home";
 import Reservation from "./pages/Reservation";
@@ -42,6 +42,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header/>
         <Routes>
           <Route
             path="/"
