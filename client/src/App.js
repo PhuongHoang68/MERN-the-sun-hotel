@@ -17,6 +17,7 @@ import Room from "./pages/Room";
 import Error from "./pages/Error";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Review from "./pages/Review";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -69,8 +70,8 @@ function App() {
             element={<Reservation/>}
             />
           <Route 
-            path="/login"
-            element={<Login/>}
+            path="/review"
+            element={<Review/>}
             />
           <Route 
             path="*" 
