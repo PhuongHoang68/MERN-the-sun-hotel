@@ -35,7 +35,7 @@ const ReactCalendar = () => {
     //Tracks which room is being chose
     const [roomType, setRoomType] = useState();
     //Tracks if the Requested Reservation can be booked
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState('false');
 
     //sets state from string from drop down selection
     const roomChange = () => 
@@ -46,7 +46,8 @@ const ReactCalendar = () => {
     //Trigger to Check if Room is open
     const handleCheckAvailable = async (event) => {
       event.preventDefault();
-    checkAvailable()
+      checkAvailable()
+      if (checkAvailable (true)){console.log("true true")}
     }
 
     //Checks to see if room is open
@@ -54,7 +55,7 @@ const ReactCalendar = () => {
       //Array of all reservations that have selected roomType
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
-      let openDates = [];
+      let blockedDates = [];
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -73,9 +74,11 @@ const ReactCalendar = () => {
 
         //if No matches are found then the room is available.
        if (matchingRes.length < roomCount[0]){
+        setIsValid = () => {
         console.log("Your room is available")
-        setIsValid(true);
-      
+        setIsValid('true');
+        return;
+        } 
       } 
 
 
@@ -86,8 +89,8 @@ const ReactCalendar = () => {
             const date = daysBooked[j];
             console.log(date)
             if(reqReservation.includes(date)){
-              openDates.push(date)}
-              console.log(openDates)
+              blockedDates.push(date)}
+              console.log(blockedDates)
             }}
 
               // for (let a = 0; a < openDates.length; a++) {
@@ -98,7 +101,7 @@ const ReactCalendar = () => {
               // }
               //   }
               
-            const count = openDates.reduce((accumulator, value) => {
+            const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
           console.log(Object.entries(count));
@@ -107,10 +110,10 @@ const ReactCalendar = () => {
           for (const [key, value] of Object.entries(count)) {
           if(`${value}` >= roomCount[0]){
             console.log("No rooms")
-            setIsValid(false)
-              } else {
-                console.log("Room is open on this date " `${key}`)
-                setIsValid(true);
+            return false
+              } if (`${value}` < roomCount[0]) {
+                console.log(`${key}`)
+                
               }
             }
           
@@ -194,11 +197,12 @@ const ReactCalendar = () => {
           )}
         </div>
       <main>
+      <div className="bookingCont">
         <div className="bookingBox">
             {/* Select Room type drop down*/}
             <div className="bookingDropdown">
               <label htmlFor="rooms">What type of room would you like?</label>
-              <br/>
+              <br/><br/>
               <select name="rooms" id="rooms" onChange={roomChange}>
                 <option value="Standard">Choose Room Type</option>
                 <option value="Twin">Standard</option>
@@ -207,27 +211,21 @@ const ReactCalendar = () => {
                 <option value="Suite">Suite</option>
                 <option value="nopref">No Preference</option>
               </select>
-              <br/>
-              <label htmlFor="beds">How many beds will you need?</label>
-              <br/>
-              <select name="beds" id="beds">
-                  <option value="nopref"> No Preference</option>
-                  <option value="one">One</option>
-                  <option value="two">Two</option>
-              </select>
             </div>
-        </div>
-      </main>
-        </main>
-        <section>
-        <button type="click" onClick={handleCheckAvailable}>
+            <br/>
+            <div>Check if your Room is available.</div>
+            <br/><br/>
+            <button type="click" onClick={handleCheckAvailable}>
             Check Available
         </button>
-        {isValid ? (
+        <br/>
+        </div>
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button> ) : <div>Check if your Room is available.</div>}
-        </section>
+        </button>
+      </div>
+      </main>
+        </main>
       </div>
       );
     }

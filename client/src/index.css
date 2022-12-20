@@ -151,11 +151,24 @@ main {
 
 /* Reservation Section */
 
+.bookingCont{
+  display: flex;
+  flex-direction: column;
+  height: 315px;
+  align-items: center;
+}
+
 .bookingBox{
   border: 1px solid black;
-  height: 439px;
+  height: 100%;
   width: 400px;
   margin-left: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 .bookingDropdown{
@@ -165,8 +178,7 @@ main {
 }
 #rooms{
   margin: 20px;
+  margin-bottom: 0px;
 }
-#beds{
-  margin: 20px;
-}
+
 

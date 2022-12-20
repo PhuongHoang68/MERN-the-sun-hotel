@@ -30,7 +30,7 @@ const Reservation = () => {
 
     return (
         <div>
-        <h1>Book your Reservation Today!</h1>
+        <h1 className="text-center">Book your Reservation Today!</h1>
         <main>
         <div>
           <ReactCalendar/>
