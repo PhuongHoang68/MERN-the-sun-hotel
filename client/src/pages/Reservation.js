@@ -35,20 +35,17 @@ const Reservation = () => {
         <div className="resHead">
         <h1 className="text-center">Book your Reservation Today!</h1>
         </div>
-        <div className="calendar">
-        <div>
-          <ReactCalendar />
-        </div>
-        </div>
             {loggedIn ? (
+              <div className="calendar">
               <div>
+                <ReactCalendar />
+              </div>
               </div>
             ) : 
               <div>
                 <Link to="/login">You need to log in first</Link>
               </div> }
         </div>
-
     );
 };
 
