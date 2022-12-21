@@ -35,12 +35,10 @@ nav {
 	align-items: center;
 }
 
-.logo{
-	font-size: xx-large;
-	color: black;
+.login {
+  display: flex;
+  justify-items: flex-end;
 }
-
-
 
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {

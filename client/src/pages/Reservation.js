@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
 import ReactCalendar from "../components/Calendar";
+import Bookings from "../components/BookedDates";
+import Auth from "../utils/auth"
+import { Link } from "react-router-dom";
 
 
 // import { useMutation } from '@apollo/client';
@@ -27,6 +29,7 @@ import ReactCalendar from "../components/Calendar";
 
   
 const Reservation = () => {
+  const loggedIn = Auth.loggedIn();
 
     return (
       <div>
@@ -39,7 +42,16 @@ const Reservation = () => {
         </div>
         </div>
         </div>
-        
+          <h1>Book your Reservation Today!</h1>
+            {loggedIn ? (
+              <div>
+                <Bookings/>
+              </div>
+            ) : 
+              <div>
+                <Link to="/login">You need to log in first</Link>
+              </div> }
+        </div>
 
     );
 };
