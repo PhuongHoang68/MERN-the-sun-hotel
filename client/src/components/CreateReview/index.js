@@ -27,8 +27,8 @@ function AddReview() {
   };
 
   return (
-    <div>
-      <h2>Your Review</h2>
+    <div className='review-component'>
+      <h2>Write a Review</h2>
       <form id="review-form" onSubmit={handleFormSubmit}>
         <div className='reviewText'>
           <label htmlFor="reviewText">Review:</label>
@@ -36,6 +36,7 @@ function AddReview() {
             type="text" 
             name="reviewText"
             id='reviewText' 
+            rows='6'
             onChange={handleChange}
           ></textarea>
         </div>

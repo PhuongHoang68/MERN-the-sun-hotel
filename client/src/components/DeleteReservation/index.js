@@ -26,10 +26,10 @@ function DeleteReservation(props) {
 
   return (
   <div>
-    <h3>DeleteReservation</h3>
+    <h3>Delete a Reservation</h3>
     <form onSubmit={handleFormSubmit}>
       <div>
-        <label htmlFor='reservation'>Enter booking Reference</label>
+        <label htmlFor='reservation'>Enter booking ID</label>
         <input 
           name='_id'
           type='text'
@@ -43,7 +43,7 @@ function DeleteReservation(props) {
           </div>
         ) : null}
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit">Delete</button>
       </div>
     </form>
   </div>
