@@ -17,6 +17,7 @@ import Room from "./pages/Room";
 import Error from "./pages/Error";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import MyProfile from "./pages/MyProfile";
 import Review from "./pages/Review";
 
 const httpLink = createHttpLink({
@@ -77,6 +78,10 @@ function App() {
             path="*" 
             element={<Error/>} 
             />
+          <Route
+            path="/myprofile"
+            element={<MyProfile/>}
+          />
         </Routes>
       </Router>
     </ApolloProvider>

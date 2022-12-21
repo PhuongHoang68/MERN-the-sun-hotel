@@ -45,3 +45,11 @@ export const ADD_RESERVATION = gql`
         }
     }
 `;
+
+export const UPDATE_EMAIL = gql`
+  mutation Mutation($email: String) {
+    updateUser(email: $email) {
+      email
+    }
+  } 
+`

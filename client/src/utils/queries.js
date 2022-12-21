@@ -73,3 +73,13 @@ export const QUERY_ROOMS= gql`
     }
 `
 
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      email
+      username
+    }
+  }
+`;
+
