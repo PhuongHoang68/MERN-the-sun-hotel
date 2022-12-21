@@ -6,7 +6,6 @@ import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
-import Auth from "../../utils/auth"
 
 const ReactCalendar = () => {
     //Holds all know reservations
@@ -54,7 +53,7 @@ const ReactCalendar = () => {
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
-      console.log(currentUser._id)
+      console.log(date.length)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -210,18 +209,18 @@ const ReactCalendar = () => {
                 <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
-            <br/>{ isValid === false ? (<div>
-            <div>Check if your Room is available.</div>
-            <br/><br/>
-            <button type="click" onClick={handleCheckAvailable}>
-            Check Available
-        </button></div>) : (
-          <div className="bookingBox">
+            <br/>{ isValid === true && roomType != undefined && date.length > 0  ? ( <div className="bookingBox">
             <span>Your Room is Available!</span>
             <br/>
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button></div>)}
+        </button></div>) : (
+          <div>
+          <div>Check if your Room is available.</div>
+          <br/><br/>
+          <button type="click" onClick={handleCheckAvailable}>
+          Check Available
+      </button></div>)}
         </div>
       </div>
       </div>
