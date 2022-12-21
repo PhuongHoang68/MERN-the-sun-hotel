@@ -45,19 +45,17 @@ export const QUERY_RESERVATIONS = gql`
             arrivalDate
             departureDate
             daysBooked
-            user
+            userID
             room 
         }
     }
 `;
 
-export const QUERY_RESDATES = gql`
-    query allReservations {
-      allReservations{
+export const QUERY_ME_RES = gql`
+    query me {
+      me{
             _id
-            arrivalDate
-            departureDate
-            daysBooked
+            username
         }
     }
 `;

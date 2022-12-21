@@ -245,4 +245,11 @@ main {
   margin-bottom: 0px;
 }
 
+#hiddenBtn{
+  opacity: 0;
+}
 
+.loginPlsBtn{
+  margin-top: 6rem;
+  margin-bottom: 10rem;
+}

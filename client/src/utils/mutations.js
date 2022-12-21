@@ -31,18 +31,18 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RESERVATION = gql`
-    mutation addReservation($arrivalDate: String!, $departureDate: String!, $daysBooked: [String], $user: String, $room:String ) {
+    mutation addReservation($arrivalDate: String!, $departureDate: String!, $daysBooked: [String], $userID: String!, $room:String! ) {
         addReservation (
             arrivalDate: $arrivalDate, 
             departureDate: $departureDate,
             daysBooked: $daysBooked
-            user: $user
+            userID: $userID
             room: $room
             ){
             arrivalDate
             departureDate
             daysBooked
-            user
+            userID
             room
         }
     }

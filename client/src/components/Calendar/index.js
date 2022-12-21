@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import { eachDayOfInterval} from 'date-fns'
 import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_RESERVATIONS, QUERY_ROOMS } from "../../utils/queries";
+import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 
 const ReactCalendar = () => {
@@ -20,8 +20,12 @@ const ReactCalendar = () => {
         const {data: resData } = useQuery(QUERY_RESERVATIONS);
         //Query all Rooms
         const {data: roomData} = useQuery(QUERY_ROOMS);
+        //Query for current user
+        const {data: userData} = useQuery(QUERY_ME_RES);
+        //Return
         const reservations = resData?.allReservations || [];
         const rooms = roomData?.allRooms || [];
+        const currentUser = userData?.me || [];
         
         
          //Push fetched reservations in Array for reference
@@ -49,6 +53,7 @@ const ReactCalendar = () => {
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
+      console.log(date.length)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -67,8 +72,7 @@ const ReactCalendar = () => {
 
         //if No matches are found then the room is available.
         console.log(matchingRes)
-        debugger
-       if (matchingRes.length < roomCount[0] || matchingRes.length == 0){
+       if (matchingRes.length < roomCount[0] || matchingRes.length === 0){
         console.log("Your room is available")
         setIsValid(!isValid)
          console.log(isValid)
@@ -94,10 +98,11 @@ const ReactCalendar = () => {
           for (const [key, value] of Object.entries(count)) {
           if(`${value}` >= roomCount[0]){
             console.log("No rooms")
-            let result = 'false'
+            setIsValid(isValid)
+            console.log(isValid)
               } if (`${value}` < roomCount[0]) {
-                let result = isValid
-                return result
+                setIsValid(!isValid)
+                console.log(isValid)
               }
             }
           
@@ -131,14 +136,16 @@ const ReactCalendar = () => {
        let departureDate = reqReservation[reqReservation.length-1];
        let daysBooked = reqReservation;
        let room = roomType;
+       let userID = currentUser._id;
 
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate, daysBooked, room }
+          variables: { arrivalDate, departureDate, daysBooked, userID, room }
         })
       } catch (err) {
         console.error(err)
       } if (!err){
+        //Redirect to Profile Page
       }
   
     };
@@ -202,19 +209,23 @@ const ReactCalendar = () => {
                 <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
-            <br/>{ isValid === false ? (<div>
-            <div>Check if your Room is available.</div>
-            <br/><br/>
-            <button type="click" onClick={handleCheckAvailable}>
-            Check Available
-        </button></div>) : (
+            <br/>{ isValid === true && roomType != undefined && date.length > 0  ? ( <div className="bookingBox">
+            <span>Your Room is Available!</span>
+            <br/>
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button>)}
+        </button></div>) : (
+          <div>
+          <div>Check if your Room is available.</div>
+          <br/><br/>
+          <button type="click" onClick={handleCheckAvailable}>
+          Check Available
+      </button></div>)}
         </div>
       </div>
       </div>
         </main>
+        <button id = "hiddenBtn" type="submit" onClick={ () =>console.log(isValid)}>Check State</button>
       </div>
       );
     }
