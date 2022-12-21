@@ -139,7 +139,6 @@ main {
 }
 
 
-
 /* Slides */
 
 .slide{
@@ -253,12 +252,12 @@ main {
   margin-bottom: 10rem;
 }
 /*Reviews*/
-.reviewStars button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
+
+.review-container {
+  border: 2px solid black;
+  padding: 8px;
+  margin-bottom: 10px;
+}
 
 /*My Profile*/
 
@@ -356,5 +355,3 @@ main {
   background: red;
   font-weight: 800;
 }
-
-

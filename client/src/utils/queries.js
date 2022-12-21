@@ -111,4 +111,14 @@ query Query($id: ID!) {
     }
   }
 }
-`
+`;
+
+export const QUERY_ALL_REVIEWS = gql`
+  query Query {
+    allReviews {
+      reviewText
+      user
+      createdAt
+    }
+  }
+`;
