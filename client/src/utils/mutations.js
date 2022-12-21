@@ -61,6 +61,10 @@ export const DELETE_RESERVATION = gql`
   mutation Mutation($id: ID!) {
     deleteReservation(_id: $id) {
       _id
+      arrivalDate
+      daysBooked
+      departureDate
+      room
     }
   }
 `;
