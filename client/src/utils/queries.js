@@ -88,4 +88,52 @@ export const QUERY_ROOMS= gql`
     }
 `
 
+export const QUERY_ME = gql`
+  {
+    me {
+      reservations {
+        _id
+        arrivalDate
+        departureDate
+        room
+      }
+      _id
+      email
+      username
+    }
+  }
+`;
 
+export const QUERY_USER = gql`
+query Query($id: ID!) {
+  user(_id: $id) {
+    _id
+    username
+    email
+    reviews {
+      _id
+      reviewText
+      reviewStars
+      createdAt
+      user
+    }
+    reservations {
+      _id
+      arrivalDate
+      departureDate
+      daysBooked
+      room
+    }
+  }
+}
+`;
+
+export const QUERY_ALL_REVIEWS = gql`
+  query Query {
+    allReviews {
+      reviewText
+      user
+      createdAt
+    }
+  }
+`;

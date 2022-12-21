@@ -48,6 +48,34 @@ export const ADD_RESERVATION = gql`
     }
 `;
 
+export const ADD_REVIEW = gql`
+  mutation($reviewText: String!) {
+    addReview(reviewText: $reviewText) {
+      _id
+      reviewText
+    }
+  }
+`;
+
+export const DELETE_RESERVATION = gql`
+  mutation Mutation($id: ID!) {
+    deleteReservation(_id: $id) {
+      _id
+      arrivalDate
+      daysBooked
+      departureDate
+      room
+    }
+  }
+`;
+
+export const UPDATE_EMAIL = gql`
+  mutation Mutation($email: String) {
+    updateUser(email: $email) {
+      email
+    }
+  } 
+`;
 export const ADD_ROOM = gql`
     mutation addRoom($roomType: String!, $price: Int!, $roomCount: Int!) {
         addRoom (

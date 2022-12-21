@@ -17,8 +17,8 @@ import Room from "./pages/Room";
 import Error from "./pages/Error";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Review from "./components/Reviews";
-import MyProfile from "./pages/MyProfile.js";
+import MyProfile from "./pages/MyProfile";
+import Review from "./pages/Review";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -78,6 +78,10 @@ function App() {
             path="*" 
             element={<Error/>} 
             />
+          <Route
+            path="/myprofile"
+            element={<MyProfile/>}
+          />
         </Routes>
         <Footer/>
       </Router>

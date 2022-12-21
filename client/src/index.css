@@ -67,7 +67,6 @@ main {
   justify-content: center;
 }
 
-
 .center {
   display: flex;
   margin-top: 20px;
@@ -137,7 +136,6 @@ main {
   width: 100vw;
   
 }
-
 
 
 /* Slides */
@@ -252,6 +250,110 @@ main {
   margin-top: 6rem;
   margin-bottom: 10rem;
 }
+/*Reviews*/
+
+.review-container {
+  border: 2px solid black;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/*My Profile*/
+
+.my-profile {
+  display: block;
+  background: url(../src/assets/images/hero8.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0vw
+}
+
+.welcome {
+  border-bottom: 25px solid rgba(255,255,255, 0.75);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.my-profile span {
+  color: rgba(255,255,255, 0.75);
+}
+
+.profile-link {
+  font-size: 25px;
+  background-color: rgba(254, 110, 0, 0.784);
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.components {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.components button {
+  color: var(--darker);
+  background-color: var(--tertiary);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.components textarea {
+  border: 1px solid var(--darker);
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.471);
+
+}
+
+.components textarea:focus {
+  background-color: rgba(255, 255, 255, 0.804);
+}
+
+.components input {
+  border: 1px solid var(--darker);
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: var(--light);
+  width: 100%;
+  margin-bottom: 15px; 
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.542);
+}
+
+.components input:focus {
+  background-color: rgba(255, 255, 255, 0.899);
+}
+
+.reservation-component {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.user-reservations {
+  border: 1px solid var(--secondary);
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.471);
+}
+.reservation-component button {
+  background: red;
+  font-weight: 800;
+}
 
 @media screen and (max-width: 450px) {
   .hero {
@@ -342,6 +444,7 @@ main {
     height: 60%;
   }
   
+
   .cardBtn{
     margin-top: -40%;
   }
