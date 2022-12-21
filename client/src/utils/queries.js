@@ -44,8 +44,9 @@ export const QUERY_RESERVATIONS = gql`
             _id
             arrivalDate
             departureDate
-            username
-            roomType
+            daysBooked
+            user
+            room 
         }
     }
 `;
@@ -53,9 +54,10 @@ export const QUERY_RESERVATIONS = gql`
 export const QUERY_RESDATES = gql`
     query allReservations {
       allReservations{
+            _id
             arrivalDate
             departureDate
-            roomType
+            daysBooked
         }
     }
 `;
@@ -65,9 +67,9 @@ export const QUERY_RESDATES = gql`
 export const QUERY_ROOMS= gql`
     query allRooms {
       allRooms{
-        _id
+        id
         roomType
-        inventory
+        roomCount
         price
       }
     }

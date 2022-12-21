@@ -83,6 +83,7 @@ function App() {
             element={<MyProfile/>}
           />
         </Routes>
+        <Footer/>
       </Router>
     </ApolloProvider>
     

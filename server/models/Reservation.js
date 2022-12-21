@@ -9,7 +9,7 @@ const reservationSchema = new Schema(
       required: true
     },
     departureDate: {
-      type: Date,
+      type: Date, 
       required: true
     },
     daysBooked: {
@@ -19,10 +19,10 @@ const reservationSchema = new Schema(
       type: String,
       required: true
     },
+    //A room ID to reference the room reserved.
     room: {
-      type: Schema.Types.ObjectId,
-      ref: 'Room'
-    }
+      type: String,
+    },
   },
   {
     toJSON: {

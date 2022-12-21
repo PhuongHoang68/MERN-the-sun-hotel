@@ -4,8 +4,10 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-	background-color: var(--mainColor);
+	background-color: var(--light);
 	color: var(--white);
+	border-bottom: 2px solid black;
+	font-weight: bold;
 }
 
 nav a {
