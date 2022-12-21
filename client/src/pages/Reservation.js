@@ -40,7 +40,6 @@ const Reservation = () => {
           <ReactCalendar />
         </div>
         </div>
-          <h1>Book your Reservation Today!</h1>
             {loggedIn ? (
               <div>
               </div>
