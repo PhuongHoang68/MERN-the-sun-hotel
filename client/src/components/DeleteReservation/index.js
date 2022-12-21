@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { UPDATE_EMAIL } from '../../utils/mutations';
+import { DELETE_RESERVATION } from '../../utils/mutations';
 
-function UpdateEmail(props) {
-  const [formState, setFormState] = useState({ email: ''});
-  const [newEmail, { error }] = useMutation(UPDATE_EMAIL);
+function DeleteReservation(props) {
+  const [formState, setFormState] = useState({ id: '' });
+  const [delReservation, { error }] = useMutation(DELETE_RESERVATION);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await newEmail({
-      variables: {
-        email: formState.email
-      }
+    const mutationResponse = await delReservation({
+      variables: { 
+        id: formState._id 
+      } 
     });
   };
 
@@ -21,19 +21,19 @@ function UpdateEmail(props) {
       ...formState,
       [name]: value,
     });
+    console.log(value)
   };
 
   return (
   <div>
-    <h2>Change Email</h2>
+    <h3>DeleteReservation</h3>
     <form onSubmit={handleFormSubmit}>
       <div>
-        <label htmlFor='email'>Enter new email</label>
+        <label htmlFor='reservation'>Enter booking Reference</label>
         <input 
-          placeholder='newemail@test.com'
-          name='email'
-          type='email'
-          id='email'
+          name='_id'
+          type='text'
+          id='_id'
           onChange={handleChange}
         />
       </div>
@@ -50,4 +50,4 @@ function UpdateEmail(props) {
   )
 }
 
-export default UpdateEmail;
+export default DeleteReservation;

@@ -67,7 +67,6 @@ main {
   justify-content: center;
 }
 
-
 .center {
   display: flex;
   margin-top: 20px;
@@ -252,4 +251,22 @@ main {
 .loginPlsBtn{
   margin-top: 6rem;
   margin-bottom: 10rem;
+}
+/*Reviews*/
+.reviewStars button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+/*My Profile*/
+
+.my-profile {
+  display: block;
+}
+
+.components {
+  display: flex;
+  justify-content: space-evenly;
 }
