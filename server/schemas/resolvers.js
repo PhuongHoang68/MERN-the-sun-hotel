@@ -73,7 +73,7 @@ const resolvers = {
     // get rooms by ID
     room: async (parent, { _id }) => {
       return Room.findOne({ _id })
-    }
+    },
   },
 //END OF READ OPERATIONS
 
@@ -104,7 +104,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-
+    
     //add hotel review (for Users)
     addReview: async (parent, args, context) => {
       if (context.user) {
@@ -124,14 +124,18 @@ const resolvers = {
 
     // Create reservation
     addReservation: async (parent, args, context) => {
-      if (context.user) {
-        const reservation = await Reservation.create({ ...args, user: context.user._id });
+      // if 
+      //(context.user) 
+      {
+        const reservation = await Reservation.create({ ...args, 
+          //user: context.user._id 
+        });
     
-        await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { reservations: reservation._id } },
-          { new: true }
-        );
+        // await User.findByIdAndUpdate(
+        //   { _id: context.user._id },
+        //   { $push: { reservations: reservation._id } },
+        //   { new: true }
+        // );
     
         return reservation;
       }

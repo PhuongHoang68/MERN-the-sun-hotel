@@ -12,20 +12,21 @@ const Home = () => {
             </div>
         </Hero>
         {/* Short About / Lead in section */}
-        <section>
-            <div className="about text-center">
-                <h2>Sunrise Hotel</h2>
-                <p>Lorem ipsum dolor sfdsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius morbi enim nunc faucibus a pellentesque. Sed augue lacus viverra vitae. Eget sit amet tellus cras adipiscing enim. Leo integer malesuada nunc vel risus commodo viverra maecenas. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi</p>
+
+        <section className="light">
+            <div className="about text-center light text-strech">
+                <h2>The Sun Hotel</h2>
+                <p>The Sun Hotel is the perfect spot to explore Ho Chi Minh City's fascinating cultural sights and attractions. Central Post Office is located 1.3 km away, and is one of the most famous tourist spots to visit and photograph. Never forget your time in Ho Chi Minh City with a special gift or trinket from Ben Thanh Market just 2.1 km away.</p>
             </div>
 
         </section>
         {/* Start Discover Section */}
-        <section>
+        <div className="discover light">
             <h2>Discover Sunrise</h2>
-            <div className="discoverWrap">
+            <div className="discoverWrap secondary">
                 <DiscoverCards/>
             </div>
-        </section>
+        </div>
     </div>
     );
 };

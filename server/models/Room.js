@@ -2,7 +2,7 @@
 //import dependencies
 const { Schema, model } = require('mongoose');
 
-//create room schema
+//create room schema 
 const roomSchema = new Schema(
   {
     roomType: {

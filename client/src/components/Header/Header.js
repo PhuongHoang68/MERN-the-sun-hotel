@@ -2,6 +2,7 @@ import { React, useRef } from "react";
 import Auth from "../../utils/auth"
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
+import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 
 const Header = () =>{
@@ -33,11 +34,13 @@ const Header = () =>{
   }
 
 	return (
-		<header>
-			<h3>LOGO</h3>
-			<nav ref={navRef}>
-				<Link to="/dining">Wining& Dining</Link>
-				<Link to="/rooms">Rooms&Suites</Link>
+		<header ref={navRef}>
+			
+			<img src={logo} alt="Sun Hotel Logo" height={200}></img>
+			<nav>
+				<Link to="/">Home</Link>
+				<Link to="/dining">Wine & Dine</Link>
+				<Link to="/rooms">Rooms & Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>
 				<button
