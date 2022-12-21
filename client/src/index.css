@@ -245,4 +245,6 @@ main {
   margin-bottom: 0px;
 }
 
-
+#hiddenBtn{
+  opacity: 0;
+}

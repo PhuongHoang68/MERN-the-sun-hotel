@@ -67,8 +67,7 @@ const ReactCalendar = () => {
 
         //if No matches are found then the room is available.
         console.log(matchingRes)
-        debugger
-       if (matchingRes.length < roomCount[0] || matchingRes.length == 0){
+       if (matchingRes.length < roomCount[0] || matchingRes.length === 0){
         console.log("Your room is available")
         setIsValid(!isValid)
          console.log(isValid)
@@ -94,10 +93,11 @@ const ReactCalendar = () => {
           for (const [key, value] of Object.entries(count)) {
           if(`${value}` >= roomCount[0]){
             console.log("No rooms")
-            let result = 'false'
+            setIsValid(isValid)
+            console.log(isValid)
               } if (`${value}` < roomCount[0]) {
-                let result = isValid
-                return result
+                setIsValid(!isValid)
+                console.log(isValid)
               }
             }
           
@@ -215,6 +215,7 @@ const ReactCalendar = () => {
       </div>
       </div>
         </main>
+        <button id = "hiddenBtn" type="submit" onClick={ () =>console.log(isValid)}>Check State</button>
       </div>
       );
     }
