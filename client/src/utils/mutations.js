@@ -49,7 +49,7 @@ export const ADD_RESERVATION = gql`
 `;
 
 export const ADD_REVIEW = gql`
-  Mutation($reviewText: String!) {
+  mutation($reviewText: String!) {
     addReview(reviewText: $reviewText) {
       _id
       reviewText
