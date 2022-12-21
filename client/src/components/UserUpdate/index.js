@@ -25,7 +25,7 @@ function UpdateEmail(props) {
 
   return (
   <div>
-    <h3>Change Email</h3>
+    <h2>Change Email</h2>
     <form onSubmit={handleFormSubmit}>
       <div>
         <label htmlFor='email'>Enter new email</label>

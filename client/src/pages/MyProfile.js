@@ -1,11 +1,9 @@
 //Import dependencies
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserUpdate from '../components/UserUpdate';
 import MyReservations from '../components/MyReservations';
-import Review from '../components/Reviews';
-
-import Auth from '../utils/auth';
-import { useParams } from 'react-router-dom';
+import CreateReview from '../components/CreateReview';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -20,13 +18,25 @@ function MyProfile () {
   }
 
   return (
-    <main>
-      <div>
+    <main className='my-profile'>
         {me ? (
-          <h2>Welcome back {me.username} </h2>) : null} 
-      </div>
-      <UserUpdate/>
-      <MyReservations/>
+          <div>
+            <h1>Welcome back {me.username} </h1>
+            <Link to='/reservations'>Make a new reservation</Link>
+              <div className='components'>
+                <MyReservations/>
+                <UserUpdate/>
+                <CreateReview/>
+              </div>
+          </div>
+          ) : (
+            <div>
+              <h1>Oh no!</h1>
+              <p>It looks like you are not logged in.</p>
+              <Link to='/login' >Log in here</Link>
+            </div>
+          )} 
+      
     </main>
   )
 }

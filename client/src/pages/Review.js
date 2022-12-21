@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Reviews from "../components/Reviews";
+import CreateReview from "../components/CreateReview"
 import Auth from "../utils/auth"
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Review = () => {
         <h1>Leave a review today!</h1>
 
               <div>
-                <Reviews/>
+                <CreateReview/>
               </div>
  
               <div>

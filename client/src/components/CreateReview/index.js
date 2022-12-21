@@ -27,7 +27,7 @@ function AddReview() {
   };
 
   return (
-    <section>
+    <div>
       <h2>Your Review</h2>
       <form id="review-form" onSubmit={handleFormSubmit}>
         <div className='reviewText'>
@@ -49,7 +49,7 @@ function AddReview() {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </section>
+    </div>
   );
 }
 

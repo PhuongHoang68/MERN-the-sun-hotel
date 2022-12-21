@@ -67,7 +67,6 @@ main {
   justify-content: center;
 }
 
-
 .center {
   display: flex;
   margin-top: 20px;
@@ -252,3 +251,14 @@ main {
     outline: none;
     cursor: pointer;
   }
+
+/*My Profile*/
+
+.my-profile {
+  display: block;
+}
+
+.components {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -17,29 +17,25 @@ function MyReservations () {
   console.log(me)
 
   return(
-    <>
       <div>
-        <Link to='/reservations'>Make a new reservation</Link>
-
-      {me ? (
-        <>
-          <h2>
-            Here are your reservations
-          </h2>
-        {me.reservations.map((reservation) => (
-          <div key={reservation._id}>
-            <h3>
-              From: {new Date(parseInt(reservation.arrivalDate)).toLocaleDateString()}<br></br>
-              To: {new Date(parseInt(reservation.departureDate)).toLocaleDateString()}<br></br>
-              Reference: {reservation._id}
-            </h3>
-          </div>
-            ))}
-            <DeleteReservation/>
-           </> 
-        ) : null }
+        {me ? (
+          <>
+            <h2>
+              Here are your reservations:
+            </h2>
+          {me.reservations.map((reservation) => (
+            <div key={reservation._id}>
+              <h3>
+                From: {new Date(parseInt(reservation.arrivalDate)).toLocaleDateString()}<br></br>
+                To: {new Date(parseInt(reservation.departureDate)).toLocaleDateString()}<br></br>
+                Reference: {reservation._id}
+              </h3>
+            </div>
+              ))}
+              <DeleteReservation/>
+            </> 
+          ) : null }
       </div>
-    </>
   )
 }
 
