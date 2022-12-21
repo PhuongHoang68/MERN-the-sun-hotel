@@ -4,8 +4,9 @@ import 'react-calendar/dist/Calendar.css';
 import { eachDayOfInterval} from 'date-fns'
 import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_RESERVATIONS, QUERY_ROOMS } from "../../utils/queries";
+import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
+import Auth from "../../utils/auth"
 
 const ReactCalendar = () => {
     //Holds all know reservations
@@ -20,8 +21,12 @@ const ReactCalendar = () => {
         const {data: resData } = useQuery(QUERY_RESERVATIONS);
         //Query all Rooms
         const {data: roomData} = useQuery(QUERY_ROOMS);
+        //Query for current user
+        const {data: userData} = useQuery(QUERY_ME_RES);
+        //Return
         const reservations = resData?.allReservations || [];
         const rooms = roomData?.allRooms || [];
+        const currentUser = userData?.me || [];
         
         
          //Push fetched reservations in Array for reference
@@ -49,6 +54,7 @@ const ReactCalendar = () => {
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
+      console.log(currentUser._id)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -131,14 +137,16 @@ const ReactCalendar = () => {
        let departureDate = reqReservation[reqReservation.length-1];
        let daysBooked = reqReservation;
        let room = roomType;
+       let userID = currentUser._id;
 
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate, daysBooked, room }
+          variables: { arrivalDate, departureDate, daysBooked, userID, room }
         })
       } catch (err) {
         console.error(err)
       } if (!err){
+        //Redirect to Profile Page
       }
   
     };
@@ -208,9 +216,12 @@ const ReactCalendar = () => {
             <button type="click" onClick={handleCheckAvailable}>
             Check Available
         </button></div>) : (
+          <div className="bookingBox">
+            <span>Your Room is Available!</span>
+            <br/>
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button>)}
+        </button></div>)}
         </div>
       </div>
       </div>

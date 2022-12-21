@@ -248,3 +248,8 @@ main {
 #hiddenBtn{
   opacity: 0;
 }
+
+.loginPlsBtn{
+  margin-top: 6rem;
+  margin-bottom: 10rem;
+}
