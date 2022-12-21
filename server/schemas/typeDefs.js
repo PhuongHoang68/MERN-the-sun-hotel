@@ -34,13 +34,6 @@ const typeDefs = gql`
     price: Int
     roomCount: Int
   }
-
-  input RoomInput {
-    id: ID
-    roomType: String!
-    price: Int
-    roomCount: Int
-  }
  
   type Auth {
     token: ID!
