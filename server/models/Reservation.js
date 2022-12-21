@@ -23,10 +23,6 @@ const reservationSchema = new Schema(
     room: {
       type: String,
     },
-    //Not needed
-    discount: {
-      type: Number
-    }
   },
   {
     toJSON: {
