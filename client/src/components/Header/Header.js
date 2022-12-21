@@ -1,16 +1,37 @@
-import { React, useRef } from "react";
+import { React, useRef, useState, useEffect } from "react";
 import Auth from "../../utils/auth"
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 
+
+
 const Header = () =>{
 	const navRef = useRef();
+	const [width, setWidth] = useState(window.innerWidth)
+	const breakpoint = 600;
+	const [isNavOpen, setIsNavOpen] = useState(false);
 
-	const showNavbar = () => {
-		navRef.current.classList.toggle("responsive_nav");
-	};
+	useEffect(() => {
+		const handleResizeWindow = () => setWidth(window.innerWidth);
+		 window.addEventListener("resize", handleResizeWindow);
+		 return () => {
+		   window.removeEventListener("resize", handleResizeWindow);
+		 };
+	   }, []);
+
+
+	const toggleNavBar = () => {
+		console.log("test")
+		setIsNavOpen(!isNavOpen);
+		
+	  }
+
+	// const showNavbar = () => {
+	// 	navRef.current.classList.toggle("responsive_nav");
+	// };
+
 
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -33,28 +54,65 @@ const Header = () =>{
     }
   }
 
+  if (width > breakpoint) {
 	return (
 		<header ref={navRef}>
-			
-			<img src={logo} alt="Sun Hotel Logo" height={200}></img>
+		<div>
+			<img src={logo} alt="Sun Hotel Logo"></img>
+			</div>
 			<nav>
 				<Link to="/">Home</Link>
-				<Link to="/dining">Wine & Dine</Link>
+				<Link onClick={() =>toggleNavBar()}to="/dining">Wine & Dine</Link>
 				<Link to="/rooms">Rooms & Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>
 				<button
 					className="nav-btn nav-close-btn"
-					onClick={showNavbar}>
-					{/* <FaTimes /> */}
+					type="submit"
+					onClick={() => toggleNavBar()}>
+					<FaTimes />
 				</button>
         {showNavigation()}
 			</nav>
-			<button className="nav-btn" onClick={showNavbar}>
-				{/* <FaBars /> */}
-			</button>
-		</header>
+			</header>
 	);
 }
-
+{
+	return (<div>
+		{isNavOpen === !true ? (
+		<header>
+		<div>
+			<img src={logo} alt="Sun Hotel Logo"></img>
+			</div>
+			<button type= "submit" className="nav-btn" onClick={() => toggleNavBar()}>
+				<FaBars/>
+			</button>
+			</header>) : (
+				<div>
+					(
+    <div className="mobileNav">
+    <header ref={navRef}>
+        <div>
+    <img src={logo} alt="Sun Hotel Logo"></img>
+    </div>
+    <button type= "submit" className="nav-btn" onClick={() => toggleNavBar()}>
+				<FaBars/>
+			</button>
+            </header>
+    <main className="mobileLinks">
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="/dining">Wine & Dine</Link>
+        <Link to="/rooms">Rooms & Suites</Link>
+        <Link to="/reservations">Reservation</Link>
+        <Link to="/review">Hotel Reviews</Link>
+        </nav>
+        </main>
+        </div>
+        )
+				</div>)}
+			</div>
+	)
+}
+}
 export default Header;

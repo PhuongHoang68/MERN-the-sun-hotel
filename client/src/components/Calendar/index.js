@@ -220,7 +220,9 @@ const ReactCalendar = () => {
           <br/><br/>
           <button type="click" onClick={handleCheckAvailable}>
           Check Available
-      </button></div>)}
+      </button></div>) }{ (roomType === undefined || null) && date.length > 0 ? (
+        <div><span>Please Select a Room Type</span></div>
+      ) : (<div></div>)}
         </div>
       </div>
       </div>
