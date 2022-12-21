@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactCalendar from "../components/Calendar";
-import Bookings from "../components/BookedDates";
 import Auth from "../utils/auth"
 import { Link } from "react-router-dom";
 
@@ -41,11 +40,9 @@ const Reservation = () => {
           <ReactCalendar />
         </div>
         </div>
-        </div>
           <h1>Book your Reservation Today!</h1>
             {loggedIn ? (
               <div>
-                <Bookings/>
               </div>
             ) : 
               <div>
