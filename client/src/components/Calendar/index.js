@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import { eachDayOfInterval} from 'date-fns'
 import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_RESERVATIONS, QUERY_ROOMS } from "../../utils/queries";
+import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 
 const ReactCalendar = () => {
@@ -20,8 +20,12 @@ const ReactCalendar = () => {
         const {data: resData } = useQuery(QUERY_RESERVATIONS);
         //Query all Rooms
         const {data: roomData} = useQuery(QUERY_ROOMS);
+        //Query for current user
+        const {data: userData} = useQuery(QUERY_ME_RES);
+        //Return
         const reservations = resData?.allReservations || [];
         const rooms = roomData?.allRooms || [];
+        const currentUser = userData?.me || [];
         
         
          //Push fetched reservations in Array for reference
@@ -35,27 +39,21 @@ const ReactCalendar = () => {
     //Tracks which room is being chose
     const [roomType, setRoomType] = useState();
     //Tracks if the Requested Reservation can be booked
-    const [isValid, setIsValid] = useState('false');
+    const [isValid, setIsValid] = useState(false);
 
     //sets state from string from drop down selection
     const roomChange = () => 
     {let roomInput = document.querySelector('#rooms').value
       setRoomType(roomInput)
     }
-
-    //Trigger to Check if Room is open
-    const handleCheckAvailable = async (event) => {
-      event.preventDefault();
-      checkAvailable()
-      if (checkAvailable (true)){console.log("true true")}
-    }
-
+    
     //Checks to see if room is open
     const checkAvailable = () => {
       //Array of all reservations that have selected roomType
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
+      console.log(date.length)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -73,12 +71,11 @@ const ReactCalendar = () => {
         }}
 
         //if No matches are found then the room is available.
-       if (matchingRes.length < roomCount[0]){
-        setIsValid = () => {
+        console.log(matchingRes)
+       if (matchingRes.length < roomCount[0] || matchingRes.length === 0){
         console.log("Your room is available")
-        setIsValid('true');
-        return;
-        } 
+        setIsValid(!isValid)
+         console.log(isValid)
       } 
 
 
@@ -92,15 +89,6 @@ const ReactCalendar = () => {
               blockedDates.push(date)}
               console.log(blockedDates)
             }}
-
-              // for (let a = 0; a < openDates.length; a++) {
-              //   for (let b = a; b < openDates.length; b++){
-              
-              //   if(openDates[a] === openDates[b]){
-              //    }
-              // }
-              //   }
-              
             const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
@@ -110,14 +98,22 @@ const ReactCalendar = () => {
           for (const [key, value] of Object.entries(count)) {
           if(`${value}` >= roomCount[0]){
             console.log("No rooms")
-            return false
+            setIsValid(isValid)
+            console.log(isValid)
               } if (`${value}` < roomCount[0]) {
-                console.log(`${key}`)
-                
+                setIsValid(!isValid)
+                console.log(isValid)
               }
             }
           
         };
+
+         //Trigger to Check if Room is open
+    const handleCheckAvailable = async (event) => {
+      event.preventDefault();
+      checkAvailable()
+      {console.log(isValid)}
+    }
     //add Reservation
     
     const [addReservation, {err} ] = useMutation(ADD_RESERVATION, {
@@ -140,14 +136,16 @@ const ReactCalendar = () => {
        let departureDate = reqReservation[reqReservation.length-1];
        let daysBooked = reqReservation;
        let room = roomType;
+       let userID = currentUser._id;
 
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate, daysBooked, room }
+          variables: { arrivalDate, departureDate, daysBooked, userID, room }
         })
       } catch (err) {
         console.error(err)
       } if (!err){
+        //Redirect to Profile Page
       }
   
     };
@@ -205,28 +203,29 @@ const ReactCalendar = () => {
               <label htmlFor="rooms">What type of room would you like?</label>
               <br/><br/>
               <select name="rooms" id="rooms" onChange={roomChange}>
-                <option value="Standard">Choose Room Type</option>
-                <option value="Twin">Standard</option>
-                <option value="Master">Master</option>
-                <option value="Deluxe">Deluxe</option>
-                <option value="Suite">Suite</option>
-                <option value="nopref">No Preference</option>
+                <option value="null">Choose Room Type</option>
+                <option value="Deluxe Double">Deluxe Double Room</option>
+                <option value="Superior Double">Superior Double Room</option>
+                <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
+            <br/>{ isValid === true && roomType != undefined && date.length > 0  ? ( <div className="bookingBox">
+            <span>Your Room is Available!</span>
             <br/>
-            <div>Check if your Room is available.</div>
-            <br/><br/>
-            <button type="click" onClick={handleCheckAvailable}>
-            Check Available
-        </button>
-        <br/>
-        </div>
         <button type="submit" onClick={handleSubmit}>
             Confirm your Booking!
-        </button>
+        </button></div>) : (
+          <div>
+          <div>Check if your Room is available.</div>
+          <br/><br/>
+          <button type="click" onClick={handleCheckAvailable}>
+          Check Available
+      </button></div>)}
+        </div>
       </div>
       </div>
         </main>
+        <button id = "hiddenBtn" type="submit" onClick={ () =>console.log(isValid)}>Check State</button>
       </div>
       );
     }

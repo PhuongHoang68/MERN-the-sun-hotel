@@ -124,18 +124,18 @@ const resolvers = {
 
     // Create reservation
     addReservation: async (parent, args, context) => {
-      // if 
-      //(context.user) 
+      if 
+      (context.user) 
       {
         const reservation = await Reservation.create({ ...args, 
-          //user: context.user._id 
+          user: context.user._id 
         });
     
-        // await User.findByIdAndUpdate(
-        //   { _id: context.user._id },
-        //   { $push: { reservations: reservation._id } },
-        //   { new: true }
-        // );
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { reservations: reservation._id } },
+          { new: true }
+        );
     
         return reservation;
       }
