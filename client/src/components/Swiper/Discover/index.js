@@ -65,13 +65,27 @@ const DiscoverCards = () =>{
   }
         const settings = {
             dots: false,
+            arrows: true,
             infinite: true,
             speed: 8000,
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 10,
-            cssEase:"linear"
+            cssEase:"linear",
+            mobileFirst: true,
+            responsive: [
+              {breakpoint: 575,
+                settings: {
+                dots: false,
+                speed: 100,
+                draggable: true,
+                slidesToShow: 1,
+                infinite: true,
+                autoplay: false,
+                }
+              }
+            ]
           };
           return (
           <div>
@@ -93,6 +107,8 @@ const DiscoverCards = () =>{
                   <p>
                     {card.description}
                   </p>
+                </div>
+                <div id = "arrows">
                 </div>
                 <div className="center cardBtn">
                   <Link to={activeCard}>

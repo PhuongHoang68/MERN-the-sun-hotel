@@ -60,6 +60,21 @@ export const QUERY_ME_RES = gql`
     }
 `;
 
+export const QUERY_ME_PROFILE = gql`
+    query me {
+      me{
+            username
+            reservations {
+              _id
+              arrivalDate
+              daysBooked
+              departureDate
+              room
+            }
+        }
+    }
+`;
+
 
 //Query all Rooms
 export const QUERY_ROOMS= gql`

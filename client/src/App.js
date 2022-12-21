@@ -18,6 +18,7 @@ import Error from "./pages/Error";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Review from "./components/Reviews";
+import MyProfile from "./pages/MyProfile.js";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
