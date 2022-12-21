@@ -55,7 +55,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addReview(reviewText: String!, reviewStars: Int): Review
+    addReview(reviewText: String!): Review
     addReservation(arrivalDate: String!, departureDate: String!, room: String!, daysBooked: [String] ): Reservation
     addRoom(roomType: String!, price: Int!, roomCount: Int!): Room
     updateUser(username: String, email: String, password: String): User

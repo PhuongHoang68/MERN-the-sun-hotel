@@ -13,14 +13,13 @@ function MyReservations () {
     me = data.me;
   }
 
-  console.log(me.reservations)
+  console.log(me)
 
   return(
     <div>
       <Link to='/reservations'>Make a new reservation</Link>
-      {me.reservations ? (
+      {me ? (
         <h2>Here are your reservations</h2>
-        
         ) : null}
     </div>
   )

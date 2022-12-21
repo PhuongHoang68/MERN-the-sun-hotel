@@ -245,4 +245,10 @@ main {
   margin-bottom: 0px;
 }
 
-
+/*Reviews*/
+.reviewStars button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
