@@ -1,6 +1,7 @@
 //Import dependencies
 import React from 'react';
 import UserUpdate from '../components/UserUpdate';
+import MyReservations from '../components/MyReservations';
 import Review from '../components/Reviews';
 
 import Auth from '../utils/auth';
@@ -13,13 +14,10 @@ import { QUERY_ME } from '../utils/queries';
 function MyProfile () {
   const { data } = useQuery(QUERY_ME);
   let me;
-  console.log(data);
 
   if (data) {
     me = data.me;
   }
-
-  console.log(me);
 
   return (
     <main>
@@ -27,7 +25,8 @@ function MyProfile () {
         {me ? (
           <h2>Welcome back {me.username} </h2>) : null} 
       </div>
-      <UserUpdate/> 
+      <UserUpdate/>
+      <MyReservations/>
     </main>
   )
 }

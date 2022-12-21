@@ -76,10 +76,15 @@ export const QUERY_ROOMS= gql`
 export const QUERY_ME = gql`
   {
     me {
+      reservations {
+        _id
+        arrivalDate
+        departureDate
+        room
+      }
       _id
       email
       username
     }
   }
 `;
-
