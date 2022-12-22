@@ -9,6 +9,7 @@ import { ADD_RESERVATION } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
 const ReactCalendar = () => {
+
     //Holds all know reservations
     const reservationArr = [];
     //The dates requesting to be reserved
@@ -147,7 +148,7 @@ const ReactCalendar = () => {
         console.error(err)
       } if (!err){
         //Redirect to Profile Page
-        navigate("/myProfile");
+        window.location.reload(navigate("/myProfile"));
       }
   
     };
@@ -220,7 +221,7 @@ const ReactCalendar = () => {
           <div>
           <div>Check if your Room is available.</div>
           <br/><br/>
-          <button type="click" onClick={handleCheckAvailable}>
+          <button type="click" onClick={handleCheckAvailable} >
           Check Available
       </button></div>) }{ (roomType === undefined || null) && date.length > 0 ? (
         <div><span>Please Select a Room Type</span></div>
