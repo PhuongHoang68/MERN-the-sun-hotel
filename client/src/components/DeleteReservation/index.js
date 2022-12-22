@@ -3,16 +3,19 @@ import { useMutation } from '@apollo/client';
 import { DELETE_RESERVATION } from '../../utils/mutations';
 
 function DeleteReservation(props) {
-  const [formState, setFormState] = useState({ id: '' });
+  const [formState, setFormState] = useState();
   const [delReservation, { error }] = useMutation(DELETE_RESERVATION);
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event)  => {
     event.preventDefault();
-    const mutationResponse = await delReservation({
+    const mutationResponse = await delReservation(
+      {
       variables: { 
         id: formState._id 
       } 
-    });
+    }
+    );
+    window.location.reload();
   };
 
   const handleChange = (event) => {
