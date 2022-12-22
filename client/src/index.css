@@ -356,7 +356,7 @@ main {
   font-weight: 800;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 6hero00px) {
   .hero {
     background-size: cover;
     background-position: center;
