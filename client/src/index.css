@@ -207,6 +207,7 @@ main {
   height: 20vh;
   padding: 2em;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   
 }
 
@@ -355,7 +356,7 @@ main {
   font-weight: 800;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   .hero {
     background-size: cover;
     background-position: center;
@@ -444,11 +445,53 @@ main {
     height: 60%;
   }
   
-
   .cardBtn{
     margin-top: -40%;
   }
+
+/*reservation*/
+
+.resPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+.bookingMain{
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  width: 30rem;
+  margin-right: 18%;
+}
+
+.resHead{
+  height: 0;
+  padding: 20%;
+  margin-top:0;
+}
+
+.mobileBooking{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.bookingCont{
+
+  width: 100%;
+}
+
+.bookingBox{
+
+  width: 100%;
+}
+
+}
+
+
+
 
 
 @media screen and (max-width: 575px){
