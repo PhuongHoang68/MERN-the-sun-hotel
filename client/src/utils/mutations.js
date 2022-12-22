@@ -74,6 +74,7 @@ export const UPDATE_EMAIL = gql`
     }
   } 
 `;
+
 export const ADD_ROOM = gql`
     mutation addRoom($roomType: String!, $price: Int!, $roomCount: Int!) {
         addRoom (
