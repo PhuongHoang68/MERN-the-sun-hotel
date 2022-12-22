@@ -31,7 +31,7 @@ const Reservation = () => {
   const loggedIn = Auth.loggedIn();
 
     return (
-      <div>
+      <div className="resPage">
         <div className="resHead">
         <h1 className="text-center">Book your Reservation Today!</h1>
         </div>
