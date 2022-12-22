@@ -14,18 +14,18 @@ const Header = () =>{
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	useEffect(() => {
+		setIsNavOpen(false)
 		const handleResizeWindow = () => setWidth(window.innerWidth);
 		 window.addEventListener("resize", handleResizeWindow);
 		 return () => {
 		   window.removeEventListener("resize", handleResizeWindow);
 		 };
 	   }, []);
-
+	   console.log(isNavOpen)
 
 	const toggleNavBar = () => {
-		console.log("test")
+
 		setIsNavOpen(!isNavOpen);
-		
 	  }
 
 	// const showNavbar = () => {
@@ -62,7 +62,7 @@ const Header = () =>{
 			</div>
 			<nav>
 				<Link to="/">Home</Link>
-				<Link onClick={() =>toggleNavBar()}to="/dining">Wine & Dine</Link>
+				<Link to="/dining">Wine & Dine</Link>
 				<Link to="/rooms">Rooms & Suites</Link>
 				<Link to="/reservations">Reservation</Link>
 				<Link to="/review">Hotel Reviews</Link>

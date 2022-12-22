@@ -6,6 +6,7 @@ import moment from 'moment';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
+import { useNavigate } from "react-router-dom";
 
 const ReactCalendar = () => {
     //Holds all know reservations
@@ -14,6 +15,7 @@ const ReactCalendar = () => {
     const daysReq = [];
     //The amount of rooms the hotel has for specific roomType
     const roomCount = [];
+    const navigate = useNavigate();
     
 
         //Query all reservations
@@ -146,6 +148,7 @@ const ReactCalendar = () => {
         console.error(err)
       } if (!err){
         //Redirect to Profile Page
+        navigate("/myProfile");
       }
   
     };
@@ -169,7 +172,7 @@ const ReactCalendar = () => {
 
     return (
       <div>
-        <main className="light">
+        <main className="light mobileBooking">
         <div>
           <h1 className='text-center'>Calendar</h1>
           <div>
