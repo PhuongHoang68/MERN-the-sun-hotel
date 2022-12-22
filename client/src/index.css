@@ -356,98 +356,70 @@ main {
   font-weight: 800;
 }
 
+@media screen and (max-width: 950px){
+  .discoverWrap{
+    margin: 2rem;
+    height: 33vh;
+    width: 100vw;
+  }
+
+  .discoverCard{
+    max-width: 40vw;
+    max-height: 30vh;
+    margin-left: 11%;
+  }
+
+  .discoverCard img{
+    max-width: 90%;
+    height: 50%;
+    margin: 10px 5%;
+  }
+
+  .cardBtn{
+    margin-top: 1vh;
+  }
+
+  }
+
+
 @media screen and (max-width: 600px) {
   .hero {
-    background-size: cover;
-    background-position: center;
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    background-attachment:scroll;
-    background-position: 80%;
-    background-color: #555555;
-    border-top: 10px solid var(--secondary);
-    border-bottom: 10px solid var(--secondary);
     margin-top: 80px;
   }
 
   .hero img  {
     height: 15em;
-    width: 100%;
-    opacity: 0.6;
   }
 
   .about{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: .5px solid black;
-    box-sizing: content-box;
     height: 20%;
     width: 70%;
     margin: .5rem;
     padding: .5rem;
     font-size:x-small;
-    font-weight: 500;
-    background-color: white;
-  }
-
-  .discover{
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
   }
   
   .discoverWrap{
     margin: 2rem;
-    height: 60vh;
-    width: 100vw;
-    
+    height: 45vh;
   }
 
   .discoverCard{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    height: 50vh;
-    margin: 1rem;
     width: 70%;
-    flex-wrap: wrap;
-    border-radius: 10%;
+    min-height: 300px;
     margin-left: 10%;
   }
   
   .discoverCard img{
-    display: flex;
-    flex-shrink: calc();
-    width: 100%;
     max-width: 80%;
     height: 50%;
-    min-height: fit-content;
-    margin: 10px;
-    border: 2px solid black;
     margin-left: 25px;
   }
   
-  .discoverCard img:hover{
-    filter: contrast(110%) brightness(120%) drop-shadow(4px 4px 5px var(--primary)) ;
-    transform: scale(1);
-    transition: .25s ease-in-out;
-    -webkit-transform: scale(1);
-  }
-  
-  .cardTextcnt{
-    font-size:medium;
-    margin: 0px 20px 0px 20px ;
-    height: 60%;
-  }
-  
   .cardBtn{
-    margin-top: -40%;
+    margin-top: 20%;
   }
 
 /*reservation*/
@@ -491,14 +463,29 @@ main {
 
 }
 
+@media screen and (max-width: 500px){
+  .discoverCard{
+    max-width: 300px;
+    margin-left: 15%;
+  }
+  
+  .cardBtn{
+    margin-top: -9rem;
+  }
+}
+@media screen and (max-width: 450px){
+  .discoverCard{
+    margin: 5% 10%;
+    min-height: 275px;
+  }
 
+  .discoverWrap{
+    height: 25%;
+    min-height: 350px;
 
-
-
-@media screen and (max-width: 575px){
-
+  }
+  .cardBtn {
+    margin-top: 5%;
+  }
 }
 
-@media screen and (max-width: 850px){
-
-}
