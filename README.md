@@ -4,7 +4,6 @@
 
 ![Final version of website](https://github.com/PhuongHoang68/MERN-the-sun-hotel/blob/b8ad1c51d53e294351533f7ae6ef43a2fed0452c/client/src/assets/images/deployed-application.png)
 
-
 ## Table of Contents
 
 - [Description](#description)
@@ -52,6 +51,7 @@ MERN full-stack application that allows The Sun Hotel's customers to login and b
 
 ## Website
 
+Heroku: [https://the-sun-hotel-hcmc.herokuapp.com/rooms](https://the-sun-hotel-hcmc.herokuapp.com/rooms)
 
 ## License
 
