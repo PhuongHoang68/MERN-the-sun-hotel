@@ -57,11 +57,10 @@ const discoverCard = [
 const DiscoverCards = () =>{
   const [activeCard, setActiveCard] = useState()
 
+
   const handleClick = (card) => {
-  
-
     setActiveCard(card)
-
+    console.log(activeCard)
   }
         const settings = {
             dots: false,
@@ -75,12 +74,32 @@ const DiscoverCards = () =>{
             cssEase:"linear",
             mobileFirst: true,
             responsive: [
-              {breakpoint: 575,
+              {breakpoint: 500,
                 settings: {
                 dots: false,
                 speed: 100,
                 draggable: true,
                 slidesToShow: 1,
+                infinite: true,
+                autoplay: false,
+                }
+              },
+              {breakpoint: 500,
+                settings: {
+                dots: false,
+                speed: 100,
+                draggable: true,
+                slidesToShow: 2,
+                infinite: true,
+                autoplay: false,
+                }
+              },
+              {breakpoint: 950,
+                settings: {
+                dots: false,
+                speed: 100,
+                draggable: true,
+                slidesToShow: 2,
                 infinite: true,
                 autoplay: false,
                 }
@@ -112,7 +131,7 @@ const DiscoverCards = () =>{
                 </div>
                 <div className="center cardBtn">
                   <Link to={activeCard}>
-                <button name ={card.name} className="cardBtn" onClick={()=>handleClick(card.link)}>Learn more!</button>
+                <button name ={card.name} className="" onPointerEnter={()=>handleClick(card.link)}>Learn more!</button>
                 </Link>
                 </div>
               </div>

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Header = () =>{
 	const navRef = useRef();
 	const [width, setWidth] = useState(window.innerWidth)
-	const breakpoint = 600;
+	const breakpoint = 750;
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	useEffect(() => {
