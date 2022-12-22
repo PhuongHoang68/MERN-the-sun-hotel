@@ -1,24 +1,92 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+import Header from './components/Header/Header.js';
+import Footer from './components/Footer/Footer.js';
+import Dining from './pages/Dining';
+import Home from "./pages/Home";
+import Reservation from "./pages/Reservation";
+import Room from "./pages/Room";
+import Error from "./pages/Error";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import MyProfile from "./pages/MyProfile";
+import Review from "./pages/Review";
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home/>}
+            />
+          <Route
+            path="/login"
+            element={<Login/>}
+            />
+          <Route
+            path="/signup"
+            element={<Signup/>}
+            />
+          <Route
+            path="/rooms"
+            element={<Room/>}
+            />
+          <Route
+            path="/dining"
+            element={<Dining/>}
+            />
+          <Route
+            path="/reservations"
+            element={<Reservation/>}
+            />
+          <Route 
+            path="/review"
+            element={<Review/>}
+            />
+          <Route 
+            path="*" 
+            element={<Error/>} 
+            />
+          <Route
+            path="/myprofile"
+            element={<MyProfile/>}
+          />
+        </Routes>
+        <Footer/>
+      </Router>
+    </ApolloProvider>
+    
   );
 }
 
