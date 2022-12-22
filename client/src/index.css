@@ -294,6 +294,7 @@ main {
 .components {
   padding-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
@@ -328,7 +329,6 @@ main {
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: var(--light);
   width: 100%;
   margin-bottom: 15px; 
   border-radius: 10px;
@@ -500,4 +500,21 @@ main {
 
 @media screen and (max-width: 850px){
 
+}
+
+@media screen and (min-width: 768px) {
+  /*My Profile*/
+  .components {
+    flex-direction: row;
+    column-gap: 10px;
+  }
+
+  .delete-btn:hover {
+    background-color: rgb(101, 4, 4);
+  }
+
+  .submit-btn:hover {
+    background-color: #3094c6;
+  }
+  
 }

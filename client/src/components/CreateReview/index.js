@@ -10,12 +10,13 @@ function AddReview() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await newReview({
+    await newReview({
       variables: {
         reviewText: formState.reviewText,
       }
-    }).then()
-    return alert("Form Submitted Successfully");
+    });
+    window.alert('Review posted successfully');
+    window.location.reload();
   };
 
   const handleChange = (event) => {
@@ -48,7 +49,7 @@ function AddReview() {
           </div>
         ) : null}
         <div>
-          <button type="submit">Submit</button>
+          <button className='submit-btn' type="submit">Submit</button>
         </div>
       </form>
     </div>

@@ -19,7 +19,7 @@ function MyReservations () {
         {me ? (
           <>
             <h2>
-              Check your Reservations:
+              Check your Reservations
             </h2>
           {me.reservations.map((reservation) => (
             <div className='user-reservations'key={reservation._id}>
