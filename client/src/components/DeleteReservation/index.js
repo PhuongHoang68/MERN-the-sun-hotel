@@ -44,7 +44,7 @@ function DeleteReservation(props) {
           </div>
         ) : null}
       <div>
-        <button type="submit">Delete</button>
+        <button className="delete-btn" type="submit">Delete</button>
       </div>
     </form>
   </div>

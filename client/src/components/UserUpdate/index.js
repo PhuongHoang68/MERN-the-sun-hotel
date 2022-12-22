@@ -8,11 +8,13 @@ function UpdateEmail(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await newEmail({
+    await newEmail({
       variables: {
         email: formState.email
       }
     });
+    window.alert('Email updated successfully');
+    window.location.reload();
   };
 
   const handleChange = (event) => {
@@ -43,7 +45,7 @@ function UpdateEmail(props) {
           </div>
         ) : null}
       <div>
-        <button type="submit">Submit</button>
+        <button className='submit-btn' type="submit">Submit</button>
       </div>
     </form>
   </div>
