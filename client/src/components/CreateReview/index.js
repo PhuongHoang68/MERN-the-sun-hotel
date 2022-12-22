@@ -14,7 +14,8 @@ function AddReview() {
       variables: {
         reviewText: formState.reviewText,
       }
-    });
+    }).then()
+    return alert("Form Submitted Successfully");
   };
 
   const handleChange = (event) => {

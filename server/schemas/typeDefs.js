@@ -21,7 +21,7 @@ const typeDefs = gql`
 
   type Reservation {
     _id: ID
-    userID: String!
+    user: String
     arrivalDate: String!
     departureDate: String!
     daysBooked: [String]

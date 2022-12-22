@@ -136,11 +136,10 @@ const ReactCalendar = () => {
        let departureDate = reqReservation[reqReservation.length-1];
        let daysBooked = reqReservation;
        let room = roomType;
-       let userID = currentUser._id;
 
       try {
         await addReservation({
-          variables: { arrivalDate, departureDate, daysBooked, userID, room }
+          variables: { arrivalDate, departureDate, daysBooked, room }
         })
       } catch (err) {
         console.error(err)
