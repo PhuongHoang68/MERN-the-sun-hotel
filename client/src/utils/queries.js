@@ -45,7 +45,6 @@ export const QUERY_RESERVATIONS = gql`
             arrivalDate
             departureDate
             daysBooked
-            userID
             room 
         }
     }

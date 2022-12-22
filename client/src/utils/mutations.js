@@ -31,18 +31,16 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RESERVATION = gql`
-    mutation addReservation($arrivalDate: String!, $departureDate: String!, $daysBooked: [String], $userID: String!, $room:String! ) {
+    mutation addReservation($arrivalDate: String!, $departureDate: String!, $daysBooked: [String], $room:String! ) {
         addReservation (
-            arrivalDate: $arrivalDate, 
-            departureDate: $departureDate,
+            arrivalDate: $arrivalDate 
+            departureDate: $departureDate
             daysBooked: $daysBooked
-            userID: $userID
             room: $room
             ){
             arrivalDate
             departureDate
             daysBooked
-            userID
             room
         }
     }
@@ -76,6 +74,7 @@ export const UPDATE_EMAIL = gql`
     }
   } 
 `;
+
 export const ADD_ROOM = gql`
     mutation addRoom($roomType: String!, $price: Int!, $roomCount: Int!) {
         addRoom (

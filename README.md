@@ -1,80 +1,87 @@
-# Getting Started with Create React App
+# The-Sun-Hotel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Badge](https://img.shields.io/badge/License-MIT-lightblue.svg)
 
-## User Story
-### (1) As a user, I want to be able to see The Sun Hotel's photos, amenities, and book a room
-### (2) When I arrive at the homepage, I see a navigation bar that takes me to a "Dining" section, a "Room" section, and a "Reservation", a "Home" section.
-### (3) When I click on "Dining", it takes me to a page with the hotel's restaurant's operating time, and photos of the restaurant
-### (4) When I click on "Room", it takes me to a page with different room types, in card format. The card will have room photo on one side, and on the other side are details including "Room Name", "Bed Type", "Room View", and "Room Price". There will be a button below all the cards, that says "Reservation"
-### (5) "Room Price" won't have an actual price on it, just a hard-coded notes that says "To see price, click Reservation"
-### (6) When I click on "Reservation" (from either Nav bar or button on "Room" page),  it takes me to a calendar page
-### (7) I could pick available dates on calendar, click a button that says "Get Available Rooms", and available rooms for specific dates would get queried, in cards form.
-### (8) Clicking on an available room would take me to Sign-up page. Once i sign-up, I get taken to a Reservation Form. Once I fill that out and pay, I get a notification that says "Your reservation is completed. Reservation information has been sent to your email"
+![Final version of website](https://github.com/PhuongHoang68/MERN-the-sun-hotel/blob/b8ad1c51d53e294351533f7ae6ef43a2fed0452c/client/src/assets/images/deployed-application.png)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Description](#description)
+    - [User Story](#user-story)
+    - [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation)
+- [Built with](#built-with)
+- [Website](#website)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+MERN full-stack application that allows The Sun Hotel's customers to login and book a reservation, as well as to learn more about the hotel. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Story
+                As a hotel owner, 
+                I want a strong website
+                So that I can attract more customers. 
 
-### `npm test`
+### Acceptance Criteria
+                GIVEN a MERN hotel-booking website
+                WHEN I land at the homepage, 
+                THEN I see a navigation bar with options for Home, Dining, Reservation, Review, and Login 
+                WHEN I sign up or log in
+                THEN I can create a reservation
+                WHEN I am logged in
+                THEN I can see my reservations and cancel them; update my email, and write a review
+                WHEN I land on the review page
+                THEN I see all user reviews
+               
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Make sure you have node.js installed in your local machine.
+2. Clone this repo or download the code. Open it with vscode.
+3. Run npm install
 
-### `npm run build`
+## Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- MERN
+- Heroku
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Website
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Heroku: [https://the-sun-hotel-hcmc.herokuapp.com/](https://the-sun-hotel-hcmc.herokuapp.com/)
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project is licensed under the MIT License license.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you would like to contribute to this project reach out to us. You can find our contact information in the [Questions](#questions) section. You are also welcome to fork the repository.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you decide to fork it, then:
 
-## Learn More
+1. Create your feature branch
+2. Commit your changes
+3. Push your branch
+4. Submit a pull request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Not Applicable
 
-### Code Splitting
+## Questions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Github Username: [PhuongHoang68](https://github.com/PhuongHoang68)
+  - Contact Email: p.hoang6897@yahoo.com
+  
+- Github Username: [JayWhiteBuffalo](https://github.com/JayWhiteBuffalo)
+  - Contact Email: JayWhiteBuffalo@protonmail.com
 
-### Analyzing the Bundle Size
+- Github Username: [rafiqnasrat](https://github.com/rafiqnasrat)
+  - Contact Email: rafiqullahnasrat3@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Github Username: [tracybrtn](https://github.com/tracybrtn)
+  - Contact Email: tracynburton@gmail.com

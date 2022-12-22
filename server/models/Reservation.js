@@ -15,7 +15,7 @@ const reservationSchema = new Schema(
     daysBooked: {
       type: []
     },
-    userID: {
+    user: {
       type: String,
       required: true
     },
