@@ -48,9 +48,11 @@ const ReactCalendar = () => {
 
     //sets state from string from drop down selection
     const roomChange = () => 
-    {let roomInput = document.querySelector('#rooms').value
+      {
+      setIsValid(false)
+      let roomInput = document.querySelector('#rooms').value
       setRoomType(roomInput)
-    }
+      }
     
     //Checks to see if room is open
     const checkAvailable = () => {
