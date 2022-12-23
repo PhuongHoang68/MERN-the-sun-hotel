@@ -101,7 +101,6 @@ const ReactCalendar = () => {
             const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
-            debugger
         //Loop through the dates and check which dates are booked full
          for (let i = 0; i < (Object.entries(count)).length; i++) {
           //dateRoomsArr will return the Date, dateRoomsArr[1] will return number of booked rooms for that date
