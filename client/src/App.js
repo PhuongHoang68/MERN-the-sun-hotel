@@ -21,7 +21,7 @@ import MyProfile from "./pages/MyProfile";
 import Review from "./pages/Review";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
