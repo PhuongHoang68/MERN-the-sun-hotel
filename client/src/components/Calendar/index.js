@@ -33,6 +33,8 @@ const ReactCalendar = () => {
         
          //Push fetched reservations in Array for reference
         reservationArr.push(reservations);
+        console.log(reservationArr)
+        console.log(rooms)
 
     //States
     //tracks Calander date input
@@ -40,7 +42,7 @@ const ReactCalendar = () => {
     //Tracks input for requested reservation
     const [reqReservation, setReqReservation] = useState([]);
     //Tracks which room is being chose
-    const [roomType, setRoomType] = useState();
+    const [roomType, setRoomType] = useState("undefined");
     //Tracks if the Requested Reservation can be booked
     const [isValid, setIsValid] = useState(false);
 
@@ -56,17 +58,16 @@ const ReactCalendar = () => {
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
-      console.log(date.length)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
         if(roomMatched === roomType){
           let roomNum = rooms[r].roomCount
+          //Reset roomCount Array, allows referenced room Count to vary based on room type 
           roomCount.length = 0;
           roomCount.push(roomNum)
         }}
   
-      console.log(reservationArr[0].length)
       //Find all reservations that contain the resquested room type and put the matches in new array
       for (let i = 0; i < reservationArr[0].length; i++) {
         if(roomType === reservationArr[0][i].room){
@@ -87,7 +88,7 @@ const ReactCalendar = () => {
         const daysBooked = matchingRes[i].daysBooked;
           for (let j = 0; j < daysBooked.length; j++) {
             const date = daysBooked[j];
-            console.log(date)
+            // console.log(date)
             if(reqReservation.includes(date)){
               blockedDates.push(date)}
               console.log(blockedDates)
@@ -115,7 +116,7 @@ const ReactCalendar = () => {
     const handleCheckAvailable = async (event) => {
       event.preventDefault();
       checkAvailable()
-      {console.log(isValid)}
+      console.log(date.length)
     }
     //add Reservation
     
@@ -206,26 +207,49 @@ const ReactCalendar = () => {
               <label htmlFor="rooms">What type of room would you like?</label>
               <br/><br/>
               <select name="rooms" id="rooms" onChange={roomChange}>
-                <option value="null">Choose Room Type</option>
+                <option value="undefined">Choose Room Type</option>
                 <option value="Deluxe Double">Deluxe Double Room</option>
                 <option value="Superior Double">Superior Double Room</option>
                 <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
-            <br/>{ isValid === true && roomType != undefined && date.length > 0  ? ( <div className="bookingBox">
-            <span>Your Room is Available!</span>
             <br/>
-        <button type="submit" onClick={handleSubmit}>
-            Confirm your Booking!
-        </button></div>) : (
-          <div>
-          <div>Check if your Room is available.</div>
-          <br/><br/>
-          <button type="click" onClick={handleCheckAvailable} >
-          Check Available
-      </button></div>) }{ (roomType === undefined || null) && date.length > 0 ? (
-        <div><span>Please Select a Room Type</span></div>
-      ) : (<div></div>)}
+            { isValid === true && roomType !== "undefined" && date.length > 0  ? ( 
+            <div className="bookingBox">
+              <span>
+                Your Room is Available!
+              </span>
+            <br/>
+        <button type="submit" onClick={handleSubmit}>Confirm your Booking!</button>
+          </div>) : (
+            <div>
+            <br/><br/>
+          <button type="click" onClick={handleCheckAvailable} >Check Available</button>
+          </div>) }
+          { (roomType == "undefined") && date.length > 1 ? (
+          <span>
+            <br/>
+            Please Select a Room Type
+          </span>
+        ) : null}
+      {(roomType !== "undefined") && date.length === undefined ? (
+          <span>
+            <br/>
+              Please Select Dates     
+          </span>
+      ) : null } 
+      { (roomType !== "undefined") && date.length > 0 && isValid === false ?(
+        <span>
+          <br/>
+            Check if your Room is available.
+        </span>
+      ) : null }
+      { (roomType == "undefined") && date.length === undefined ? (
+        <span>
+          <br/>
+            Please Select Dates and Room
+        </span>
+      ) : null }
         </div>
       </div>
       </div>
