@@ -148,7 +148,7 @@ const ReactCalendar = () => {
         console.error(err)
       } if (!err){
         //Redirect to Profile Page
-        window.location.reload(navigate("/myProfile"));
+        window.location.reload(navigate("/myprofile"));
       }
   
     };
