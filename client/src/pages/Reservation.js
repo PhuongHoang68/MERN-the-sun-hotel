@@ -3,29 +3,6 @@ import ReactCalendar from "../components/Calendar";
 import Auth from "../utils/auth"
 import { Link } from "react-router-dom";
 
-
-// import { useMutation } from '@apollo/client';
-// import { ADD_RESERVATION } from "../utils/mutations";
-// import { QUERY_RESERVATION } from "../utils/queries";
-
-
-//  const [addArrivalDate, { error}] = useMutation(ADD_RESERVATION, {
-//     update(cache, { data: { addArrivalDate } }) {
-//         try{
-//         const { reservation } = cache.readQuery({ query: QUERY_RESERVATION});
-
-//         cache.writeQuery({
-//             query: QUERY_RESERVATION,
-//             data: { reservation: [addArrivalDate, ...reservation] }
-//         });
-//     } catch (e) {
-//         console.warn("First reservation insertion by user")
-//     }
-
-// }
-// });
-
-
   
 const Reservation = () => {
   const loggedIn = Auth.loggedIn();

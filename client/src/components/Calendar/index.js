@@ -8,16 +8,17 @@ import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queri
 import { ADD_RESERVATION } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
+
+
+
+
 const ReactCalendar = () => {
 
-    //Holds all know reservations
-    const reservationArr = [];
-    //The dates requesting to be reserved
-    const daysReq = [];
-    //The amount of rooms the hotel has for specific roomType
-    const roomCount = [];
-    // Dates and room type where there is no Vacancy
-    const noVancancy = [];
+
+    const reservationArr = [];  //Holds all know reservations
+    const daysReq = [];  //The dates requesting to be reserved
+    const roomCount = [];  //The amount of rooms the hotel has for specific roomType
+    const noVancancy = [];  // Dates where there is no Vacancy
     const navigate = useNavigate();
     
 
@@ -45,6 +46,7 @@ const ReactCalendar = () => {
     const [roomType, setRoomType] = useState("undefined");
     //Tracks if the Requested Reservation can be booked
     const [isValid, setIsValid] = useState(false);
+    const [disabledDates, setDisabledDates] = useState();
 
     //sets state from string from drop down selection
     const roomChange = () => 
@@ -77,7 +79,6 @@ const ReactCalendar = () => {
         }}
 
         //if No matches are found then the room is available.
-        console.log(matchingRes)
        if (matchingRes.length < roomCount[0] || matchingRes.length === 0){
         console.log("Your room is available")
         setIsValid(true)
@@ -89,10 +90,8 @@ const ReactCalendar = () => {
         const daysBooked = matchingRes[i].daysBooked;
           for (let j = 0; j < daysBooked.length; j++) {
             const date = daysBooked[j];
-            // console.log(date)
             if(reqReservation.includes(date)){
               blockedDates.push(date)}
-              console.log(blockedDates)
             }}
             if(blockedDates < 1){
               console.log('Blocked dates less than one, room is available')
@@ -102,33 +101,28 @@ const ReactCalendar = () => {
             const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
-            console.log(Object.entries(count))
-          console.log(Object.entries(count)[0][1]);
-        console.log(isValid)
         //Loop through the dates and check which dates are booked full
          for (let i = 0; i < (Object.entries(count)).length; i++) {
           //dateRoomsArr will return the Date, dateRoomsArr[1] will return number of booked rooms for that date
           const dateRoomsArr = (Object.entries(count));
-          console.log(i)
-          console.log(dateRoomsArr.length)
           //If there are more reservations for that day than there are rooms. The reservation cannot be made
           if( dateRoomsArr[i][1] >= roomCount[0]){
             console.log("There are no",roomType,'rooms Left on ', dateRoomsArr[i][0])
-            noVancancy.push(dateRoomsArr[i])
+            noVancancy.push(dateRoomsArr[i][0])
             setIsValid(false)
           } else if (dateRoomsArr.length < 1){
             console.log("Room is available")
             setIsValid(true)
           }
          }
-          
+         setDisabledDates(noVancancy);
         };
 
          //Trigger to Check if Room is open
     const handleCheckAvailable = async (event) => {
       event.preventDefault();
       checkAvailable()
-      console.log(date.length)
+      console.log(noVancancy)
     }
     //add Reservation
     
@@ -195,6 +189,7 @@ const ReactCalendar = () => {
               onChange={getDates}
               selectRange={true}
               returnValue="range"
+              // tileDisabled={disabledDates}
             />
           </div>
           <br/>
@@ -267,7 +262,6 @@ const ReactCalendar = () => {
       </div>
       </div>
         </main>
-        <button id = "hiddenBtn" type="submit" onClick={ () =>console.log(isValid)}>Check State</button>
       </div>
       );
     }
