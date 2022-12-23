@@ -16,6 +16,8 @@ const ReactCalendar = () => {
     const daysReq = [];
     //The amount of rooms the hotel has for specific roomType
     const roomCount = [];
+    // Dates and room type where there is no Vacancy
+    const noVancancy = [];
     const navigate = useNavigate();
     
 
@@ -33,8 +35,6 @@ const ReactCalendar = () => {
         
          //Push fetched reservations in Array for reference
         reservationArr.push(reservations);
-        console.log(reservationArr)
-        console.log(rooms)
 
     //States
     //tracks Calander date input
@@ -48,9 +48,11 @@ const ReactCalendar = () => {
 
     //sets state from string from drop down selection
     const roomChange = () => 
-    {let roomInput = document.querySelector('#rooms').value
+      {
+      setIsValid(false)
+      let roomInput = document.querySelector('#rooms').value
       setRoomType(roomInput)
-    }
+      }
     
     //Checks to see if room is open
     const checkAvailable = () => {
@@ -78,8 +80,7 @@ const ReactCalendar = () => {
         console.log(matchingRes)
        if (matchingRes.length < roomCount[0] || matchingRes.length === 0){
         console.log("Your room is available")
-        setIsValid(!isValid)
-         console.log(isValid)
+        setIsValid(true)
       } 
 
 
@@ -93,22 +94,33 @@ const ReactCalendar = () => {
               blockedDates.push(date)}
               console.log(blockedDates)
             }}
+            if(blockedDates < 1){
+              console.log('Blocked dates less than one, room is available')
+              setIsValid(true)
+            }
+            //Take all blocked dates and return an arr with that date and the number of rooms that have been reserved on that date
             const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
-          console.log(Object.entries(count));
-        
+            console.log(Object.entries(count))
+          console.log(Object.entries(count)[0][1]);
+        console.log(isValid)
+        //Loop through the dates and check which dates are booked full
+         for (let i = 0; i < (Object.entries(count)).length; i++) {
+          //dateRoomsArr will return the Date, dateRoomsArr[1] will return number of booked rooms for that date
+          const dateRoomsArr = (Object.entries(count));
+          console.log(i)
+          console.log(dateRoomsArr.length)
           //If there are more reservations for that day than there are rooms. The reservation cannot be made
-          for (const [key, value] of Object.entries(count)) {
-          if(`${value}` >= roomCount[0]){
-            console.log("No rooms")
-            setIsValid(isValid)
-            console.log(isValid)
-              } if (`${value}` < roomCount[0]) {
-                setIsValid(!isValid)
-                console.log(isValid)
-              }
-            }
+          if( dateRoomsArr[i][1] >= roomCount[0]){
+            console.log("There are no",roomType,'rooms Left on ', dateRoomsArr[i][0])
+            noVancancy.push(dateRoomsArr[i])
+            setIsValid(false)
+          } else if (dateRoomsArr.length < 1){
+            console.log("Room is available")
+            setIsValid(true)
+          }
+         }
           
         };
 
@@ -157,6 +169,7 @@ const ReactCalendar = () => {
     //Get requested dates from calendar by state change
     const getDates = (date) => {
         setDate(date);
+        setIsValid(false)
         let arrivalDate = (moment(date[0]).format("MM/DD/YYYY"));
         let departureDate = (moment(date[1]).format("MM/DD/YYYY"));
         let bookedDates = eachDayOfInterval({
