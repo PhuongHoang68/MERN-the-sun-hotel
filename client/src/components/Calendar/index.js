@@ -157,6 +157,7 @@ const ReactCalendar = () => {
     //Get requested dates from calendar by state change
     const getDates = (date) => {
         setDate(date);
+        setIsValid(false)
         let arrivalDate = (moment(date[0]).format("MM/DD/YYYY"));
         let departureDate = (moment(date[1]).format("MM/DD/YYYY"));
         let bookedDates = eachDayOfInterval({
