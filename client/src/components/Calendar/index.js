@@ -101,16 +101,19 @@ const ReactCalendar = () => {
             const count = blockedDates.reduce((accumulator, value) => {
               return {...accumulator, [value]: (accumulator[value] || 0) + 1};
             }, {});
+            debugger
         //Loop through the dates and check which dates are booked full
          for (let i = 0; i < (Object.entries(count)).length; i++) {
           //dateRoomsArr will return the Date, dateRoomsArr[1] will return number of booked rooms for that date
           const dateRoomsArr = (Object.entries(count));
+          console.log(dateRoomsArr.length)
+          console.log(i+1);
           //If there are more reservations for that day than there are rooms. The reservation cannot be made
-          if( dateRoomsArr[i][1] >= roomCount[0]){
+          if( dateRoomsArr[i][1] >= 5){
             console.log("There are no",roomType,'rooms Left on ', dateRoomsArr[i][0])
             noVancancy.push(dateRoomsArr[i][0])
             setIsValid(false)
-          } else if (dateRoomsArr.length < 1){
+          } else if (dateRoomsArr.length <= i+1 && noVancancy < 1){
             console.log("Room is available")
             setIsValid(true)
           }
@@ -122,14 +125,11 @@ const ReactCalendar = () => {
     const handleCheckAvailable = async (event) => {
       event.preventDefault();
       checkAvailable()
-      console.log(noVancancy)
     }
     //add Reservation
     
     const [addReservation, {err} ] = useMutation(ADD_RESERVATION, {
       update(cache, { data: { addReservation } }) {
-
-      
       // update  Reservation array's cache
       // const { reservations } = cache.readQuery({ query: QUERY_RESERVATIONS});
       // cache.writeQuery({
