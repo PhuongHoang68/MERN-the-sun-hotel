@@ -1,11 +1,4 @@
-main {
-	max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  padding: 1rem;
-  font-weight: bold;
-}
-
+/*Universal CSS*/
 :root {
   --primary: #ffd700;
   --secondary: #3094c6;
@@ -19,35 +12,51 @@ main {
   --spacing-five: calc(2.5rem);
 }
 
-.primary{
+/*Background color classes*/
+
+.primary {
   background-color: var(--primary);
   filter: brightness(125%);
 }
 
-
-.secondary{
+.secondary {
   background-color: var(--secondary);
 }
 
-.tertiary{
+.tertiary {
   background-color: var(--tertiary);
 }
 
-.light{
+.light {
   background-color: var(--light);
 }
 
-.white{
+.white {
   background-color: white;
 }
 
-.text-strech
-{
+/*Text styling*/
+
+.text-stretch {
   letter-spacing: 2px;
 }
 
-.border{
-  border: 2px solid black;
+.text-center {
+  text-align: center;
+}
+
+/*HTML elements*/
+
+main {
+	max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  padding: 1rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  margin: 1vw;
+  justify-content: center;
 }
 
 section {
@@ -60,12 +69,7 @@ section {
   border-top: 2px solid black;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  margin: 1vw;
-  justify-content: center;
-}
+/*Container Styles*/
 
 .center {
   display: flex;
@@ -73,18 +77,18 @@ main {
   justify-content: center;
 }
 
-.text-center{
-  text-align: center;
+.border {
+  border: 2px solid black;
 }
 
-.border{
-  border: 1px solid black;
-}
+
 /*Hero Style Start */
 .hero {
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 100%;
+  width: 100%;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -96,75 +100,77 @@ main {
 }
 
 .hero img  {
-  height: 100%;
+  height: 15em;
   width: 100%;
   opacity: 0.6;
 }
 
-
 /* About Section */
 
-.about{
+.about {
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: .5px solid black;
   box-sizing: content-box;
-  height: 20vh;
-  width: 70vw;
-  margin: 2rem;
-  padding: 3rem;
+  height: 20%;
+  width: 70%;
+  margin: .5rem;
+  padding: .5rem;
+  font-size: x-small;
   font-weight: 500;
   background-color: white;
 }
 
 /* Discover Section */
 
-.discover{
+.discover {
   padding: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: -6px;
-
 }
 
-.discoverWrap{
+.discoverWrap {
+  height: 25%;
+  min-height: 350px;
   margin: 2rem;
-  height: 60vh;
-  width: 100vw;
-  
-}
+  height: 45vh;
+} 
 
 
 /* Slides */
 
-.slide{
+.slide {
   margin-top: 5rem;
 }
 
-.discoverCard{
+.discoverCard {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   height: 50vh;
-  margin: 1rem;
+  margin: 5% 10%;  
+  min-height: 275px;
   max-width: 300px;
   flex-wrap: wrap;
   border-radius: 10%;
 }
 
-.discoverCard img{
+.discoverCard img {
   display: flex;
   flex-shrink: calc();
   width: 100%;
-  max-width: 275px;
-  height: 10rem;
+  max-width: 80%;
+  height: 50%;
+  margin-left: 25px;
   min-height: fit-content;
   margin: 10px;
   border: 2px solid black;
 }
+
 
 .discoverCard img:hover{
   filter: contrast(110%) brightness(120%) drop-shadow(4px 4px 5px var(--primary)) ;
@@ -173,49 +179,57 @@ main {
   -webkit-transform: scale(1);
 }
 
-.cardTextcnt{
+.cardTextcnt {
   margin: 0px 20px 0px 20px ;
   height: 5rem;
 }
 
-.cardBtn{
-  margin-bottom: 10px;
+.cardBtn {
+  margin-top: 5%;
+}
+
+.discoverCard {
+  max-width: 300px;
+  margin-left: 15%;
 }
 
 /* Reservation Section */
 
-.bookingMain{
-
-    max-width: 100vw;
-    max-height: 100vh;
-    display: flex;
-    margin-left: 5rem;
-    
-    
+.resPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.calendar{
+.bookingMain {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  width: 30rem;
+  margin-right: 18%;
+}
+
+.calendar {
   background-color: var(--secondary);
   width: 100%;
   padding-top: 2em;
   padding-bottom: 2em;
   margin-bottom: 5rem;
-
-  
-}
-.resHead{
-  height: 20vh;
-  padding: 2em;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  
 }
 
-.bookingCont{
+.resHead {
+  height: 0;
+  padding: 20%;
+  margin-top:0;
+}
+
+.bookingCont {
   margin: 3rem;
   display: flex;
   flex-direction: column;
   height: 315px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   font-weight: 500;
@@ -224,33 +238,41 @@ main {
   border: 1px solid black;
 }
 
-.bookingBox{
+.bookingBox {
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 275px;
-  width: 350px;
-
+  width: 100%;
 }
 
-.bookingDropdown{
+.bookingDropdown {
   text-align: center;
   margin: 10px;
   justify-content: space-between;
 }
-#rooms{
+
+.mobileBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#rooms {
   margin: 5px;
   margin-bottom: 0px;
 }
 
-#hiddenBtn{
+#hiddenBtn {
   opacity: 0;
 }
 
-.loginPlsBtn{
+.loginPlsBtn {
   margin-top: 6rem;
   margin-bottom: 10rem;
 }
+
 /*Reviews*/
 
 .review-container {
@@ -356,54 +378,11 @@ main {
   font-weight: 800;
 }
 
-@media screen and (max-width: 950px){
-  .discoverWrap{
-    margin: 2rem;
-    height: 33vh;
-    width: 100vw;
-  }
+/* Media Queries
 
-  .discoverCard{
-    max-width: 40vw;
-    max-height: 30vh;
-    margin-left: 11%;
-  }
-
-  .discoverCard img{
-    max-width: 90%;
-    height: 50%;
-    margin: 10px 5%;
-  }
-
-  .cardBtn{
-    margin-top: 1vh;
-  }
-
-  }
-
-
-@media screen and (max-width: 600px) {
-  .hero {
-    height: 100%;
-    width: 100%;
-    margin-top: 80px;
-  }
-
-  .hero img  {
-    height: 15em;
-  }
-
-  .about{
-    height: 20%;
-    width: 70%;
-    margin: .5rem;
-    padding: .5rem;
-    font-size:x-small;
-  }
-  
-  .discoverWrap{
-    margin: 2rem;
-    height: 45vh;
+@media screen and (min-width: 480px) {
+  .cardBtn {
+    margin-top: -9rem;
   }
 
   .discoverCard{
@@ -411,92 +390,88 @@ main {
     min-height: 300px;
     margin-left: 10%;
   }
-  
-  .discoverCard img{
-    max-width: 80%;
-    height: 50%;
-    margin-left: 25px;
+
+  .discoverWrap {
+    margin: 2rem;
+    height: 33vh;
+    width: 100vw;
+  }
+}
+
+/*media queries for tablets*/
+/*
+@media screen and (min-width: 576px) {
+  .hero {
+    height: 80vh;
+    width: auto;
+    margin-top: auto;
   }
   
-  .cardBtn{
+  .hero img  {
+    height: 100%;
+  }
+
+  .about{
+    height: 20vh;
+    width: 70vw;
+    margin: 2rem;
+    padding: 3rem;
+    font-size: medium;
+  }
+
+  .cardBtn {
     margin-top: 20%;
   }
 
-/*reservation*/
-
-.resPage{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.bookingMain{
-  max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  width: 30rem;
-  margin-right: 18%;
-}
-
-.resHead{
-  height: 0;
-  padding: 20%;
-  margin-top:0;
-}
-
-.mobileBooking{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.bookingCont{
-
-  width: 100%;
-}
-
-.bookingBox{
-
-  width: 100%;
-}
-
-}
-
-@media screen and (max-width: 500px){
-  .discoverCard{
-    max-width: 300px;
-    margin-left: 15%;
-  }
-  
-  .cardBtn{
-    margin-top: -9rem;
-  }
-}
-@media screen and (max-width: 450px){
-  .discoverCard{
-    margin: 5% 10%;
-    min-height: 275px;
+  .resPage {
+    display: block
   }
 
-  .discoverWrap{
-    height: 25%;
-    min-height: 350px;
-
+  .bookingMain {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    margin-left: 5rem; 
+    width: auto;
+    margin-right: auto;
   }
-  .cardBtn {
-    margin-top: 5%;
+
+  .resHead{
+    height: 20vh;
+    padding: 2em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
-}
 
+  .mobileBooking{
+    width: auto;
+    display: block
+  }
 
+  .bookingCont{
+    width: auto;
+  }
 
-@media screen and (max-width: 850px){
+  .bookingBox{
+    width: 325px;
+  }
 
+  .discoverCard img {
+    max-width: 275px;
+    height: 10rem;
+    margin-left: auto
+  }
+
+  .discoverCard {
+    max-width: 40vw;
+    max-height: 30vh;
+    margin-left: 11%;
+  }
 }
 
 @media screen and (min-width: 768px) {
   /*My Profile*/
+  /*
   .components {
     flex-direction: row;
     column-gap: 10px;
@@ -509,6 +484,30 @@ main {
   .submit-btn:hover {
     background-color: #3094c6;
   }
-  
+
+  .cardBtn {
+    margin-bottom: 10px;
+  }
 }
+
+
+/*media queries for smaller laptops */
+/*
+@media screen and (min-width: 820px) {
+  .cardBtn{
+    margin-top: 1vh;
+  }
+
+  .discoverCard {
+    margin: 1rem;
+  }
+
+  .discoverWrap {
+    height: 60vh;
+    width: 100vw;
+    margin: 2rem;
+  }
+}
+
+ */
 
