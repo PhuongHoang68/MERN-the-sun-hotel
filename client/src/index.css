@@ -10,7 +10,7 @@ main {
   --primary: #ffd700;
   --secondary: #3094c6;
   --tertiary: #239854;
-  --light: #eee6da;
+  --light: rgb(244, 244, 243);
   --dark: #0d1b1e;
   --darker: #111111;
   --error: rgb(228, 46, 1);

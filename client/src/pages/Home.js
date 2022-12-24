@@ -1,16 +1,18 @@
 import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
-import Hero from "../components/Swiper/Hero/"
+import HeroAlt from "../components/Hero/Video";
+import Header from '../components/Header/Header';
 
 const Home = () => {
     return (
     <div>
+        <Header/>
         {/* Hero Section */}
-        <Hero>
+        <HeroAlt>
             <div>
                 <button className="hero-btn"> Book Your Room Today!</button>
             </div>
-        </Hero>
+        </HeroAlt>
         {/* Short About / Lead in section */}
 
         <section className="light">
