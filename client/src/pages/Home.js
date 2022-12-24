@@ -2,6 +2,7 @@ import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
 import Header from '../components/Header/Header';
+import Aos from "aos";
 
 const Home = () => {
     return (

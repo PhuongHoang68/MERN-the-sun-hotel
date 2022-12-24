@@ -1,4 +1,4 @@
-/* /* header {
+header {
 	position: fixed;
 	display: flex;
 	align-items: center;
@@ -20,22 +20,29 @@ nav a {
 	margin: 0 1.5rem;
 	color: white;
 	text-decoration: none;
-	font-size: 1.2rem;
 }
 
-
-/* header .nav-btn {
+.navbtn {
 	padding: 5px;
 	cursor: pointer;
 	background: transparent;
 	border: none;
 	outline: none;
-	color: var(--white);
-	visibility: hidden;
-	opacity: 0;
+	color: white;
 	font-size: 1.8rem;
-} */
-/*
+}
+
+.navbtnML {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	color: white;
+	font-size: 1.8rem;
+}
+
+.mobileLinks nav a{
+    font-size: 1rem;
+}
 header div,
 nav {
 	display: flex;
@@ -51,7 +58,7 @@ nav {
 	border: none;
 }
 
-.nav-btn-reg :hover{
+.navbtn :hover{
 	color: var(--primary);
 }
 
@@ -146,9 +153,6 @@ nav {
 	.mobileLinks{
 		display: flex;
 		flex-direction: column;
-		margin-left: 50px;
-		
-
 	}
 	.mobileLinks nav{
 		display: flex;
@@ -194,4 +198,4 @@ nav {
 	}
 
 
-} */
+}
