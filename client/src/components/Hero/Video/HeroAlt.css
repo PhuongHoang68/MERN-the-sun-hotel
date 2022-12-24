@@ -1,9 +1,13 @@
+.heroWrap{
+  position: relative;;
+}
+
 .background-video-wrapper {
     color: #fff;
     background: #000;
     text-align: center;
-    position:relative;
-    z-index: 1;
+    position:absolute;
+    z-index: -1;
 }
     video {
       display: flex;
@@ -14,12 +18,8 @@
       top: 0;
       left: 0;
       object-fit: cover;
+      opacity: 70%;
     }
-    .textoverlay{
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      margin: 10vmax 4rem;
-    }
+
   
   

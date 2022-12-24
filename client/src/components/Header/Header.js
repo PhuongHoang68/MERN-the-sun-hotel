@@ -39,6 +39,7 @@ const Header = () =>{
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
+		<div className="loginWrap">
         <div className="login">
             <Link to="/myprofile">
               Profile
@@ -47,12 +48,15 @@ const Header = () =>{
             Logout
           </a>
       </div>
+	  </div>
       );
     } else {
       return(
+		<div className="loginWrap">
         <div className="login">
             <Link to="/login">Login</Link>
         </div>
+		</div>
       );
     }
   }
@@ -103,13 +107,7 @@ const Header = () =>{
 				</button>
 			</nav>
 			</div>
-			<div className="logoCont">
-			<div className="logo">
-			<div className="logoImg">
-			<img src={logo} alt="Sun Hotel Logo"></img>
-			</div>
-			</div>
-			</div>
+		
 			{showNavigation()}
 			</header>
 	);
