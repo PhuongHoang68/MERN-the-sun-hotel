@@ -7,7 +7,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
-import { FaCircle } from "react-icons/fa";
+
 
 
 
