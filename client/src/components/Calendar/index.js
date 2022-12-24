@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { eachDayOfInterval} from 'date-fns'
@@ -7,6 +7,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -46,11 +47,12 @@ const ReactCalendar = () => {
     const [roomType, setRoomType] = useState("undefined");
     //Tracks if the Requested Reservation can be booked
     const [isValid, setIsValid] = useState(false);
-    const [disabledDates, setDisabledDates] = useState();
+    const [disabledDates, setDisabledDates] = useState([]);
 
     //sets state from string from drop down selection
     const roomChange = () => 
       {
+      setDisabledDates([])
       setIsValid(false)
       let roomInput = document.querySelector('#rooms').value
       setRoomType(roomInput)
@@ -123,6 +125,7 @@ const ReactCalendar = () => {
          //Trigger to Check if Room is open
     const handleCheckAvailable = async (event) => {
       event.preventDefault();
+      setDisabledDates('');
       checkAvailable()
     }
     //add Reservation
@@ -161,6 +164,7 @@ const ReactCalendar = () => {
 
     //Get requested dates from calendar by state change
     const getDates = (date) => {
+        setDisabledDates([])
         setDate(date);
         setIsValid(false)
         let arrivalDate = (moment(date[0]).format("MM/DD/YYYY"));
@@ -176,6 +180,19 @@ const ReactCalendar = () => {
         setReqReservation(daysReq);
     };
   
+    //Function to render unavailable dates to user
+    // const nVDates = () => {
+    //   let regx = new RegExp(`(\\d{2}/\\d{2}/\\d{4})`)
+    //   if(disabledDates < 1){return} else {
+    //   let days = disabledDates.split(regx);
+    //   console.log(days)
+    //   for (let i = 0; i < days.length; i++) {
+    //      days[i] = <span key={i}>{days[i]}</span>
+    //   }
+    //   return <div>{days}</div>;
+    // }
+    // } 
+
 
     return (
       <div>
@@ -233,7 +250,7 @@ const ReactCalendar = () => {
             <br/><br/>
           <button type="click" onClick={handleCheckAvailable} >Check Available</button>
           </div>) }
-          { (roomType == "undefined") && date.length > 1 ? (
+          { (roomType === "undefined") && date.length > 1 ? (
           <span>
             <br/>
             Please Select a Room Type
@@ -245,18 +262,23 @@ const ReactCalendar = () => {
               Please Select Dates     
           </span>
       ) : null } 
-      { (roomType !== "undefined") && date.length > 0 && isValid === false ?(
+      { (roomType !== "undefined") && date.length > 0 && isValid === false && disabledDates.length < 0  ?(
         <span>
           <br/>
             Check if your Room is available.
         </span>
       ) : null }
-      { (roomType == "undefined") && date.length === undefined ? (
+      { (roomType === "undefined") && date.length === undefined ? (
         <span>
           <br/>
             Please Select Dates and Room
         </span>
       ) : null }
+      { disabledDates.length > 0 && isValid === false ? (
+        <span className="text-center">
+          There are no {roomType} rooms Left on<br/> {'✦' + disabledDates.join(' ✦ ') + '✦'}</span>
+        ) : null
+      }
         </div>
       </div>
       </div>
