@@ -11,8 +11,26 @@ header {
 }
 
 .logoCont{
-	margin-top: 10%;
-	margin-left: 25%;
+	margin-top: 5rem;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	
+}
+
+.logo{
+	margin-top: 15rem;
+	width: 600px;
+	height: 10px;
+	border: 5px solid white;
+	background-color: crimson;
+	border-radius: 50%;
+	border-style: groove;
+
+}
+
+.logoImg{
+	margin-bottom: 60px;
 	/* background-color: var(--light); */
 	z-index: 999;
 	max-height: 150px;

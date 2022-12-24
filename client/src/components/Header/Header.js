@@ -104,7 +104,11 @@ const Header = () =>{
 			</nav>
 			</div>
 			<div className="logoCont">
+			<div className="logo">
+			<div className="logoImg">
 			<img src={logo} alt="Sun Hotel Logo"></img>
+			</div>
+			</div>
 			</div>
 			{showNavigation()}
 			</header>
