@@ -10,34 +10,9 @@ header {
 	z-index: 2;
 }
 
-.logoCont{
-	margin-top: 5rem;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	
-}
-
-.logo{
-	margin-top: 15rem;
-	width: 600px;
-	height: 10px;
-	border: 5px solid white;
-	background-color: crimson;
-	border-radius: 50%;
-	border-style: groove;
-
-}
-
-.logoImg{
-	margin-bottom: 60px;
-	/* background-color: var(--light); */
-	z-index: 999;
-	max-height: 150px;
-}
 
 header div img {
-	height: 550px;
+	height: 1000px;
 	filter: drop-shadow(0 0 2rem rgb(220, 107, 20));
 }
 
@@ -73,20 +48,25 @@ nav {
 	font-size: 1.5rem;
 }
 
+.loginWrap{
+	display: inline-block;
+	width: 85vw;
+	margin-right: 10%;
+	align-items: flex-end;
+	justify-items: end;
+
+}
 .login {
 	color: white;
-	display: flex;
 	flex-direction: row;
-	margin: 2rem;
-	padding: 2rem;
-	margin-left: 35%;
-	margin-top: 4%;
+	position: absolute;
+	right: 0;
+	margin-right: 10%
 }
 
 .login a{
 	color: white;
 	font-size: 1.5rem;
-	margin: 2rem;
 	text-decoration: none;
 }
 

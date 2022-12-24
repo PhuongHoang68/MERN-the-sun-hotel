@@ -1,0 +1,15 @@
+.logoCont{
+	width: 100vw;
+    height: 100vh;
+	display: flex;
+	justify-content:end;
+    align-items:flex-end;
+}
+
+.logo{
+    margin-right: 5rem;
+}
+
+.logoImg img{
+	filter: drop-shadow(0 0 1.5rem crimson);
+}

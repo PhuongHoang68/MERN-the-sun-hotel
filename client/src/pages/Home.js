@@ -1,6 +1,6 @@
 import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
-import HeroAlt from "../components/Hero/Video";
+import HeroAlt from "../components/Hero/Video/index";
 import Header from '../components/Header/Header';
 
 const Home = () => {
