@@ -69,15 +69,13 @@ const DiscoverCards = () =>{
   }
 }
         const settings = {
-            dots: false,
+            dots: true,
             arrows: true,
+            focusOnSelect: true,
             infinite: true,
-            speed: 8000,
+            speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            autoplay: true,
-            pauseOnHover: true,
-            autoplaySpeed: 10,
             cssEase:"linear",
             mobileFirst: true,
             responsive: [
@@ -127,12 +125,13 @@ const DiscoverCards = () =>{
                   onPointerLeave={()=> activate(card)}
                    /></div>
                    { activeCard !== null && activeCard !== undefined? (
+                    
                 <div className="text-center cardTextcnt">
                   <h4>
-                    {card.name}
+                    {activeCard.name}
                   </h4>
                   <p>
-                    {card.description}
+                    {activeCard.description}
                   </p>
                 </div>) : (null)}
                 </div>

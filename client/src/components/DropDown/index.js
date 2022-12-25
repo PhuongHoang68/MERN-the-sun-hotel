@@ -5,6 +5,7 @@ import { FaBars, FaTimes, FaHome} from "react-icons/fa";
 import { BiDrink, } from "react-icons/bi";
 import { MdOutlineBedroomParent, MdOutlineRateReview } from "react-icons/md";
 import { BsCalendar2Date } from "react-icons/bs";
+import Aos from "aos";
 
 
 const DropDown = () => {
