@@ -25,15 +25,12 @@ const DropDown = () => {
     <header ref={navRef}>
         <div>
     </div>
-    <button type= "submit" className="navbtn" onClick={() => toggleNavBar()}>
-				<FaBars/>
-			</button>
             </header>
     <main className="mobileLinks">
-    <nav>
-    <button type= "submit" className="navbtnML" onClick={() => toggleNavBar()}>
-				<FaBars/>
-			</button>
+        <nav>
+        <button type= "submit" className="navbtnMobile" onClick={() => toggleNavBar()}>
+			<FaBars/>
+		</button>
         <Link to="/">Home</Link>
         <Link to="/dining">Wine & Dine</Link>
         <Link to="/rooms">Rooms & Suites</Link>

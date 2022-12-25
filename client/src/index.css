@@ -7,7 +7,8 @@ main {
 }
 
 :root {
-  --primary: #ffd700;
+  --primary: rgb(255, 217, 0);
+  --primaryLight: rgb(255, 239, 148);
   --secondary: #3094c6;
   --tertiary: #239854;
   --light: rgb(244, 244, 243);
@@ -22,6 +23,10 @@ main {
 .primary{
   background-color: var(--primary);
   filter: brightness(125%);
+}
+
+.dark{
+  background-color: var(--dark);
 }
 
 
@@ -116,70 +121,6 @@ main {
   padding: 3rem;
   font-weight: 500;
   background-color: white;
-}
-
-/* Discover Section */
-
-.discover{
-  padding: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: -6px;
-
-}
-
-.discoverWrap{
-  margin: 2rem;
-  height: 60vh;
-  width: 100vw;
-  
-}
-
-
-/* Slides */
-
-.slide{
-  margin-top: 5rem;
-}
-
-.discoverCard{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  height: 50vh;
-  margin: 1rem;
-  max-width: 300px;
-  flex-wrap: wrap;
-  border-radius: 10%;
-}
-
-.discoverCard img{
-  display: flex;
-  flex-shrink: calc();
-  width: 100%;
-  max-width: 275px;
-  height: 10rem;
-  min-height: fit-content;
-  margin: 10px;
-  border: 2px solid black;
-}
-
-.discoverCard img:hover{
-  filter: contrast(110%) brightness(120%) drop-shadow(4px 4px 5px var(--primary)) ;
-  transform: scale(1);
-  transition: .25s ease-in-out;
-  -webkit-transform: scale(1);
-}
-
-.cardTextcnt{
-  margin: 0px 20px 0px 20px ;
-  height: 5rem;
-}
-
-.cardBtn{
-  margin-bottom: 10px;
 }
 
 /* Reservation Section */

@@ -10,38 +10,77 @@ header {
 	z-index: 2;
 }
 
+header div{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* border: 1px solid white; */
 
-header div img {
-	height: 1000px;
-	filter: drop-shadow(0 0 2rem rgb(220, 107, 20));
 }
 
 nav a {
-	margin: 0 1.5rem;
-	color: white;
+	margin: 0 1.8rem;
+	color: var(--primary);
 	text-decoration: none;
+    font-size: 1.3rem;
+}
+
+nav a:hover {
+	color: var(--primaryLight);
+    filter: brightness(200%)  drop-shadow(16px 16px 20px blue);;
+}
+
+.navDiv{
+    /* position: relative;
+    height: 40rem;
+    width: 100px;
+    border: 1px solid white;
+    top: 0; */
+    /* justify-content: center; */
+    
+}
+
+.navDiv nav {
+    position: relative;
+    /* border: 5px solid white; */
+    /* height: 40rem;
+    width: 100px; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 34vh;
+    left: -50px;
+}
+
+.navDiv nav a{
+    position: static;
+    margin:10px;
+    text-align: center;
+    width: 5vw;
 }
 
 .navbtn {
 	padding: 5px;
+    margin: 1rem;
 	cursor: pointer;
 	background: transparent;
 	border: none;
 	outline: none;
-	color: white;
-	font-size: 1.8rem;
+	color: var(--primary);
+	font-size: 2rem;
 }
 
-.navbtnML {
+.navbtnMobile {
+	padding: 5px;
+    margin-left: -3rem;
 	cursor: pointer;
 	background: transparent;
 	border: none;
-	color: white;
-	font-size: 1.8rem;
+	outline: none;
+	color: var(--primary);
+	font-size: 2rem;
 }
 
 .mobileLinks nav a{
-    font-size: 1rem;
+    font-size: .8rem;
 }
 header div,
 nav {

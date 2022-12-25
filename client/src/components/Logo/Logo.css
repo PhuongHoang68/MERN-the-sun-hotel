@@ -14,5 +14,6 @@
 .logoImg img{
 	position: sticky;
 	height: 300px;
-	filter: drop-shadow(0 0 1.5rem crimson);
+	filter: drop-shadow(0 0 1.5rem var(--primaryLight));
+	
 }
