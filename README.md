@@ -51,7 +51,11 @@ MERN full-stack application that allows The Sun Hotel's customers to login and b
 
 ## Website
 
-Heroku: [https://the-sun-hotel-hcmc.herokuapp.com/](https://the-sun-hotel-hcmc.herokuapp.com/)
+Original Heroku Deployment: [https://the-sun-hotel-hcmc.herokuapp.com/](https://the-sun-hotel-hcmc.herokuapp.com/)
+
+Personal Forked Heroku Deployment: [https://sun-hotel-demo.herokuapp.com/](https://sun-hotel-demo.herokuapp.com/)
+
+
 
 ## License
 
