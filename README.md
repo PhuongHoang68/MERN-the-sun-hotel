@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/badge/License-MIT-lightblue.svg)
 
-![Final version of website]![image](https://user-images.githubusercontent.com/109122403/209490516-e9ad26d8-1cd7-43b1-936c-ce7acaab0c3f.png)
+![Final version of website]![SunHotelLandingImg](https://user-images.githubusercontent.com/109122403/209490804-35976aa9-79a1-4b99-a958-3139d5da5077.png)
 
 ## Table of Contents
 
