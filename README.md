@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/badge/License-MIT-lightblue.svg)
 
-![Final version of website](https://github.com/PhuongHoang68/MERN-the-sun-hotel/blob/b8ad1c51d53e294351533f7ae6ef43a2fed0452c/client/src/assets/images/deployed-application.png)
+![Final version of website]![image](https://user-images.githubusercontent.com/109122403/209490516-e9ad26d8-1cd7-43b1-936c-ce7acaab0c3f.png)
 
 ## Table of Contents
 
