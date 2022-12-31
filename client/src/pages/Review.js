@@ -14,7 +14,7 @@ const Review = () => {
   console.log(reviews);
 
   return (
-      <main className="review-page">
+      <main className="review-page top">
         <h1>Leave a review today!</h1>
           { reviews ? (
              <div>

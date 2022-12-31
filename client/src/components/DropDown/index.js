@@ -1,11 +1,11 @@
 import React, {useRef, useState} from "react";
-import "./DropDown.css"
+import "./DropDown.module.css"
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaHome} from "react-icons/fa";
 import { BiDrink, } from "react-icons/bi";
 import { MdOutlineBedroomParent, MdOutlineRateReview } from "react-icons/md";
 import { BsCalendar2Date } from "react-icons/bs";
-import Aos from "aos";
+
 
 
 const DropDown = () => {
@@ -22,11 +22,8 @@ const DropDown = () => {
         { isOpen === true ? (
         <div>
             <div>
-    <div className="mobileNav">
-    <header ref={navRef}>
-        <div>
-    </div>
-            </header>
+    <div className="mobileNav" ref={navRef}>
+    <header ref={navRef}/>
     <main className="mobileLinks">
         <nav>
         <button type= "submit" className="navbtnMobile" onClick={() => toggleNavBar()}>

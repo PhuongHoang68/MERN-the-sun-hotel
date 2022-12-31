@@ -10,13 +10,6 @@ header {
 	z-index: 2;
 }
 
-header div{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* border: 1px solid white; */
-
-}
-
 nav a {
 	margin: 0 1.8rem;
 	color: var(--primary);
@@ -29,21 +22,9 @@ nav a:hover {
     filter: brightness(200%)  drop-shadow(16px 16px 20px blue);;
 }
 
-.navDiv{
-    /* position: relative;
-    height: 40rem;
-    width: 100px;
-    border: 1px solid white;
-    top: 0; */
-    /* justify-content: center; */
-    
-}
 
 .navDiv nav {
     position: relative;
-    /* border: 5px solid white; */
-    /* height: 40rem;
-    width: 100px; */
     display: flex;
     flex-direction: column;
     margin-top: 34vh;
@@ -69,19 +50,29 @@ nav a:hover {
 }
 
 .navbtnMobile {
-	padding: 5px;
     margin-left: -3rem;
-	cursor: pointer;
-	background: transparent;
+	background-color: black;
 	border: none;
 	outline: none;
 	color: var(--primary);
 	font-size: 2rem;
+	height: 40px;
+}
+
+.navbtnMobile svg {
+	margin-top: -20px;
+}
+
+.mobileLinks{
+	background-color: black;
+	opacity: 80%;
+	height: 40px;
 }
 
 .mobileLinks nav a{
     font-size: .8rem;
 }
+
 header div,
 nav {
 	display: flex;

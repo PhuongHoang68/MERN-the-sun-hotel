@@ -7,7 +7,6 @@ import Aos from "aos";
 const Home = () => {
     return (
     <div>
-        <Header/>
         {/* Hero Section */}
         <HeroAlt>
             <div>

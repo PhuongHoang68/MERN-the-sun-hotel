@@ -1,11 +1,12 @@
 footer
 {
     background-color: var(--light);
-    padding: 2em;
+    padding: 1em;
     color: var(--white);
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 1em;;
  
 }
 footer ul

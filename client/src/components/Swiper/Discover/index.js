@@ -59,13 +59,12 @@ const DiscoverCards = () =>{
   const [activeCard, setActiveCard] = useState()
 
 
+
   const  activate = (card) => {
     if (activeCard !== card){
     setActiveCard(card)
-    console.log(activeCard)
   } else {
     setActiveCard(null)
-    console.log(activeCard)
   }
 }
         const settings = {
@@ -73,9 +72,10 @@ const DiscoverCards = () =>{
             arrows: true,
             focusOnSelect: true,
             infinite: true,
-            speed: 300,
+            speed: 8000,
             slidesToShow: 3,
             slidesToScroll: 1,
+            autoplay: true,
             cssEase:"linear",
             mobileFirst: true,
             responsive: [
@@ -121,19 +121,18 @@ const DiscoverCards = () =>{
                   className=""
                   src={require(`../../../assets/images/${i}.jpg`)} 
                   alt={card.name}
-                  onPointerEnter={()=> activate(card)}
-                  onPointerLeave={()=> activate(card)}
-                   /></div>
-                   { activeCard !== null && activeCard !== undefined? (
-                    
-                <div className="text-center cardTextcnt">
+                  onMouseOver={()=> activate(card)}
+                  onMouseOut={()=> activate(card)}
+                   />        
+                  <div id={card.id} className="text-center cardTextcnt">
                   <h4>
-                    {activeCard.name}
+                    {card.name}
                   </h4>
                   <p>
-                    {activeCard.description}
+                    {card.description}
                   </p>
-                </div>) : (null)}
+                </div>=
+                </div>
                 </div>
              ))}
             </Slider>

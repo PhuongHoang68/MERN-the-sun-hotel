@@ -8,7 +8,7 @@ import SuperiorSuite from "../assets/images/SuperiorSuite.jpg";
 const Room = () => {
 
     return (
-        <>
+        <div className="top">
         <h1 className="text-center text-success my-5">Come stay with us in our comfortable rooms!</h1>
         <h4 className="text-center my-5">Designed with you in mind, with comfortability and accessability at the forefront </h4>
         <h5 className="text-center my-5">Together with 24/7 front-desk service, The Sun Hotel is the place for you!</h5>
@@ -65,7 +65,7 @@ const Room = () => {
                 
             </div>
         </div>
-        </>
+        </div>
     )
 };
 

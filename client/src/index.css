@@ -123,6 +123,10 @@ main {
   background-color: white;
 }
 
+.top{
+  margin-top: 80px;
+}
+
 /* Reservation Section */
 
 .bookingMain{
@@ -131,32 +135,35 @@ main {
     max-height: 100vh;
     display: flex;
     margin-left: 5rem;
-    
-    
 }
 
 .calendar{
-  background-color: var(--secondary);
+  background-color: var(--darker);
   width: 100%;
   padding-top: 2em;
   padding-bottom: 2em;
   margin-bottom: 5rem;
-
-  
+  margin-top: -2.5rem;
 }
+
+.mobileBooking{
+  background-color: var(--primaryLight);
+}
+
 .resHead{
   height: 20vh;
   padding: 2em;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  
+  margin-top: 3rem;
+  background-color: var(--light);
 }
 
 .bookingCont{
   margin: 3rem;
   display: flex;
   flex-direction: column;
-  height: 315px;
+  height: 280px;
+  width: 350px;
+  margin-top: 58px;
   align-items: center;
   justify-content: center;
   font-weight: 500;
@@ -171,7 +178,6 @@ main {
   flex-direction: column;
   height: 275px;
   width: 350px;
-
 }
 
 .bookingDropdown{

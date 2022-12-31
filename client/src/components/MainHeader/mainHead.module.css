@@ -1,41 +1,80 @@
-/* /* header {
+header {
 	position: fixed;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	height: 60px;
-	padding: 0 2rem;
-	background-color: rgba(244, 244, 243, 0%);
+	width: 99vw;
+	background-color: black;
 	font-weight: bold;
-	z-index: 2;
-}
-
-
-header div img {
-	height: 1000px;
-	filter: drop-shadow(0 0 2rem rgb(220, 107, 20));
+	padding: 0 9vw;
+	top: 0;
 }
 
 nav a {
-	margin: 0 1.5rem;
-	color: white;
+	margin: 0 1.8rem;
+	color: var(--primary);
 	text-decoration: none;
-	font-size: 1.2rem;
+    font-size: .8rem;
+	z-index: 2;
+	padding: 0 20px;
 }
 
+nav a:hover {
+	color: var(--primaryLight);
+    filter: brightness(201%);
+}
 
-/* header .nav-btn {
+.navDiv nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 34vh;
+    left: -50px;
+}
+
+.navDiv nav a{
+    position: static;
+    margin:10px;
+    text-align: center;
+    width: 5vw;
+}
+
+.navbtn {
 	padding: 5px;
+    margin: 1rem;
 	cursor: pointer;
 	background: transparent;
 	border: none;
 	outline: none;
-	color: var(--white);
-	visibility: hidden;
-	opacity: 0;
-	font-size: 1.8rem;
-} */
-/*
+	color: var(--primary);
+	font-size: 2rem;
+}
+
+.navbtnMobile {
+    margin-left: -3rem;
+	background-color: black;
+	border: none;
+	outline: none;
+	color: var(--primary);
+	font-size: 2rem;
+	height: 40px;
+}
+
+.navbtnMobile svg {
+	margin-top: -20px;
+}
+
+.mobileLinks{
+	background-color: black;
+	opacity: 80%;
+	height: 40px;
+}
+
+.mobileLinks nav a{
+    font-size: .8rem;
+}
+
 header div,
 nav {
 	display: flex;
@@ -51,7 +90,7 @@ nav {
 	border: none;
 }
 
-.nav-btn-reg :hover{
+.navbtn :hover{
 	color: var(--primary);
 }
 
@@ -77,7 +116,12 @@ nav {
 	text-decoration: none;
 }
 
+header nav img{
 
+	height: 150px;
+	filter: drop-shadow(0 0 1.5rem var(--primaryLight));
+	z-index: 2;
+}
 
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {
@@ -146,9 +190,6 @@ nav {
 	.mobileLinks{
 		display: flex;
 		flex-direction: column;
-		margin-left: 50px;
-		
-
 	}
 	.mobileLinks nav{
 		display: flex;
@@ -194,4 +235,4 @@ nav {
 	}
 
 
-} */
+}

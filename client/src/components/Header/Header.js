@@ -1,9 +1,8 @@
 import { React, useRef, useState, useEffect } from "react";
 import Auth from "../../utils/auth"
-import "./Navbar.css";
-import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 import DropDown from "../DropDown";
+import MainHead from "../MainHeader/mainHead";
 
 const Header = () =>{
 
@@ -12,6 +11,7 @@ const Header = () =>{
 	const [width, setWidth] = useState(window.innerWidth)
 	const breakpoint = 750;
 	const [isNavOpen, setIsNavOpen] = useState(false);
+	const pathname = window.location.pathname
 
 
 
@@ -54,12 +54,15 @@ const Header = () =>{
       );
     }
   }
+  console.log(pathname)
 
   if (width > breakpoint) {
 	return (
+		<div>
 		<header>
-		<DropDown/>
+		<MainHead/>
 		</header>
+		</div>
 	)
 }
 // {
