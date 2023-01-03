@@ -1,14 +1,19 @@
+/* .mobileNav{
+	text-align: center;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	align-content: center;
+} */
+
 header {
 	position: fixed;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	height: 60px;
 	width: 99vw;
 	background-color: black;
 	font-weight: bold;
-	padding: 0 9vw;
 	top: 0;
+	padding: 0 10vw;
 }
 
 nav a {

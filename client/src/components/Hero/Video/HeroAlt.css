@@ -1,5 +1,8 @@
 .heroWrap{
-  position: relative;;
+  position: relative;
+  height: 100vh;
+  background-color: var(--darker);
+  z-index: -2;
 }
 
 .background-video-wrapper {
@@ -10,16 +13,17 @@
     z-index: -1;
 }
     video {
+
       display: flex;
       opacity:.9;
       background: #000;
-      height: 100vh;
+      height: 95vh;
       width: 100vw;
       top: 0;
       left: 0;
       object-fit: cover;
       opacity: 70%;
-      
+      border-bottom: 3px solid var(--primary);
     }
 
   

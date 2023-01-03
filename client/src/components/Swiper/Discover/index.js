@@ -53,6 +53,11 @@ const discoverCard = [
     }
 ];
 
+const handleClick = (card) =>{
+
+
+}
+
 
 
 const DiscoverCards = () =>{
@@ -66,6 +71,7 @@ const DiscoverCards = () =>{
   } else {
     setActiveCard(null)
   }
+  console.log(activeCard)
 }
         const settings = {
             dots: true,
@@ -117,21 +123,23 @@ const DiscoverCards = () =>{
              {discoverCard.map((card, i) => (
               <div className="discoverWrap">
               <div key={card.id} className=" discoverCard light">
+                <a href = {card.link}>
                 <img 
                   className=""
                   src={require(`../../../assets/images/${i}.jpg`)} 
                   alt={card.name}
                   onMouseOver={()=> activate(card)}
                   onMouseOut={()=> activate(card)}
-                   />        
-                  <div id={card.id} className="text-center cardTextcnt">
+                   /> 
+                   <div id={card.id} className="text-center cardTextcnt">
                   <h4>
                     {card.name}
                   </h4>
                   <p>
                     {card.description}
                   </p>
-                </div>=
+                </div>
+                  </a>      
                 </div>
                 </div>
              ))}

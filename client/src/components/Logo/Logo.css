@@ -1,9 +1,10 @@
 .logoCont{
-	width: 100vw;
+	width: fit-content;
     height: 100vh;
 	display: flex;
 	justify-content:end;
     align-items:flex-end;
+	z-index: 1;
 }
 
 .logo{

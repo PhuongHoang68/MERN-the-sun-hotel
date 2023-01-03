@@ -7,17 +7,16 @@
     justify-content: center;
     flex-direction: column;
     margin: -6px;
-
   }
   
   .discoverWrap{
     margin: .5rem;
-    height: 60vh;
+    height: 50vh;
     width: 100vw; 
     position: relative;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-    /* background-color: var(--dark); */
+    /* border-top: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary); */
+    background-color: var(--darker);
   }
   
   
@@ -32,13 +31,14 @@
     flex-direction: column;
     height: 21.5rem;
     width: 31.5rem;
-    margin: 2rem;
+    margin: .7rem;
     flex-wrap: wrap;
-    background-color:var(black);
-    /* border: 4px solid black; */
+    background-color: var(--darker);
+    border-top: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
   }
   
-  .discoverCard img{
+  .discoverCard a img{
     display: flex;
     flex-shrink: calc();
     width: 30rem;
@@ -46,8 +46,7 @@
     min-height: fit-content;
     margin: 7px;
     border: 4px solid black;
-    z-index: 1;
-    
+    z-index: 2;  
   }
   
   .discoverCard img:hover{
@@ -55,15 +54,13 @@
     transform: scale(1);
     transition: .25s ease-in-out;
     -webkit-transform: scale(1);
-    z-index: 0;
+    z-index: -1;
   }
   
   .cardTextcnt{
     position: absolute;
     left: 25%;
     bottom: 15%;
-    color:white;
-    
   }
 
   .cardTextcnt p{
@@ -74,8 +71,4 @@
   .cardTextcnt h4{
     border-bottom: 2px solid white;
     padding: 3%;
-  }
-  
-  .cardBtn{
-    margin-bottom: 10px;
   }

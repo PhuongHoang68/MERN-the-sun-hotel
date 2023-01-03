@@ -62,7 +62,7 @@ section {
   justify-content: center;
   flex-direction: column;
   margin: -6px;
-  border-top: 2px solid black;
+  /* border-top: 2px solid black; */
 }
 
 main {
@@ -109,14 +109,38 @@ main {
 
 /* About Section */
 
-.about{
+.aboutCont{
+  background-color: var(--darker);
   display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100vw;
+  font-weight: 500;
+}
+
+.aboutleft{
+  display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   border: .5px solid black;
   box-sizing: content-box;
   height: 20vh;
-  width: 70vw;
+  width: 20vw;
+  margin: 2rem;
+  padding: 3rem;
+  font-weight: 500;
+  background-color: white;
+}
+.aboutright{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  border: .5px solid black;
+  box-sizing: content-box;
+  height: 20vh;
+  width: 20vw;
   margin: 2rem;
   padding: 3rem;
   font-weight: 500;
@@ -147,7 +171,7 @@ main {
 }
 
 .mobileBooking{
-  background-color: var(--primaryLight);
+  background-color: var(--primary);
 }
 
 .resHead{
