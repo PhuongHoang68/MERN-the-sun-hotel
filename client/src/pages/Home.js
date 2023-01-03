@@ -17,19 +17,17 @@ const Home = () => {
             <div  className="resCont">
                 <div className=" resBox text-center">
                     <h4>
-                        Act Now. Check if your Room is Available.
+                        Reserve your room Today!
                     </h4>
                     <p>
-                        Sun hotel Lorem Ipsump
+                        Sun hotel reserves the right to switch, change, modify, of cancel any reservation at any moment. Thank you for Understanding.
                     </p>
                     <BookNowBar/>
                 </div>
-                <div className=" resBoxRight text-center">
-                    <h4>
-                        Check Availablility place holder
-                    </h4>
-                    {/* Booking box will go here*/}
-                </div>
+                <div className=" resBox1"></div>
+                <div className=" resBox3"></div>
+                <div className=" resBox2"></div>
+                
             </div>
         </section>
         {/* Short About / Lead in section */}
