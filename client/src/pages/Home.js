@@ -31,7 +31,6 @@ const Home = () => {
             </div>
         </section>
         {/* Short About / Lead in section */}
-
         <section className="aboutCont">
             <div className="aboutleft text-center light text-stretch">
                 <h2>The Sun Hotel</h2>
@@ -44,7 +43,6 @@ const Home = () => {
         </section>
         {/* Start Discover Section */}
         <div className="discover light">
-            <h2>Discover Sunrise</h2>
             <div className="discoverWrap">
                 <DiscoverCards/>
             </div>

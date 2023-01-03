@@ -131,15 +131,13 @@ const DiscoverCards = () =>{
                   onMouseOver={()=> activate(card)}
                   onMouseOut={()=> activate(card)}
                    /> 
+                   </a> 
                    <div id={card.id} className="text-center cardTextcnt">
                   <h4>
                     {card.name}
                   </h4>
-                  <p>
-                    {card.description}
-                  </p>
                 </div>
-                  </a>      
+                     
                 </div>
                 </div>
              ))}

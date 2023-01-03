@@ -179,11 +179,11 @@ main {
 
 .aboutCont{
   /* background-color: var(--light); */
-  background-image: url(../src/assets/images/wildtextures-old_book_red_cloth_cover.jpg);
+  background-image: url(../src/assets/images/Black-Silk-Background.jpg);
   background-size: cover;
   display: flex;
   flex-direction: row;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   font-weight: 500;
 }
