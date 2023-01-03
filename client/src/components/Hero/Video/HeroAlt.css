@@ -15,14 +15,14 @@
     video {
 
       display: flex;
-      opacity:.9;
-      background: #000;
+      /* opacity:.9; */
+      /* background: #000; */
       height: 95vh;
       width: 100vw;
       top: 0;
       left: 0;
       object-fit: cover;
-      opacity: 70%;
+      /* opacity: 70%; */
       border-bottom: 3px solid var(--primary);
     }
 

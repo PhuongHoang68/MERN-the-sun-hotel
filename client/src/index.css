@@ -106,11 +106,57 @@ main {
   opacity: 0.6;
 }
 
+/* Reservation home page section */
+
+.resCont{
+  background-image: url(../src/assets/images/wildtextures_damask_patter_wall_cover.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100vw;
+  font-weight: 500;
+  color: var(--primary);
+  align-items: center;
+}
+
+.resBox{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  border: .5px solid black;
+  box-sizing: content-box;
+  height: 60vh;
+  width: 20vw;
+  margin: 3rem;
+  padding: 2rem;
+  font-weight: 500;
+  background-color: var(--darker);
+  opacity: .8;
+}
+
+.resBoxRight{
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  border: .5px solid black;
+  box-sizing: content-box;
+  height: 20vh;
+  width: 20vw;
+  margin: 2rem;
+  padding: 3rem;
+  font-weight: 500;
+  background-color: white;
+}
 
 /* About Section */
 
 .aboutCont{
-  background-color: var(--darker);
+  /* background-color: var(--light); */
+  background-image: url(../src/assets/images/wildtextures-old_book_red_cloth_cover.jpg);
+  background-size: cover;
   display: flex;
   flex-direction: row;
   height: 90vh;

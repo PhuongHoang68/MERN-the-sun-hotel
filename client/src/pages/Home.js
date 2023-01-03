@@ -1,8 +1,7 @@
 import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
-import Header from '../components/Header/Header';
-import Aos from "aos";
+import BookNowBar from "../components/BookNowBar";
 
 const Home = () => {
     return (
@@ -13,6 +12,26 @@ const Home = () => {
                 <button className="hero-btn"> Book Your Room Today!</button>
             </div>
         </HeroAlt>
+        {/* Check rooms call to action section */}
+        <section>
+            <div  className="resCont">
+                <div className=" resBox text-center">
+                    <h4>
+                        Act Now. Check if your Room is Available.
+                    </h4>
+                    <p>
+                        Sun hotel Lorem Ipsump
+                    </p>
+                    <BookNowBar/>
+                </div>
+                <div className=" resBoxRight text-center">
+                    <h4>
+                        Check Availablility place holder
+                    </h4>
+                    {/* Booking box will go here*/}
+                </div>
+            </div>
+        </section>
         {/* Short About / Lead in section */}
 
         <section className="aboutCont">
