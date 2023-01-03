@@ -8,6 +8,16 @@ import 'react-calendar/dist/Calendar.css';
 
 const BookNowBar = () => {
 
+const [calendarActive, setCalendarActive] = useState(false);
+
+//tracks Calander date input
+const [date, setDate] = useState((new Date()));
+
+const toggleCalendar = () =>{
+    setCalendarActive(!calendarActive)
+    console.log(calendarActive)
+}
+
 
 return (
 
@@ -16,13 +26,17 @@ return (
             <div className="bnArrival">
                 <div>
                 <FaCalendar/>
-                <input  type="text"></input>
+                <input  type="text" placeholder="Arrive" onFocus={toggleCalendar}></input>
                 </div>
                 <div>
                 <FaCalendar/>
-                <input  type="text"></input>
+                <input  type="text" placeholder="Depart" onFocus={toggleCalendar}></input>
                 </div>
             </div>
+            {calendarActive === true ? (<div>
+                <Calendar
+                    id = "Calendar"/>
+                    </div>) : ( <div>
             <div className="bnRooms">
             <select name="rooms" id="rooms">
                 <option value="undefined">Choose Room Type</option>
@@ -32,6 +46,7 @@ return (
               </select>
             </div>
             <button> Check available</button>
+           </div> ) }
         </div>
     </div>
 
