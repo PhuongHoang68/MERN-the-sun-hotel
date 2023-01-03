@@ -94,8 +94,8 @@ main {
   background-attachment:scroll;
   background-position: 80%;
   background-color: #555555;
-  border-top: 10px solid var(--secondary);
-  border-bottom: 10px solid var(--secondary);
+  border-top: 10px solid var(--primary);
+  border-bottom: 10px solid var(--primary);
 }
 
 .hero img  {
@@ -107,14 +107,14 @@ main {
 /* Reservation home page section */
 
 .resCont{
-  background-image: url(../src/assets/images/wildtextures_damask_patter_wall_cover.jpg);
+  background-image: url(../src/assets/images/Black-Elegant-Background.jpg);
   background-size: cover;
   display: flex;
   flex-direction: row;
   height: 100vh;
   width: 100vw;
   font-weight: 500;
-  color: var(--secondary);
+  color: var(--primary);
   align-items: center;
 }
 
@@ -126,11 +126,11 @@ main {
   box-sizing: content-box;
   height: 60vh;
   width: 317px;
-  margin: 0 0 0 2rem;
+  margin: 4rem 0 0 8.15rem;
   padding: 2rem;
   font-weight: 500;
   background-color: var(--darker);
-  opacity: .9;
+  opacity: .8;
 }
 .resBox h4{
   margin-bottom: 1rem;
@@ -170,7 +170,7 @@ main {
   right: 0%;
   height: 100vh;
   width: 15vw;
-  backdrop-filter:brightness(180%) hue-rotate(180deg);
+  backdrop-filter:brightness(180%) hue-rotate(60deg);
   /* border-left: 5px solid black;
   border-right: 5px solid black; */
 }
