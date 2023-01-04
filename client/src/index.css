@@ -60,7 +60,6 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-top: 3px solid var(--primary);
 }
 
 main {
@@ -125,8 +124,8 @@ main {
   justify-content: center;
   box-sizing: content-box;
   height: 60vh;
-  width: 317px;
-  margin: 4rem 0 0 8.15rem;
+  min-width: 20vw;
+  margin: 0 0 0 9%;
   padding: 2rem;
   font-weight: 500;
   background-color: var(--darker);
@@ -141,29 +140,62 @@ main {
 }
 
 .resBox1{
-  background-image: url(../src/assets/images/hero1.jpg);
-  background-size: cover;
   position: relative;
   left: 10%;
-  top: -15%;
+  top: -25%;
   flex: 1;
   flex-direction: column;
   height: 40vh;
-  margin: 2rem;
-  background-color: white;
+  margin: 1rem;
   z-index: 1;
-  border: 2px solid black;
+}
+.classyBorder{
+  --s: 15px;  /* size of the frame */
+  --b: 2px;   /* border thickness */
+  --w: 200px; /* width of the image */
+  --c: var(--primary);
+  
+  width: var(--w);
+  aspect-ratio: 1;
+  object-fit: cover;
+  padding: calc(2*var(--s));
+  --_g: var(--c) var(--b),#0000 0 calc(100% - var(--b)),var(--c) 0;
+  background:
+    linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
+    linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
+  outline: calc(var(--w)/2) solid #0009;
+  outline-offset: calc(var(--w)/-2 - 2*var(--s));
+  transition: .4s;
+  cursor: pointer;
+}
+.resBox1 img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.resBox1:hover {
+  outline: var(--b) solid var(--c);
+  outline-offset: calc(var(--s)/-2);
+  --_i: calc(100% - 2*var(--s));
 }
 .resBox2{
-  background-image: url(../src/assets/images/hero4.jpg);
-  background-size: cover;
   position: relative;
-  top: 28%;
+  top: 20%;
   right: 10%;
   height: 35vh;
   width: 25vw;
-  background-color: var(--secondary);
-  border: 2px solid black;
+}
+.resBox2 img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.resBox2:hover {
+  outline: var(--b) solid var(--c);
+  outline-offset: calc(var(--s)/-2);
+  --_i: calc(100% - 2*var(--s));
 }
 .resBox3{
   position: relative;
@@ -179,13 +211,18 @@ main {
 
 .aboutCont{
   /* background-color: var(--light); */
-  background-image: url(../src/assets/images/Black-Silk-Background.jpg);
+  /* background-image: url(../src/assets/images/Download-Black-Elegant-Background-flip.jpg); */
   background-size: cover;
+  background-position: 20%;
   display: flex;
   flex-direction: row;
   height: 100vh;
   width: 100vw;
   font-weight: 500;
+  position: relative;
+  right: 7px;
+  filter: brightness(130%);
+
 }
 
 .aboutleft{
@@ -210,7 +247,7 @@ main {
   border: .5px solid black;
   box-sizing: content-box;
   height: 20vh;
-  width: 20vw;
+  width: 15vw;
   margin: 2rem;
   padding: 3rem;
   font-weight: 500;

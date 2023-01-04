@@ -2,6 +2,9 @@ import React from "react";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
 import BookNowBar from "../components/BookNowBar";
+import roomPhoto from "../assets/images/hero1.jpg"
+import roomPhoto2 from "../assets/images/hero4.jpg"
+
 
 const Home = () => {
     return (
@@ -24,9 +27,13 @@ const Home = () => {
                     </p>
                     <BookNowBar/>
                 </div>
-                <div className=" resBox1"></div>
+                <div className=" resBox1 classyBorder">
+                    <img src={roomPhoto} alt="Deluxe Room"></img>
+                </div>
                 <div className=" resBox3"></div>
-                <div className=" resBox2"></div>
+                <div className=" resBox2 classyBorder">
+                    <img src={roomPhoto2} alt="Standard Room"></img>
+                </div>
                 
             </div>
         </section>

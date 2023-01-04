@@ -7,7 +7,7 @@
     justify-content: center;
     flex-direction: column;
     margin: -6px;
-    background-image: url(../../../assets/images/wildtextures_damask_patter_wall_cover.jpg);
+    /* background-image: url(../../../assets/images/wildtextures_damask_patter_wall_cover.jpg); */
     background-size: cover;
     height: 60vh;
   }
