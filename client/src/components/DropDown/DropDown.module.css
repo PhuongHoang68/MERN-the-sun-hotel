@@ -1,3 +1,7 @@
+div{
+	background-color: transparent;
+}
+
 header {
 	position: fixed;
 	display: flex;
@@ -5,7 +9,7 @@ header {
 	justify-content: space-between;
 	height: 60px;
 	padding: 0 2rem;
-	background-color: rgba(244, 244, 243, 0%);
+	background-color: transparent;
 	font-weight: bold;
 	z-index: 2;
 }
@@ -77,6 +81,7 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+	background-color: transparent;
 }
 
 .nav-btn-reg{
@@ -133,7 +138,7 @@ nav {
 		align-items: center;
 		justify-content: center;
 		gap: 1.5rem;
-		background-color: var(--mainColor);
+		background-color: transparent;
 		transition: 1s;
 		transform: translateY(-100vh);
 	}

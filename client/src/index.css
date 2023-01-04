@@ -86,7 +86,7 @@ main {
 .hero {
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -102,7 +102,19 @@ main {
   width: 100%;
   opacity: 0.6;
 }
+.heroBook{
+  z-index: 100;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  background-color: var(--darker);
+  opacity: .8;
+  padding: 2%;
+  width: 25vw;
+  min-width: 20vw;
+  border-radius: 10%;
 
+}
 /* Reservation home page section */
 
 .resCont{

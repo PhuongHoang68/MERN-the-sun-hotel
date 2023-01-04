@@ -3,6 +3,7 @@
     flex-direction: column;
     flex: 3;
     justify-content: center;
+    z-index: 5;
 }
 
 .bnbBar{

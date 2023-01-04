@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from "../components/DropDown";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
 import BookNowBar from "../components/BookNowBar";
@@ -9,12 +10,14 @@ import roomPhoto2 from "../assets/images/hero4.jpg"
 const Home = () => {
     return (
     <div>
+        <DropDown/>
+        <div>
         {/* Hero Section */}
-        <HeroAlt>
-            <div>
-                <button className="hero-btn"> Book Your Room Today!</button>
-            </div>
-        </HeroAlt>
+        <HeroAlt/>
+        <div className="heroBook">
+        <BookNowBar/>
+        </div>
+        </div>
         {/* Check rooms call to action section */}
         <section>
             <div  className="resCont">
