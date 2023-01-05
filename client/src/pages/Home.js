@@ -3,6 +3,7 @@ import DropDown from "../components/DropDown";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
 import BookNowBar from "../components/BookNowBar";
+import Logo from "../components/Logo";
 import roomPhoto from "../assets/images/hero1.jpg"
 import roomPhoto2 from "../assets/images/hero4.jpg"
 
@@ -13,10 +14,13 @@ const Home = () => {
         <DropDown/>
         <div>
         {/* Hero Section */}
-        <HeroAlt/>
-        <div className="heroBook">
-        <BookNowBar/>
-        </div>
+            <HeroAlt/>
+                <div className="heroBook">
+                    <BookNowBar/>
+                </div>
+                <span>
+                    <Logo/>
+                </span>
         </div>
         {/* Check rooms call to action section */}
         <section>
@@ -41,7 +45,7 @@ const Home = () => {
             </div>
         </section>
         {/* Short About / Lead in section */}
-        <section className="aboutCont">
+        {/* <section className="aboutCont">
             <div className="aboutleft text-center light text-stretch">
                 <h2>The Sun Hotel</h2>
                 <p>The Sun Hotel is the perfect spot to explore Ho Chi Minh City's fascinating cultural sights and attractions. Central Post Office is located 1.3 km away, and is one of the most famous tourist spots to visit and photograph. Never forget your time in Ho Chi Minh City with a special gift or trinket from Ben Thanh Market just 2.1 km away.</p>
@@ -50,7 +54,7 @@ const Home = () => {
                 <h1>This is the Right</h1>
             </div>
 
-        </section>
+        </section> */}
         {/* Start Discover Section */}
         <div className="discover light">
             <div className="discoverWrap">

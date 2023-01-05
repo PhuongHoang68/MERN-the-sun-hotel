@@ -1,16 +1,9 @@
-main {
-	max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  padding: 1rem;
-  font-weight: bold;
-}
 
 :root {
   --primary: rgb(255, 217, 0);
   --primaryLight: rgb(255, 239, 148);
   --secondary: #3094c6;
-  --tertiary: #239854;
+  --tertiary: #c32626;
   --light: rgb(244, 244, 243);
   --dark: #0d1b1e;
   --darker: #111111;
@@ -20,39 +13,9 @@ main {
   --spacing-five: calc(2.5rem);
 }
 
-.primary{
-  background-color: var(--primary);
-  filter: brightness(125%);
-}
-
-.dark{
-  background-color: var(--dark);
-}
-
-
-.secondary{
-  background-color: var(--secondary);
-}
-
-.tertiary{
-  background-color: var(--tertiary);
-}
-
-.light{
-  background-color: var(--light);
-}
-
-.white{
-  background-color: white;
-}
-
 .text-stretch
 {
   letter-spacing: 2px;
-}
-
-.border{
-  border: 2px solid black;
 }
 
 section {
@@ -79,42 +42,28 @@ main {
   text-align: center;
 }
 
-.border{
-  border: 1px solid black;
-}
 /*Hero Style Start */
-.hero {
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background-attachment:scroll;
-  background-position: 80%;
-  background-color: #555555;
-  border-top: 10px solid var(--primary);
-  border-bottom: 10px solid var(--primary);
-}
 
-.hero img  {
-  height: 100%;
-  width: 100%;
-  opacity: 0.6;
-}
 .heroBook{
   z-index: 100;
   position: absolute;
-  top: 30%;
-  left: 10%;
+  top: 20%;
+  left: 33%;
   background-color: var(--darker);
   opacity: .8;
-  padding: 2%;
-  width: 25vw;
-  min-width: 20vw;
+  padding: 4%;
+  width: 30vw;
+  min-width: 270px;
   border-radius: 10%;
-
 }
+
+span{
+  z-index: 100;
+  position: absolute;
+  top: -2%;
+  right: 0%;
+}
+
 /* Reservation home page section */
 
 .resCont{
@@ -171,7 +120,7 @@ main {
   aspect-ratio: 1;
   object-fit: cover;
   padding: calc(2*var(--s));
-  --_g: var(--c) var(--b),#0000 0 calc(100% - var(--b)),var(--c) 0;
+  --_g: var(--c) var(--b),(#0000) 0 calc(100% - var(--b)),var(--c) 0;
   background:
     linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
     linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
@@ -494,6 +443,7 @@ main {
   .discoverWrap{
     margin: 2rem;
     height: 45vh;
+
   }
 
   .discoverCard{

@@ -7,9 +7,8 @@
     justify-content: center;
     flex-direction: column;
     margin: -6px;
-    /* background-image: url(../../../assets/images/wildtextures_damask_patter_wall_cover.jpg); */
-    background-size: cover;
     height: 60vh;
+    background-color: black;
   }
   
   .discoverWrap{
@@ -19,7 +18,7 @@
     position: relative;
     /* border-top: 3px solid var(--primary);
     border-bottom: 3px solid var(--primary); */
-    background-color: transparent;
+    background-color:transparent;
   }
   
   

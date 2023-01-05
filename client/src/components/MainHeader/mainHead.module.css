@@ -1,28 +1,26 @@
-/* .mobileNav{
-	text-align: center;
-	justify-content: center;
-	justify-items: center;
-	align-items: center;
-	align-content: center;
-} */
 
 header {
 	position: fixed;
 	height: 60px;
-	width: 99vw;
+	width: 100vw;
 	background-color: black;
 	font-weight: bold;
 	top: 0;
-	padding: 0 10vw;
+}
+
+header nav{
+	position: relative;
+	top: -7vh;
+	left: 7vw;
 }
 
 nav a {
-	margin: 0 1.8rem;
+	position: relative;
+	margin: 4vw;
 	color: var(--primary);
 	text-decoration: none;
     font-size: .8rem;
 	z-index: 2;
-	padding: 0 20px;
 }
 
 nav a:hover {
@@ -30,214 +28,9 @@ nav a:hover {
     filter: brightness(201%);
 }
 
-.navDiv nav {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-top: 34vh;
-    left: -50px;
-}
-
-.navDiv nav a{
-    position: static;
-    margin:10px;
-    text-align: center;
-    width: 5vw;
-}
-
-.navbtn {
-	padding: 5px;
-    margin: 1rem;
-	cursor: pointer;
-	background: transparent;
-	border: none;
-	outline: none;
-	color: var(--primary);
-	font-size: 2rem;
-}
-
-.navbtnMobile {
-    margin-left: -3rem;
-	background-color: black;
-	border: none;
-	outline: none;
-	color: var(--primary);
-	font-size: 2rem;
-	height: 40px;
-}
-
-.navbtnMobile svg {
-	margin-top: -20px;
-}
-
-.mobileLinks{
-	background-color: black;
-	opacity: 80%;
-	height: 40px;
-}
-
-.mobileLinks nav a{
-    font-size: .8rem;
-}
-
-header div,
-nav {
-	display: flex;
-	align-items: center;
-}
-
-.nav-btn-reg{
-	margin-right: 2rem;
-	margin-top: 10px;
-	font-size: 1.5rem;
-	background: transparent;
-	color: white;
-	border: none;
-}
-
-.navbtn :hover{
-	color: var(--primary);
-}
-
-.loginWrap{
-	display: inline-block;
-	width: 85vw;
-	margin-right: 10%;
-	align-items: flex-end;
-	justify-items: end;
-
-}
-.login {
-	color: white;
-	flex-direction: row;
-	position: absolute;
-	right: 0;
-	margin-right: 10%
-}
-
-.login a{
-	color: white;
-	font-size: 1.5rem;
-	text-decoration: none;
-}
-
 header nav img{
-
+	position: relative;
 	height: 150px;
 	filter: drop-shadow(0 0 1.5rem var(--primaryLight));
 	z-index: 2;
-}
-
-@media only screen and (max-width: 1024px) {
-	header .nav-btn {
-		visibility: visible;
-		opacity: 1;
-	}
-
-	header nav {
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: var(--mainColor);
-		transition: 1s;
-		transform: translateY(-100vh);
-	}
-
-	header .responsive_nav {
-		transform: none;
-	}
-
-	nav .nav-close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-	}
-
-	nav a {
-		font-size: 1.5rem;
-	}
-}
-
-
-
-@media only screen and (max-width: 801px){
-	header {
-		position: fixed;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		height: 80px;
-		width: 100%;
-		z-index: 999;
-		background-color: var(--light);
-		color: var(--white);
-		border-bottom: 2px solid black;
-		font-weight: bold;
-	}
-	.mobileNav {
-	background: var(--light);
-	bottom: 0;
-	left: 0;
-	overflow: auto;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 999999;
-	display: flex;
-	}
-	.mobileLinks{
-		display: flex;
-		flex-direction: column;
-	}
-	.mobileLinks nav{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-left: 150px;
-	}
-
-	@media only screen and (max-width: 725px){
-		.mobileLinks nav{
-			margin-left: 15rem;
-		}
-	}
-
-	@media only screen and (max-width: 650px){
-		.mobileLinks nav{
-			margin-left: 12rem;
-		}
-	}
-
-	@media only screen and (max-width: 600px){
-		.mobileLinks nav{
-			margin-left: 10rem;
-		}
-	}
-
-	@media only screen and (max-width: 500px){
-		.mobileLinks nav{
-			margin-left: 6rem;
-		}
-	}
-
-	@media only screen and (max-width: 400px){
-		.mobileLinks nav{
-			margin-left: 5rem;
-		}
-	}
-
-	@media only screen and (max-width: 300px){
-		.mobileLinks nav{
-			margin-left: 2rem;
-		}
-	}
-
-
 }

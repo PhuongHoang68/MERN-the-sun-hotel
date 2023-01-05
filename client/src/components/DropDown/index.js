@@ -20,39 +20,24 @@ const DropDown = () => {
     return (
         <div>
         { isOpen === true ? (
-        <div>
-            <div>
-    <div className="mobileNav" ref={navRef}>
-    <header ref={navRef}/>
-    <main className="mobileLinks">
-        <nav>
-        <button type= "submit" className="navbtnMobile" onClick={() => toggleNavBar()}>
-			<FaBars/>
-		</button>
-        <Link to="/">Home</Link>
-        <Link to="/dining">Wine & Dine</Link>
-        <Link to="/rooms">Rooms & Suites</Link>
-        <Link to="/reservations">Reservation</Link>
-        <Link to="/review">Hotel Reviews</Link>
-        <Link to="/myprofile">Profile</Link>
-        </nav>
-        </main>
-        </div>
-        </div>
-        </div>) : (
-			<div className="navDiv">
-			<nav>
+        <thead className="divbtn">
+            <button type= "submit" onClick={() => toggleNavBar()}>
+				<FaBars/>
+            </button>
+        </thead>
+        ) : (
+			<div>
+			<hgroup>
             <button type= "submit" className="navbtn" onClick={() => toggleNavBar()}>
 				<FaBars/>
 			</button>
-				<Link to="/"><FaHome/></Link>
-				<Link to="/dining"><BiDrink/></Link>
-				<Link to="/rooms"><MdOutlineBedroomParent/></Link>
-				<Link to="/reservations"><BsCalendar2Date/></Link>
-				<Link to="/review"><MdOutlineRateReview/></Link>
-			</nav>
+				<Link classname="icon" to="/"><FaHome/></Link>
+				<Link classname="icon" to="/dining"><BiDrink/></Link>
+				<Link classname="icon" to="/rooms"><MdOutlineBedroomParent/></Link>
+				<Link classname="icon" to="/reservations"><BsCalendar2Date/></Link>
+				<Link classname="icon" to="/review"><MdOutlineRateReview/></Link>
+			</hgroup> 
 			</div>
-			// {showNavigation()}
 			)}
         </div>
     );

@@ -60,13 +60,13 @@ return (
                     </div>) : ( <div>
             <div className="bnRooms">
             <select name="rooms" id="rooms">
-                <option value="undefined">Choose Room Type</option>
+                <option value="undefined">Select Room Type</option>
                 <option value="Deluxe Double">Deluxe Double Room</option>
                 <option value="Superior Double">Superior Double Room</option>
                 <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
-            <button> Check Rooms</button>
+            <button> Book Now</button>
            </div> ) }
         </div>
     </div>

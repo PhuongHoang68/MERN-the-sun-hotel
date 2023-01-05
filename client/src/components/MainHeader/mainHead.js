@@ -20,15 +20,12 @@ const MainHead = () => {
     <div className="mobileNav">
     <header ref={navRef}/>
         <nav>
-        <button type= "submit" className="navbtnMobile" onClick={() => toggleNavBar()}>
-			<FaBars/>
-		</button>
         <Link to="/">Home</Link>
-        <Link to="/dining">Wine & Dine</Link>
-        <Link to="/rooms">Rooms & Suites</Link>
+        <Link to="/dining">Cuisine</Link>
+        <Link to="/rooms">Rooms</Link>
         <img src={logo} alt="Sun Hotel Logo"></img>
         <Link to="/reservations">Reservation</Link>
-        <Link to="/review">Hotel Reviews</Link>
+        <Link to="/review">Reviews</Link>
         <Link to="/myprofile">Profile</Link>
         </nav>
         </div>
