@@ -2,7 +2,7 @@ import React from "react";
 import DropDown from "../components/DropDown";
 import DiscoverCards from "../components/Swiper/Discover";
 import HeroAlt from "../components/Hero/Video/index";
-import BookNowBar from "../components/BookNowBar";
+import BookNowBox from "../components/BookNowBox";
 import Logo from "../components/Logo";
 import roomPhoto from "../assets/images/hero1.jpg"
 import roomPhoto2 from "../assets/images/hero4.jpg"
@@ -16,7 +16,7 @@ const Home = () => {
         {/* Hero Section */}
             <HeroAlt/>
                 <div className="heroBook">
-                    <BookNowBar/>
+                    <BookNowBox/>
                 </div>
                 <span>
                     <Logo/>
@@ -32,7 +32,7 @@ const Home = () => {
                     <p>
                         Sun hotel reserves the right to switch, change, modify, of cancel any reservation at any moment. Thank you for Understanding.
                     </p>
-                    <BookNowBar/>
+                    <BookNowBox/>
                 </div>
                 <div className=" resBox1 classyBorder">
                     <img src={roomPhoto} alt="Deluxe Room"></img>

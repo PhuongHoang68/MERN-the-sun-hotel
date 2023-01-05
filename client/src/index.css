@@ -120,7 +120,7 @@ span{
   aspect-ratio: 1;
   object-fit: cover;
   padding: calc(2*var(--s));
-  --_g: var(--c) var(--b),(#0000) 0 calc(100% - var(--b)),var(--c) 0;
+  --_g: var(--c) var(--b),#0000 0 calc(100% - var(--b)),var(--c) 0;
   background:
     linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
     linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
@@ -219,77 +219,6 @@ span{
   margin-top: 80px;
 }
 
-/* Reservation Section */
-
-.bookingMain{
-
-    max-width: 100vw;
-    max-height: 100vh;
-    display: flex;
-    margin-left: 5rem;
-}
-
-.calendar{
-  background-color: var(--darker);
-  width: 100%;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  margin-bottom: 5rem;
-  margin-top: -2.5rem;
-}
-
-.mobileBooking{
-  background-color: var(--primary);
-}
-
-.resHead{
-  height: 20vh;
-  padding: 2em;
-  margin-top: 3rem;
-  background-color: var(--light);
-}
-
-.bookingCont{
-  margin: 3rem;
-  display: flex;
-  flex-direction: column;
-  height: 280px;
-  width: 350px;
-  margin-top: 58px;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  overflow: hidden;
-  background-color: white;
-  border: 1px solid black;
-}
-
-.bookingBox{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 275px;
-  width: 350px;
-}
-
-.bookingDropdown{
-  text-align: center;
-  margin: 10px;
-  justify-content: space-between;
-}
-#rooms{
-  margin: 5px;
-  margin-bottom: 0px;
-}
-
-#hiddenBtn{
-  opacity: 0;
-}
-
-.loginPlsBtn{
-  margin-top: 6rem;
-  margin-bottom: 10rem;
-}
 /*Reviews*/
 
 .review-container {
@@ -443,7 +372,7 @@ span{
   .discoverWrap{
     margin: 2rem;
     height: 45vh;
-
+    
   }
 
   .discoverCard{

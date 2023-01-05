@@ -7,6 +7,9 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_RESERVATIONS, QUERY_ROOMS, QUERY_ME_RES } from "../../utils/queries";
 import { ADD_RESERVATION } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
+import BookNowBar from "../BookNowBar";
+import "./calendar.css"
+import RoomCards from "../RoomCards";
 
 
 
@@ -49,6 +52,7 @@ const ReactCalendar = () => {
     const [isValid, setIsValid] = useState(false);
     const [disabledDates, setDisabledDates] = useState([]);
 
+
     //sets state from string from drop down selection
     const roomChange = () => 
       {
@@ -64,6 +68,7 @@ const ReactCalendar = () => {
       let matchingRes = [];
       //Array of all dates that a roomType is reserved for
       let blockedDates = [];
+      console.log(roomType)
       //Finds out the Room Count of chosen room type and pushes to array
         for (let r = 0; r < rooms.length; r++) {
         const roomMatched = (rooms[r].roomType);
@@ -85,8 +90,7 @@ const ReactCalendar = () => {
         console.log("Your room is available")
         setIsValid(true)
       } 
-
-
+      console.log(reqReservation)
       //Loops through all matching reservations to find matching dates. Push dates to array
       for (let i = 0; i < matchingRes.length; i++) {
         const daysBooked = matchingRes[i].daysBooked;
@@ -120,11 +124,12 @@ const ReactCalendar = () => {
           }
          }
          setDisabledDates(noVancancy);
+         console.log(noVancancy)
         };
 
          //Trigger to Check if Room is open
-    const handleCheckAvailable = async (event) => {
-      event.preventDefault();
+    const handleCheckAvailable = async () => {
+      // event.preventDefault();
       setDisabledDates('');
       checkAvailable()
     }
@@ -179,112 +184,116 @@ const ReactCalendar = () => {
         }      
         setReqReservation(daysReq);
     };
-  
-    //Function to render unavailable dates to user
-    // const nVDates = () => {
-    //   let regx = new RegExp(`(\\d{2}/\\d{2}/\\d{4})`)
-    //   if(disabledDates < 1){return} else {
-    //   let days = disabledDates.split(regx);
-    //   console.log(days)
-    //   for (let i = 0; i < days.length; i++) {
-    //      days[i] = <span key={i}>{days[i]}</span>
-    //   }
-    //   return <div>{days}</div>;
-    // }
-    // } 
 
 
     return (
-      <div>
-        <main className="light mobileBooking">
-        <div>
-          <h1 className='text-center'>Calendar</h1>
-          <div>
-            <Calendar
-              id = "Calendar"
-              onChange={getDates}
-              selectRange={true}
-              returnValue="range"
-              // tileDisabled={disabledDates}
-            />
-          </div>
-          <br/>
-          {date.length > 0 ? (
-            <p className='text-center'>
-              <span>Start:</span>{' '}
-              {date[0].toDateString()}
-              &nbsp;|&nbsp;
-              <span>End:</span> {date[1].toDateString()}
-            </p>
-          ) : (
-            <p className='text-center'>
-              <span>Default selected date:</span>{' '}
-              {date.toDateString()}
-            </p>
-          )}
+      <cont>
+      <main>
+      <section>
+        <div className="resTop">
+        <BookNowBar handleCheckAvailable={handleCheckAvailable} roomChange={roomChange} getDates={getDates}/>
         </div>
-      <div className="bookingMain">
-      <div className="bookingCont">
-        <div className="bookingBox">
-            {/* Select Room type drop down*/}
-            <div className="bookingDropdown">
-              <label htmlFor="rooms">What type of room would you like?</label>
-              <br/><br/>
-              <select name="rooms" id="rooms" onChange={roomChange}>
-                <option value="undefined">Choose Room Type</option>
-                <option value="Deluxe Double">Deluxe Double Room</option>
-                <option value="Superior Double">Superior Double Room</option>
-                <option value="Superior Suite">Superior Suite Room</option>
-              </select>
-            </div>
-            <br/>
-            { isValid === true && roomType !== "undefined" && date.length > 0  ? ( 
-            <div className="bookingBox">
-              <span>
-                Your Room is Available!
-              </span>
-            <br/>
-        <button type="submit" onClick={handleSubmit}>Confirm your Booking!</button>
-          </div>) : (
-            <div>
-            <br/><br/>
-          <button type="click" onClick={handleCheckAvailable} >Check Available</button>
-          </div>) }
-          { (roomType === "undefined") && date.length > 1 ? (
-          <span>
-            <br/>
-            Please Select a Room Type
-          </span>
-        ) : null}
-      {(roomType !== "undefined") && date.length === undefined ? (
-          <span>
-            <br/>
-              Please Select Dates     
-          </span>
-      ) : null } 
-      { (roomType !== "undefined") && date.length > 0 && isValid === false && disabledDates.length < 0  ?(
-        <span>
-          <br/>
-            Check if your Room is available.
-        </span>
-      ) : null }
-      { (roomType === "undefined") && date.length === undefined ? (
-        <span>
-          <br/>
-            Please Select Dates and Room
-        </span>
-      ) : null }
-      { disabledDates.length > 0 && isValid === false ? (
-        <span className="text-center">
-          There are no {roomType} rooms Left on<br/> {'✦' + disabledDates.join(' ✦ ') + '✦'}</span>
-        ) : null
-      }
-        </div>
-      </div>
-      </div>
-        </main>
-      </div>
+        <h1>Select a Room</h1>
+        <group>
+          <RoomCards/>
+        </group>  
+      </section>
+      <section>
+        <div className="priceBox"></div>
+      </section>
+      </main>
+      </cont>
       );
     }
   
   export default ReactCalendar;
+
+  // <div>
+  //       <main className="light mobileBooking">
+  //       <div>
+  //         <h1 className='text-center'>Calendar</h1>
+  //         <div>
+  //           <Calendar
+  //             id = "Calendar"
+  //             onChange={getDates}
+  //             selectRange={true}
+  //             returnValue="range"
+  //             // tileDisabled={disabledDates}
+  //           />
+  //         </div>
+  //         <br/>
+  //         {date.length > 0 ? (
+  //           <p className='text-center'>
+  //             <span>Start:</span>{' '}
+  //             {date[0].toDateString()}
+  //             &nbsp;|&nbsp;
+  //             <span>End:</span> {date[1].toDateString()}
+  //           </p>
+  //         ) : (
+  //           <p className='text-center'>
+  //             <span>Default selected date:</span>{' '}
+  //             {date.toDateString()}
+  //           </p>
+  //         )}
+  //       </div>
+  //     <div className="bookingMain">
+  //     <div className="bookingCont">
+  //       <div className="bookingBox">
+  //           {/* Select Room type drop down*/}
+  //           <div className="bookingDropdown">
+  //             <label htmlFor="rooms">What type of room would you like?</label>
+  //             <br/><br/>
+  //             <select name="rooms" id="rooms" onChange={roomChange}>
+  //               <option value="undefined">Choose Room Type</option>
+  //               <option value="Deluxe Double">Deluxe Double Room</option>
+  //               <option value="Superior Double">Superior Double Room</option>
+  //               <option value="Superior Suite">Superior Suite Room</option>
+  //             </select>
+  //           </div>
+  //           <br/>
+  //           { isValid === true && roomType !== "undefined" && date.length > 0  ? ( 
+  //           <div className="bookingBox">
+  //             <span>
+  //               Your Room is Available!
+  //             </span>
+  //           <br/>
+  //       <button type="submit" onClick={handleSubmit}>Confirm your Booking!</button>
+  //         </div>) : (
+  //           <div>
+  //           <br/><br/>
+  //         <button type="click" onClick={handleCheckAvailable} >Check Available</button>
+  //         </div>) }
+  //         { (roomType === "undefined") && date.length > 1 ? (
+  //         <span>
+  //           <br/>
+  //           Please Select a Room Type
+  //         </span>
+  //       ) : null}
+  //     {(roomType !== "undefined") && date.length === undefined ? (
+  //         <span>
+  //           <br/>
+  //             Please Select Dates     
+  //         </span>
+  //     ) : null } 
+  //     { (roomType !== "undefined") && date.length > 0 && isValid === false && disabledDates.length < 0  ?(
+  //       <span>
+  //         <br/>
+  //           Check if your Room is available.
+  //       </span>
+  //     ) : null }
+  //     { (roomType === "undefined") && date.length === undefined ? (
+  //       <span>
+  //         <br/>
+  //           Please Select Dates and Room
+  //       </span>
+  //     ) : null }
+  //     { disabledDates.length > 0 && isValid === false ? (
+  //       <span className="text-center">
+  //         There are no {roomType} rooms Left on<br/> {'✦' + disabledDates.join(' ✦ ') + '✦'}</span>
+  //       ) : null
+  //     }
+  //       </div>
+  //     </div>
+  //     </div>
+  //       </main>
+  //     </div>

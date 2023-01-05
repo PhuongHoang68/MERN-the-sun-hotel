@@ -1,42 +1,51 @@
-.bnbCont{
+.bnbarCont{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex: 3;
     justify-content: center;
-    z-index: 5;
+    background-color: var(--darker);
+    width: 57vw;
+    max-width: 60vw;
+    position: relative;
+    opacity: .9;
+    margin-top: 1rem;
 }
-
 .bnbBar{
     display: flex;
-    
+    height: 65px;
+    width: 55vw;
+    align-items: center;
 }
-.bnArrival{
+.bnbarArrival{
     display: flex;
     flex: 1;
     flex-direction: row;
-    margin-bottom: 1.5rem;
+    height: 3rem;
+    position: relative;
 }
-.bnArrival div {
+.bnbarArrival div {
     color: var(--darker);
     background-color: var(--primary);
     font-size: xx-large;
-}
-.bnArrival input{
-    width: 70%;
     height: 3rem;
+    position: relative;
+}
+.bnbarArrival input{
+    width: 70%;
     font-weight: 500;
     background-color: var(--primary);
     border: none;
     font-size: medium;
     text-align: center;
+    position: relative;
+    left: 5%;
+    bottom: 10%;
 }
-.bnRooms{
+.bnbarRooms{
     align-items: center;
-    margin: 2rem 0 1rem 0;
-    margin-left: -4px;
-    
+    margin: 0rem 0rem .3rem 1rem;
 }
-.bnRooms select{
+.bnbarRooms select{
     display: flex;
     flex: 1;
     width: 98%;
@@ -45,16 +54,24 @@
     text-align: center;
     background-color:var(--primary);
 }
-.bnBar button{
-    width: 100%;
-    margin: 1rem 0;
+.bnbBar button{
+    width: 10vw;
+    margin: 0rem 0rem 0rem 1rem;
     font-weight: 500;
     background-color: var(--primary);
-    height: 3rem;
+    height: 3.1rem;
 }
 
-.bnBar button:hover{
+.bnbBar button:hover{
     background-color: var(--tertiary);
+}
+
+.calendarCont{
+    position: relative;
+    display: flex;
+    top: 2vh;
+    border: 3px solid black;
+    justify-content: center;
 }
 
 .react-calendar {
