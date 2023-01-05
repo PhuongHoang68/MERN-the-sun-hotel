@@ -193,6 +193,7 @@ const ReactCalendar = () => {
           daysReq.push(booked);
         }      
         setReqReservation(daysReq);
+        setCalendarActive(false)
     };
 
 
@@ -201,7 +202,15 @@ const ReactCalendar = () => {
       <main>
       <section>
         <div className="resTop">
-        <BookNowBar handleCheckAvailable={handleCheckAvailable} roomChange={roomChange} getDates={getDates} setCalendarActive={setCalendarActive} calendarActive={calendarActive}/>
+        <BookNowBar 
+        handleCheckAvailable={handleCheckAvailable} 
+        roomChange={roomChange} 
+        getDates={getDates} 
+        setCalendarActive={setCalendarActive} 
+        calendarActive={calendarActive}
+        setDate={setDate}
+        date={date}
+        reqReservation={reqReservation}/>
         </div>
         <h1>Select a Room</h1>
         <group>
