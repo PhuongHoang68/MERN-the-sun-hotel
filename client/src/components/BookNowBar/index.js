@@ -14,15 +14,15 @@ const BookNowBar = (props) => {
 const [date, setDate] = useState((new Date()));
 const [arriveDate, setArriveDate] = useState("");
 const [departDate, setDepartDate] = useState("");
-const [calendarActive, setCalendarActive] = useState(false);
+// const [calendarActive, setCalendarActive] = useState(false);
 
 const toggleCalendar = () =>{
-    if (!calendarActive){
-        setCalendarActive(true)
+    if (!props.calendarActive){
+        props.setCalendarActive(true)
     } else {
-    setCalendarActive(false)
+    props.setCalendarActive(false)
 }
-console.log(calendarActive)}
+console.log(props.calendarActive)}
 
 const handleChange = () => {
     let roomType = document.getElementById("rooms").value
@@ -40,7 +40,7 @@ const getDate = (date) => {
      let Depart = (moment(date[1]).format("MM/DD/YYYY"));
      setArriveDate(Arrive)
      setDepartDate(Depart)
-     setCalendarActive(false)
+     props.setCalendarActive(false)
 };
 
 return (
@@ -70,7 +70,7 @@ return (
            <button onClick={handleSubmit}> Book Now</button>
         </div>
     </div>
-    {calendarActive === true ? (<div className="calendarCont">
+    {props.calendarActive === true ? (<div className="calendarCont">
                 <Calendar
                     id = "Calendar"
                     onChange={getDate}

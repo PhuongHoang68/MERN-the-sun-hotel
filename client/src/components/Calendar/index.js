@@ -52,6 +52,16 @@ const ReactCalendar = () => {
     const [isValid, setIsValid] = useState(false);
     const [disabledDates, setDisabledDates] = useState([]);
 
+    const [calendarActive, setCalendarActive] = useState(false);
+
+// const toggleCalendar = () =>{
+//     if (!calendarActive){
+//         setCalendarActive(true)
+//     } else {
+//     setCalendarActive(false)
+// }
+// console.log(calendarActive)}
+
 
     //sets state from string from drop down selection
     const roomChange = () => 
@@ -191,7 +201,7 @@ const ReactCalendar = () => {
       <main>
       <section>
         <div className="resTop">
-        <BookNowBar handleCheckAvailable={handleCheckAvailable} roomChange={roomChange} getDates={getDates}/>
+        <BookNowBar handleCheckAvailable={handleCheckAvailable} roomChange={roomChange} getDates={getDates} setCalendarActive={setCalendarActive} calendarActive={calendarActive}/>
         </div>
         <h1>Select a Room</h1>
         <group>
