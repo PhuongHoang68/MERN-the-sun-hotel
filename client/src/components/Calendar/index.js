@@ -103,7 +103,6 @@ const ReactCalendar = () => {
         console.log("Your room is available")
         setIsValid(true)
       } 
-      console.log(reqReservation)
       //Loops through all matching reservations to find matching dates. Push dates to array
       for (let i = 0; i < matchingRes.length; i++) {
         const daysBooked = matchingRes[i].daysBooked;
@@ -217,7 +216,21 @@ const ReactCalendar = () => {
         </group>  
       </section>
       <section>
-        <div className="priceBox"></div>
+        <div className="priceBox">
+          <div>
+            <h3>Your Stay</h3>
+            <div>
+              <p>Check-In : {reqReservation[0]}</p>
+              <p>Checkout-Out : {reqReservation[reqReservation.length-1]}</p>
+            </div>
+            <div>
+              <p>{roomType}</p>
+            </div>
+            <div>
+              Total: $$$
+            </div>
+          </div>
+        </div>
       </section>
       </main>
       </cont>

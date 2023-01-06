@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import { FaCalendar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import moment from "moment";
 import "./bnb.css"
 
@@ -33,6 +34,10 @@ const getDate = (date) => {
      setCalendarActive(false)
      ;
 };
+
+const handleClick = () => {
+
+}
 
 
 
@@ -66,7 +71,9 @@ return (
                 <option value="Superior Suite">Superior Suite Room</option>
               </select>
             </div>
+            <Link to="/reservations">
             <button> Book Now</button>
+            </Link>
            </div> ) }
         </div>
     </div>

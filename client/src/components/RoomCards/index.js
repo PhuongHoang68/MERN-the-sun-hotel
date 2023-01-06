@@ -54,7 +54,7 @@ const RoomCards = (props) => {
                             <li>Room Price:{openRooms.price}.</li>
                         </ul>
                         </div>
-                        <Button id="roomBtn" size="lg" variant="outline-warning">Reserve Now</Button>{' '}
+                        <Button id="roomBtn" size="lg" variant="outline-warning">Select Room</Button>{' '}
                     </Row>
                 </Row>
             </Row>

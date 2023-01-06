@@ -10,7 +10,7 @@
 #roomBtn{
     display: flex;
     position: relative;
-    left: 11vw;
+    left: 20%;
     width: 10vw;
     text-align: center;
 }
