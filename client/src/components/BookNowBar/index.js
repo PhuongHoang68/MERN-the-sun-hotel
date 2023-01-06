@@ -19,6 +19,11 @@ const handleChange = () => {
     props.roomChange(roomType)
 }
 
+const handleCheckSubmit = () => {
+    props.handleCheckAvailable();
+}
+
+
 return (
     <div>
     <div className="bnbarCont">
@@ -26,11 +31,15 @@ return (
             <div className="bnbarArrival">
                 <div>
                 <FaCalendar/>
-                <input  type="text" placeholder="Arrive" defaultValue={props.reqReservation[0]} onFocus={toggleCalendar}></input>
+                <input  type="text" placeholder="Arrive" 
+                defaultValue={props.reqReservation[0]} 
+                onFocus={toggleCalendar}></input>
                 </div>
                 <div>
                 <FaCalendar/>
-                <input  type="text" placeholder="Depart" defaultValue={props.reqReservation[props.reqReservation.length-1]} onFocus={toggleCalendar}></input>
+                <input  type="text" placeholder="Depart" 
+                defaultValue={props.reqReservation[props.reqReservation.length-1]} 
+                onFocus={toggleCalendar}></input>
                 </div>
             </div>
                          <div>
@@ -43,7 +52,7 @@ return (
               </select>
             </div>
            </div> 
-           <button onClick={props.handleCheckAvailable}> Book Now</button>
+           <button onClick={handleCheckSubmit}> Book Now</button>
         </div>
     </div>
     {props.calendarActive === true ? (<div className="calendarCont">

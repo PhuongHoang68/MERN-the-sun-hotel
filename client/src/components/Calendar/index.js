@@ -36,6 +36,7 @@ const ReactCalendar = () => {
         const reservations = resData?.allReservations || [];
         const rooms = roomData?.allRooms || [];
         const currentUser = userData?.me || [];
+         
         
         
          //Push fetched reservations in Array for reference
@@ -51,6 +52,7 @@ const ReactCalendar = () => {
     //Tracks if the Requested Reservation can be booked
     const [isValid, setIsValid] = useState(false);
     const [disabledDates, setDisabledDates] = useState([]);
+    const [roomNumber, setRoomNumber]=useState("")
 
     const [calendarActive, setCalendarActive] = useState(false);
 
@@ -87,6 +89,7 @@ const ReactCalendar = () => {
           //Reset roomCount Array, allows referenced room Count to vary based on room type 
           roomCount.length = 0;
           roomCount.push(roomNum)
+          console.log(roomCount)
         }}
   
       //Find all reservations that contain the resquested room type and put the matches in new array
@@ -121,8 +124,6 @@ const ReactCalendar = () => {
          for (let i = 0; i < (Object.entries(count)).length; i++) {
           //dateRoomsArr will return the Date, dateRoomsArr[1] will return number of booked rooms for that date
           const dateRoomsArr = (Object.entries(count));
-          console.log(dateRoomsArr.length)
-          console.log(i+1);
           //If there are more reservations for that day than there are rooms. The reservation cannot be made
           if( dateRoomsArr[i][1] >= 5){
             console.log("There are no",roomType,'rooms Left on ', dateRoomsArr[i][0])
@@ -141,19 +142,14 @@ const ReactCalendar = () => {
     const handleCheckAvailable = async () => {
       // event.preventDefault();
       setDisabledDates('');
-      checkAvailable()
+      checkAvailable();
+      setRoomNumber(roomCount)
+      console.log(roomNumber) 
     }
+
     //add Reservation
-    
     const [addReservation, {err} ] = useMutation(ADD_RESERVATION, {
-      update(cache, { data: { addReservation } }) {
-      // update  Reservation array's cache
-      // const { reservations } = cache.readQuery({ query: QUERY_RESERVATIONS});
-      // cache.writeQuery({
-      //   query: QUERY_RESERVATIONS,
-      //   data: { reservations: [addReservation, reservations]},
-      // })
-      }
+      update(cache, { data: { addReservation } }){}
     });
 
     const handleSubmit = async (e) => {
@@ -196,7 +192,6 @@ const ReactCalendar = () => {
         setCalendarActive(false)
     };
 
-
     return (
       <cont>
       <main>
@@ -210,11 +205,15 @@ const ReactCalendar = () => {
         calendarActive={calendarActive}
         setDate={setDate}
         date={date}
-        reqReservation={reqReservation}/>
+        reqReservation={reqReservation}
+        roomType={roomType}/>
         </div>
         <h1>Select a Room</h1>
         <group>
-          <RoomCards/>
+          <RoomCards
+          roomNumber={roomNumber}
+          roomType={roomType}
+          isValid={isValid}/>
         </group>  
       </section>
       <section>
