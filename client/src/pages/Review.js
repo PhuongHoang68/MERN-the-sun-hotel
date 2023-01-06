@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header/Header";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_ALL_REVIEWS } from "../utils/queries";
@@ -14,7 +15,8 @@ const Review = () => {
   console.log(reviews);
 
   return (
-      <main className="review-page">
+      <main className="review-page top">
+        <Header/>
         <h1>Leave a review today!</h1>
           { reviews ? (
              <div>

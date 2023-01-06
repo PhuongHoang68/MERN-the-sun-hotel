@@ -1,0 +1,48 @@
+
+nav a:hover {
+	color: var(--primaryLight);
+    filter: brightness(200%)  drop-shadow(16px 16px 20px blue);;
+}
+
+hgroup a{
+    position: relative;
+    margin:15px;
+    text-align: center;
+    width: 5vw;
+	font-size: 1.5rem;
+	padding: .8vw;
+	color: var(--primary);
+}
+
+thead button{
+	position: relative;
+	background-color: transparent;
+	border: none;
+	color: var(--primary);
+	font-size: 1.8rem;
+	margin-left: 2vw;
+	margin-top: 1vh;
+}
+
+hgroup button{
+	position: relative;
+	background-color: transparent;
+	border: none;
+	color: var(--primary);
+	font-size: 1.8rem;
+	left: 2%;
+	margin-right: 2vw;
+	margin-top: 1vh;
+}
+
+hgroup a:hover{
+	color: var(--tertiary)
+}
+
+hgroup button:hover{
+	color: var(--tertiary);
+}
+
+thead button:hover{
+	color: var(--tertiary);
+}

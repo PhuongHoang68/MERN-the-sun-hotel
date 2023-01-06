@@ -1,12 +1,13 @@
 import React from "react";
-
+import Header from "../components/Header/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Dining = () => {
 
     return (
-        <>
-        <h1 className="text-center text-success my-5">Come Dine with us!</h1>
+        <div className = "top">
+        <Header/>
+        <h1 className="text-center text-success my-5" >Come Dine with us!</h1>
         <h4 className="text-center my-5">Operating Hours: Monday-Sunday: 8AM-5PM </h4>
         <h5 className="text-center my-5">Restaurant on the 1st floor, next to lobby!</h5>
         <div className="container">
@@ -53,7 +54,7 @@ const Dining = () => {
                 </div>
             </div>
         </div>
-        </>
+        </div>
     )
 };
 

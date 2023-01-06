@@ -5,6 +5,7 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./discover.css";
 
 
 const discoverCard = [
@@ -52,25 +53,35 @@ const discoverCard = [
     }
 ];
 
+const handleClick = (card) =>{
+
+
+}
+
 
 
 const DiscoverCards = () =>{
   const [activeCard, setActiveCard] = useState()
 
 
-  const handleClick = (card) => {
+
+  const  activate = (card) => {
+    if (activeCard !== card){
     setActiveCard(card)
-    console.log(activeCard)
+  } else {
+    setActiveCard(null)
   }
+  console.log(activeCard)
+}
         const settings = {
-            dots: false,
+            dots: true,
             arrows: true,
+            focusOnSelect: true,
             infinite: true,
             speed: 8000,
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 10,
             cssEase:"linear",
             mobileFirst: true,
             responsive: [
@@ -110,35 +121,44 @@ const DiscoverCards = () =>{
           <div>
             <Slider {...settings}>
              {discoverCard.map((card, i) => (
+              <div className="discoverWrap">
               <div key={card.id} className=" discoverCard light">
-                <div className="text-center discoverDiv">
+                <a href = {card.link}>
+                <img 
+                  className=""
+                  src={require(`../../../assets/images/${i}.jpg`)} 
+                  alt={card.name}
+                  onMouseOver={()=> activate(card)}
+                  onMouseOut={()=> activate(card)}
+                   /> 
+                   </a> 
+                   <div id={card.id} className="text-center cardTextcnt">
                   <h4>
                     {card.name}
                   </h4>
-                  
                 </div>
-                <img 
-                  className="border"
-                  src={require(`../../../assets/images/${i}.jpg`)} 
-                  alt={card.name}
-                   />
-                <div className="text-center cardTextcnt">
-                  <p>
-                    {card.description}
-                  </p>
+                     
                 </div>
-                <div id = "arrows">
                 </div>
-                <div className="center cardBtn">
-                  <Link to={activeCard}>
-                <button name ={card.name} className="" onPointerEnter={()=>handleClick(card.link)}>Learn more!</button>
-                </Link>
-                </div>
-              </div>
              ))}
             </Slider>
           </div>
           );
-        }
+        };
       
   export default DiscoverCards;
+
+  {/* <div className="text-center discoverDiv">
+                  <h4>
+                    {card.name}
+                  </h4>
+                  
+                </div> */}
+
+                                {/* <div id = "arrows">
+                </div> */}
+                {/* <div className="center cardBtn">
+                  <Link to={activeCard}>
+                <button name ={card.name} className="" onPointerEnter={()=>handleClick(card.link)}>Learn more!</button>
+                </Link>
+                </div> */}

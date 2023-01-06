@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import UserUpdate from '../components/UserUpdate';
 import MyReservations from '../components/MyReservations';
 import CreateReview from '../components/CreateReview';
+import Header from '../components/Header/Header';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -19,6 +20,7 @@ function MyProfile () {
 
   return (
     <main className='my-profile'>
+      <Header/>
         {me ? (
           <div>
             <div className='welcome'>

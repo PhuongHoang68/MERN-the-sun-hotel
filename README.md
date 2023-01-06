@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/badge/License-MIT-lightblue.svg)
 
-![Final version of website](https://github.com/PhuongHoang68/MERN-the-sun-hotel/blob/b8ad1c51d53e294351533f7ae6ef43a2fed0452c/client/src/assets/images/deployed-application.png)
+![Final version of website]![SunHotelLandingImg](https://user-images.githubusercontent.com/109122403/209490804-35976aa9-79a1-4b99-a958-3139d5da5077.png)
 
 ## Table of Contents
 
@@ -51,7 +51,11 @@ MERN full-stack application that allows The Sun Hotel's customers to login and b
 
 ## Website
 
-Heroku: [https://the-sun-hotel-hcmc.herokuapp.com/](https://the-sun-hotel-hcmc.herokuapp.com/)
+Original Heroku Deployment: [https://the-sun-hotel-hcmc.herokuapp.com/](https://the-sun-hotel-hcmc.herokuapp.com/)
+
+Personal Forked Heroku Deployment: [https://sun-hotel-demo.herokuapp.com/](https://sun-hotel-demo.herokuapp.com/)
+
+
 
 ## License
 

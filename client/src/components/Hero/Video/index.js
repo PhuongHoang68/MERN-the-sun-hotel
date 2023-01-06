@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeroAlt.css";
 import Video from "../../../assets/video/hotel-hero.mp4";
-import Logo from "../../Logo";
+
 
 
 const HeroAlt = () => {
@@ -14,7 +14,6 @@ return(
     <source src={Video} type='video/mp4' />
   </video>
 </div>
-<Logo/>
 </div>
 
 )

@@ -1,15 +1,20 @@
 .logoCont{
-	width: 100vw;
+	width: fit-content;
     height: 100vh;
 	display: flex;
 	justify-content:end;
     align-items:flex-end;
+	z-index: 1;
 }
 
 .logo{
-    margin-right: 5rem;
+    margin-right: 2rem;
+	height: 16rem;
 }
 
 .logoImg img{
-	filter: drop-shadow(0 0 1.5rem crimson);
+	position: sticky;
+	height: 300px;
+	filter: drop-shadow(0 0 1.5rem var(--primaryLight));
+	
 }
