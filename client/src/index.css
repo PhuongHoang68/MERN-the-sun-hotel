@@ -466,6 +466,10 @@ main {
   margin-top:0;
 }
 
+.card{
+  height: 380px !important;
+}
+
 .mobileBooking{
   display: flex;
   flex-direction: column;

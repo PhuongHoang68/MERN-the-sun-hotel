@@ -12,7 +12,7 @@ const Dining = () => {
         <div className="container">
             <div className="row">
                 <div className="col-md-3">
-                    <div className="card">
+                    <div className="card" style={{height: "370px"}}>
                         <img className="card-img-top" src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card image cap" />
                         <div className="card-body">
                         <h5 className="card-title">Our restaurant is open till mindnight!</h5>
@@ -22,7 +22,7 @@ const Dining = () => {
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="card">
+                    <div className="card" style={{height: "370px"}}>
                         <img className="card-img-top" src="https://images.pexels.com/photos/3201920/pexels-photo-3201920.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card image cap" />
                         <div className="card-body">
                         <h5 className="card-title">A good place for business dinner:</h5>
@@ -32,7 +32,7 @@ const Dining = () => {
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="card">
+                    <div className="card" style={{height: "370px"}}>
                         <img className="card-img-top" src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card image cap" />
                         <div className="card-body">
                         <h5 className="card-title">A perfect place to grab a drink</h5>
@@ -42,7 +42,7 @@ const Dining = () => {
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="card">
+                    <div className="card" style={{height: "370px"}}>
                         <img className="card-img-top" src="https://images.pexels.com/photos/3201919/pexels-photo-3201919.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card image cap" />
                         <div className="card-body">
                         <h5 className="card-title">A bright and open atmosphere</h5>
