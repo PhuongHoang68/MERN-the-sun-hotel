@@ -263,7 +263,7 @@ main {
 
 .my-profile {
   display: block;
-  background: url(../src/assets/images/hero8.jpg) no-repeat center center fixed;
+  background: url(../src/assets/images/herop1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -272,20 +272,25 @@ main {
 }
 
 .welcome {
-  border-bottom: 25px solid rgba(255,255,255, 0.75);
+  border-top: 25px solid transparent;
+  border-bottom: 45px solid transparent;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items:center;
 }
 
 .my-profile span {
-  color: rgba(255,255,255, 0.75);
+  /*color: rgba(255,255,255, 0.75);*/
+  font-size: 40px;
+  font-style: italic;
 }
 
 .profile-link {
   font-size: 25px;
-  background-color: rgba(254, 110, 0, 0.784);
+  color: var(--darker);
+  background-color: #eee6da;
+  border: none;
   padding: 20px;
   border-radius: 10px;
   text-decoration: none;
