@@ -206,8 +206,8 @@ main {
 .resHead{
   height: 20vh;
   padding: 2em;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   
 }
 
@@ -252,11 +252,23 @@ main {
   margin-bottom: 10rem;
 }
 /*Reviews*/
-
+.review-head {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+.review-page {
+  background: url(../src/assets/images/heror.jpg) no-repeat center center fixed;
+  display: flex;
+  flex-direction: column;
+}
 .review-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   border: 2px solid black;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
 }
 
 /*My Profile*/
@@ -278,10 +290,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items:center;
+  text-decoration: none !important;
 }
 
 .my-profile span {
-  /*color: rgba(255,255,255, 0.75);*/
+  color: black;
   font-size: 40px;
   font-style: italic;
 }
@@ -358,7 +371,11 @@ main {
 }
 .reservation-component button {
   background: red;
-  font-weight: 800;
+  color: var(--darker);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 950px){

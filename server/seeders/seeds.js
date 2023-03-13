@@ -22,7 +22,7 @@ db.once('open', async () => {
 
     const createdUsers = await User.collection.insertMany(userData);
 
-      create reviews
+      //create reviews
     let createdReviews = [];
     for (let i = 0; i < 100; i += 1) {
     const reviewText = faker.lorem.words(Math.round(Math.random() * 20) + 1);

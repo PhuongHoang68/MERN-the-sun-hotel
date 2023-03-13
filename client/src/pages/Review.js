@@ -15,10 +15,14 @@ const Review = () => {
 
   return (
       <main className="review-page">
-        <h1>Leave a review today!</h1>
+        <div className="review-head">
+        <h1>Your reviews:  </h1>
+        </div>
+        <div>
           { reviews ? (
              <div>
-              {reviews.map((review) => (
+              {reviews
+              .map((review) => (
                 <div className="review-container"key={review._id}>
                   <p className="review-date">{review.createdAt}</p>
                   <p className="review-body">"{review.reviewText}"</p>
@@ -27,6 +31,7 @@ const Review = () => {
             </div>
 
            ) : null}
+           </div>
 
              
       </main>

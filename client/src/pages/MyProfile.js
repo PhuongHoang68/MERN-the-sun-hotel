@@ -21,14 +21,16 @@ function MyProfile () {
     <main className='my-profile'>
         {me ? (
           <div>
-            <div className='welcome text-center'>
+            <div className='welcome'>
               <h1>Welcome back <span>{me.username}</span> !</h1>
-              <Link to='/reservations'><h2 className='profile-link'>Make a new reservation</h2></Link>
             </div>
               <div className='components'>
                 <MyReservations/>
                 <UserUpdate/>
                 <CreateReview/>
+              </div>
+              <div className='welcome'>
+              <Link to='/reservations'><h2 className='profile-link'>Make a new reservation</h2></Link>
               </div>
           </div>
           ) : (
