@@ -38,7 +38,7 @@ const discoverCard = [
     },
     {
         id: 5,
-        name: 'Accomadations',
+        name: 'Accomodations',
         description: 'Sunrise Offers many ways to relax and enjoy.',
         image:"../../../assets/images/4.jpg",
         link:"/rooms",
