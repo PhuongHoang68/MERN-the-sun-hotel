@@ -26,11 +26,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "start": "node init && node server/server.js",
+    "dev": "node init && concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "postinstall": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd server && npm install && cd ../client && npm install && npm run build",
+    "build": "node init && cd server && npm install && cd ../client && npm install && npm run build",
     "render-build": "npm install && npm run build",
     "test": "react-scripts test"
   },
